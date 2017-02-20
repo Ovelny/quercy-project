@@ -1,4 +1,3 @@
-
 angular.module('quercy')
 .directive("customButton", function() {
   return {
