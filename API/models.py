@@ -21,9 +21,9 @@ class Property(models.Model):
     gas_emission = models.DecimalField(max_digits=6, decimal_places=2)
     is_favorite = models.BooleanField()
     # Foreign keys
-    property_type = models.ForeignKey("Property_Type", on_delete=models.CASCADE)
-    heating_type = models.ForeignKey("Heating_Type", on_delete=models.CASCADE)
-    kitchen_type = models.ForeignKey("Kitchen_Type", on_delete=models.CASCADE)
+    property_type = models.ForeignKey("Property_Type", on_delete=models.PROTECT)
+    heating_type = models.ForeignKey("Heating_Type", on_delete=models.PROTECT)
+    kitchen_type = models.ForeignKey("Kitchen_Type", on_delete=models.PROTECT)
     # Many-to-many relations
     rooms = models.ManyToManyField("Room", through="Property_Room") 
     # propriété through : utiliser la classe définie ci-après pour stocker les données. 
@@ -48,7 +48,7 @@ class Room(models.Model):
 
 class Property_Room(models.Model):
     prop = models.ForeignKey(Property, on_delete=models.CASCADE) #property est un mot réservé, donc prop.
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.PROTECT)
     nb = models.IntegerField()
     class Meta:
         unique_together = ('prop', 'room')
@@ -70,14 +70,14 @@ class Customer(models.Model):
     # related_name = "The name to use for the relation from the related object back to this one."
 
 class Visit_Report(models.Model):
-    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    prop = models.ForeignKey(Property, on_delete=models.PROTECT)
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     date = models.DateField()
     comments = models.TextField()
 
 class Estimate(models.Model):
-    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    prop = models.ForeignKey(Property, on_delete=models.PROTECT)
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     request_date = models.DateField()
     creation_date = models.DateField()
     estimated_amount = models.DecimalField(max_digits=11, decimal_places=2)

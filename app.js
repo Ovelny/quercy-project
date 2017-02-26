@@ -10,6 +10,16 @@ angular.module('quercy').controller("test", ["$http", function($http){
         }).catch(function(err){
             console.log(err);
         });
+
+    // var data = {
+    //     "label":"test"
+    // };
+    // $http.post('http://127.0.0.1:8000/api/heating_types/', data)
+    //     .then(function(res){
+    //         console.log(res);
+    //     }).catch(function(err){
+    //         console.log(err);
+    //     });
 }]);
 
 
