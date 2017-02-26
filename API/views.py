@@ -34,3 +34,6 @@ class Property_Room_Viewset(viewsets.ModelViewSet):
     queryset = Property_Room.objects.all()
     serializer_class = Property_Room_Serializer
 
+class Company_Info_Viewset(viewsets.ModelViewSet):
+    queryset = Property_Room.objects.all()
+    serializer_class = Company_Info_Serializer

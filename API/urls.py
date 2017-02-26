@@ -15,6 +15,8 @@ router.register(r'kitchen_types', views.Kitchen_Type_Viewset)
 router.register(r'rooms', views.Room_Viewset)
 router.register(r'property_room', views.Property_Room_Viewset)
 
+router.register(r'company_info', views.Company_Info_Viewset)
+
 urlpatterns = [
     url(r'^', include(router.urls)),
 ]

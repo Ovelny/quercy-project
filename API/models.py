@@ -35,21 +35,23 @@ class Picture(models.Model):
     # picture = models.FileField() # might be tricky, will deal with later
 
 class Property_Type(models.Model):
-    label = models.CharField(max_length=20)
+    label = models.CharField(max_length=20, unique=True)
 
 class Heating_Type(models.Model):
-    label = models.CharField(max_length=20)
+    label = models.CharField(max_length=20, unique=True)
 
 class Kitchen_Type(models.Model):
-    label = models.CharField(max_length=20)
+    label = models.CharField(max_length=20, unique=True)
 
 class Room(models.Model):
-    room_type = models.CharField(max_length=20)
+    room_type = models.CharField(max_length=20, unique=True)
 
 class Property_Room(models.Model):
     prop = models.ForeignKey(Property, on_delete=models.CASCADE) #property est un mot réservé, donc prop.
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     nb = models.IntegerField()
+    class Meta:
+        unique_together = ('prop', 'room')
 
 # -- Customer
 
