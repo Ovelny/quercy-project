@@ -15,6 +15,10 @@ router.register(r'kitchen_types', views.Kitchen_Type_Viewset)
 router.register(r'rooms', views.Room_Viewset)
 router.register(r'property_room', views.Property_Room_Viewset)
 
+router.register(r'customers', views.Customer_Viewset)
+router.register(r'visit_reports', views.Visit_Report_Viewset)
+router.register(r'estimates', views.Estimate_Viewset)
+
 router.register(r'company_info', views.Company_Info_Viewset)
 
 urlpatterns = [
