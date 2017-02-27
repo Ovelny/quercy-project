@@ -4,7 +4,7 @@
     app.directive('jumbotron', function () {
         return {
             restrict: 'E',
-            templateUrl: 'jumbotron.html'
+            templateUrl: 'js/front-office/views/jumbotron.html'
         }
 
     });
@@ -12,7 +12,7 @@
     app.directive('navbar', function () {
         return {
             restrict: 'E',
-            templateUrl: 'navbar.html'
+            templateUrl: 'js/front-office/views/navbar.html'
         }
 
     });
@@ -20,7 +20,7 @@
     app.directive('best-selection', function () {
         return {
             restrict: 'E',
-            templateUrl: 'best-selection.html'
+            templateUrl: 'js/front-office/views/best-selection.html'
         }
 
     });
@@ -28,7 +28,7 @@
     app.directive('company-location', function () {
         return {
             restrict: 'E',
-            templateUrl: 'company-location.html'
+            templateUrl: 'js/front-office/views/company-location.html'
         }
 
     });
@@ -36,7 +36,7 @@
     app.directive('footer', function () {
         return {
             restrict: 'E',
-            templateUrl: 'footer.html'
+            templateUrl: 'js/front-office/views/footer.html'
         }
 
     });

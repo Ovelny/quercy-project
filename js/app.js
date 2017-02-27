@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('quercy-front', []);
+    var app = angular.module('quercy-front', ['front-directives']);
 
 
 
