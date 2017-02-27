@@ -17,7 +17,7 @@
 
     });
 
-    app.directive('best-selection', function () {
+    app.directive('bestSelection', function () {
         return {
             restrict: 'E',
             templateUrl: 'js/front-office/views/best-selection.html'
@@ -25,7 +25,7 @@
 
     });
 
-    app.directive('company-location', function () {
+    app.directive('companyLocation', function () {
         return {
             restrict: 'E',
             templateUrl: 'js/front-office/views/company-location.html'
