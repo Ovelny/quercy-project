@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('quercy-front', ['front-directives', 'ngRoute']);
+    var app = angular.module('quercy-front', ['front-directives', 'front-controllers', 'ngRoute']);
 
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
