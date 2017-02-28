@@ -1,13 +1,29 @@
 <div ng-controller="bestSelectionController">
-    <container>
-        <div class="col-lg-12">
-            <h1 class="text-center">Nos coups de coeur</h1>
-            <hr>
-            <div ng-repeat="selection in favorites">
-                <h1>{{selection.title_fr}}</h1>
-                <h2>{{selection.advert_type}}</h2>
-                <p>{{selection.address}}</p>
+
+    <div class="container">
+        <h2 class="text-center">Nos coups de coeur</h2>
+        <hr>
+        <div ng-repeat="selection in favorites">
+            <div class="row row-margin-bottom">
+                <div class="col-md-12 no-padding lib-item" data-category="view">
+                    <div class="lib-panel">
+                        <div class="row box-shadow">
+                            <div class="col-md-3 no-padding">
+                                <img class="lib-img-show" src="/images/jumbotron-bg.jpg">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="lib-row lib-header">
+                                    {{selection.title_fr}}
+                                    <div class="lib-header-seperator"></div>
+                                </div>
+                                <div class="lib-row lib-desc">
+                                    {{selection.advert_type}}<br>{{selection.address}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </container>
+    </div>
 </div>
