@@ -4,9 +4,29 @@ from django.db import models
 
 # -- Property
 
-class Property(models.Model):
-    advert_type = models.CharField(max_length=30)
-    state = models.CharField(max_length=30)
+class Property(models.Model): 
+    VENTE = "V"
+    LOCATION = "L"
+    TYPE_CHOICES = (
+        (VENTE, "Vente"),
+        (LOCATION, "Location")
+    )
+    advert_type = models.CharField(
+        max_length=1,
+        choices = TYPE_CHOICES
+    )
+    LIBRE = "L"
+    OCCUPE = "O"
+    EN_ATTENTE = "A"
+    STATE_CHOICES = (
+        (LIBRE, 'Libre'),
+        (OCCUPE, 'Occupé'),
+        (EN_ATTENTE, 'En attente'),
+    )
+    state = models.CharField(
+        max_length=1,
+        choices=STATE_CHOICES
+    )
     title_fr = models.CharField(max_length=30)
     title_en = models.CharField(max_length=30)
     description_fr = models.TextField()
