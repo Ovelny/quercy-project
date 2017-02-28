@@ -86,3 +86,7 @@
 .no-padding {
     padding: 0;
 }
+
+hr {
+    visibility: hidden;
+}
