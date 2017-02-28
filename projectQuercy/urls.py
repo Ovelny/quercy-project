@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework.authtoken import views
 
 urlpatterns = [
-    # url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^api/', include('API.urls')),
+    url(r'^api-token-auth/', views.obtain_auth_token) # vue gérée par le rest_framework.
     # url(r'^$', xxx), #site root
 ]
+
+# views.obtain_auth_token : reçoit en POST une requête avec "username" et "password" renseignés, 
+# renvoie un token si les infos correspondent à un user de la base.
+# Cette méthode d'authentification rend nécessaire l'utilisation de https en prod.
+
+# Une fois le token récupéré, le passer dans les futures requêtes dans le header "Authorization", 
+# précédé de "Token "

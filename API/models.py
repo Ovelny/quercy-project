@@ -61,9 +61,9 @@ class Customer(models.Model):
     address = models.CharField(max_length=64)
     postal_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
-    phone_number = models.CharField(max_length=10)
-    mobile_phone = models.CharField(max_length=10)
-    email_address = models.CharField(max_length=32)
+    phone_number = models.CharField(max_length=10, blank=True) #blank=True: allow empty value
+    mobile_phone = models.CharField(max_length=10, blank=True) 
+    email_address = models.CharField(max_length=32, blank=True)
     # Many-to-many fields
     visit_reports = models.ManyToManyField("Property", through="Visit_Report", related_name="visits")
     estimates = models.ManyToManyField("Property", through="Estimate", related_name="estimates")
@@ -86,7 +86,3 @@ class Estimate(models.Model):
 
 class Company_Info(models.Model):
     company_presentation = models.TextField()
-
-class User(models.Model):
-    login = models.CharField(max_length=10)
-    password = models.CharField(max_length=128)

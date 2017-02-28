@@ -46,6 +46,25 @@ class Property_Serializer(serializers.ModelSerializer):
 
 #------------------------------
 
+class Customer_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ('id', 'first_name', 'last_name', 'address', 'postal_code', 'city', 'phone_number', 
+        'mobile_phone', 'email_address')
+
+class Visit_Report_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Visit_Report
+        fields = ('id', 'prop', 'customer', 'date', 'comments')
+
+class Estimate_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Estimate
+        fields = ('id', 'prop', 'customer', 'request_date', 'creation_date', 'estimated_amount')
+
+
+#------------------------------
+
 class Company_Info_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Company_Info

@@ -1,8 +1,6 @@
-# from django.http import HttpResponse
-# import datetime 
-# import json
 
 from rest_framework import viewsets, generics
+from rest_framework.permissions import IsAuthenticated
 
 from API.models import *
 from API.serializers import *
@@ -70,6 +68,27 @@ class Room_Viewset(viewsets.ModelViewSet):
 class Property_Room_Viewset(viewsets.ModelViewSet):
     queryset = Property_Room.objects.all()
     serializer_class = Property_Room_Serializer
+
+#------------------------------
+
+# Pour les trois objets suivants (gérés par le CRM), accès restreint.
+# avec IsAuthenticated, même la lecture n'est plus possible pour les utilisateurs non authentifiés.
+class Customer_Viewset(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = Customer.objects.all()
+    serializer_class = Customer_Serializer
+
+class Visit_Report_Viewset(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = Visit_Report.objects.all()
+    serializer_class = Visit_Report_Serializer
+
+class Estimate_Viewset(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = Estimate.objects.all()
+    serializer_class = Estimate_Serializer
+
+#------------------------------
 
 class Company_Info_Viewset(viewsets.ModelViewSet):
     queryset = Company_Info.objects.all()
