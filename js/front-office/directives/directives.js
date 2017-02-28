@@ -33,10 +33,10 @@
 
     });
 
-    app.directive('footer', function () {
+    app.directive('companyFooter', function () {
         return {
             restrict: 'E',
-            templateUrl: 'js/front-office/partials/footer.html'
+            templateUrl: 'js/front-office/partials/company-footer.html'
         }
 
     });
