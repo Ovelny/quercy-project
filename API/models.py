@@ -7,7 +7,8 @@ from django.db import models
 class Property(models.Model):
     advert_type = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
-    description = models.TextField()
+    description_fr = models.TextField()
+    description_en = models.TextField()
     nb_rooms = models.IntegerField() #redundant ?
     price = models.DecimalField(max_digits=11, decimal_places=2)
     address = models.CharField(max_length=64)
@@ -35,16 +36,20 @@ class Picture(models.Model):
     # picture = models.FileField() # might be tricky, will deal with later
 
 class Property_Type(models.Model):
-    label = models.CharField(max_length=20, unique=True)
+    label_fr = models.CharField(max_length=20, unique=True)
+    label_en = models.CharField(max_length=20, unique=True)
 
 class Heating_Type(models.Model):
-    label = models.CharField(max_length=20, unique=True)
+    label_fr = models.CharField(max_length=20, unique=True)
+    label_en = models.CharField(max_length=20, unique=True)
 
 class Kitchen_Type(models.Model):
-    label = models.CharField(max_length=20, unique=True)
+    label_fr = models.CharField(max_length=20, unique=True)
+    label_en = models.CharField(max_length=20, unique=True)
 
 class Room(models.Model):
-    room_type = models.CharField(max_length=20, unique=True)
+    room_type_fr = models.CharField(max_length=20, unique=True)
+    room_type_en = models.CharField(max_length=20, unique=True)
 
 class Property_Room(models.Model):
     prop = models.ForeignKey(Property, on_delete=models.CASCADE) #property est un mot réservé, donc prop.
@@ -85,4 +90,5 @@ class Estimate(models.Model):
 # -- Other tables
 
 class Company_Info(models.Model):
-    company_presentation = models.TextField()
+    company_presentation_fr = models.TextField()
+    company_presentation_en = models.TextField()
