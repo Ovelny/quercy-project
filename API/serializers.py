@@ -27,13 +27,18 @@ class Property_Room_Serializer(serializers.ModelSerializer):
         fields = ('prop', 'room', 'nb')
 
 class Property_Serializer(serializers.ModelSerializer):
+    # SlugRelatedField : permet d'afficher le label de l'objet nested dans l'objet Property récupéré
+    # (au lieu de la foreign key ou de l'objet complet)
+    # paramètre queryset : "used for model instance lookups when validating the field input"
+    property_type = serializers.SlugRelatedField(slug_field='label', queryset=Property_Type.objects.all()) 
+    heating_type = serializers.SlugRelatedField(slug_field='label', queryset=Heating_Type.objects.all())
+    kitchen_type = serializers.SlugRelatedField(slug_field='label', queryset=Kitchen_Type.objects.all())
     class Meta:
         model = Property
         fields = ('id', 'advert_type', 'state', 'title_fr', 'title_fr', 'description_fr', 'description_en', 
         'nb_rooms', 'price', 'address','postal_code','city','living_surface','total_surface','construction_year',
         'nb_floors','energy_consumption','gas_emission','is_favorite', 'property_type','heating_type','kitchen_type')
     
-
 #------------------------------
 
 class Customer_Serializer(serializers.ModelSerializer):

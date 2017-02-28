@@ -50,19 +50,19 @@ class Property_Detail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Property_Serializer
 
 class Property_Type_Viewset(viewsets.ModelViewSet):
-    queryset = Property_Type.objects.all().order_by('label')
+    queryset = Property_Type.objects.all()
     serializer_class = Property_Type_Serializer
 
 class Heating_Type_Viewset(viewsets.ModelViewSet):
-    queryset = Heating_Type.objects.all().order_by('label')
+    queryset = Heating_Type.objects.all()
     serializer_class = Heating_Type_Serializer
 
 class Kitchen_Type_Viewset(viewsets.ModelViewSet):
-    queryset = Kitchen_Type.objects.all().order_by('label')
+    queryset = Kitchen_Type.objects.all()
     serializer_class = Kitchen_Type_Serializer
 
 class Room_Viewset(viewsets.ModelViewSet):
-    queryset = Room.objects.all().order_by('label')
+    queryset = Room.objects.all()
     serializer_class = Room_Serializer
     
 class Property_Room_Viewset(viewsets.ModelViewSet):
