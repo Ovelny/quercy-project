@@ -1,0 +1,22 @@
+
+.sidemenu {
+    height: 100%; 
+    width: 250px;
+    position: fixed;
+    z-index: 1; 
+    top: 0;
+    left: 0;
+    background-color: #eee;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; 
+}
+
+.sidemenu > ul > li {
+    width: 100%;
+    height: 30px;
+    list-style: none;
+}
+
+.view {
+    margin-left: 250px; /* sidemenu width */
+}

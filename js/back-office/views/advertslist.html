@@ -1,0 +1,30 @@
+
+<h2>Liste des biens en {{advert_type}}</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Type</th>
+            <th>Nombre de pièces</th>
+            <th>Surface</th>
+            <th>CP</th>
+            <th>Ville</th>
+            <th>
+                <span ng-if="advert_type == 'vente'">Prix</span>
+                <span ng-if="advert_type == 'location'">Loyer</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="advert in advertsList">
+            <td>{{advert.id}}</td>
+            <td>{{advert.advert_type}}</td>
+            <td>{{advert.nb_rooms}}</td>
+            <td>{{advert.total_surface}}</td>
+            <td>{{advert.postal_code}}</td>
+            <td>{{advert.city}}</td>
+            <td>{{advert.price}}</td>
+        </tr>
+    </tbody>
+</table>

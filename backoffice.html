@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="quercy-back">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quercy Immo</title>
+    <link rel="stylesheet" href="dependencies/bootstrap.min.css">
+    <link rel="stylesheet" href="css/back-office/style.css">
+</head>
+
+<body ng-cloak>
+
+    <sidemenu></sidemenu>
+
+    <div class="view">
+        <div ng-view></div>
+
+    </div>
+
+
+    <script src="dependencies/angular.min.js"></script>
+    <script src="dependencies/angular-route.min.js"></script>
+    <script src="dependencies/angular-animate.min.js"></script>
+    <script src="dependencies/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="js/back-office/app.js"></script>
+    <script src="js/back-office/directives/directives.js"></script>
+    <script src="js/back-office/controllers/controllers.js"></script>
+    <script src="js/back-office/datacontext/adverts.datacontext.js"></script>
+</body>
+
+</html>
