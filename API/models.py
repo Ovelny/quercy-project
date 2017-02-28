@@ -7,6 +7,8 @@ from django.db import models
 class Property(models.Model):
     advert_type = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
+    title_fr = models.CharField(max_length=30)
+    title_en = models.CharField(max_length=30)
     description_fr = models.TextField()
     description_en = models.TextField()
     nb_rooms = models.IntegerField() #redundant ?
