@@ -7,16 +7,24 @@
 
         var service = {
             getAdvert: getAdvertImpl,
+            getHeatingTypes: getHeatingTypesImpl,
+            getKitchenTypes: getKitchenTypesImpl,
             getProperties: getPropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl
         }
 
-        function getAdvertImpl(id){
-            return $http.get(baseUrl + "properties/"+id);
+        function getHeatingTypesImpl(){
+            return $http.get(baseUrl + "heating_types/");
         }
-
+        function getKitchenTypesImpl(){
+            return $http.get(baseUrl + "kitchen_types/");
+        }
         function getPropertyTypesImpl() {
             return $http.get(baseUrl + "property_types/");
+        }
+
+        function getAdvertImpl(id){
+            return $http.get(baseUrl + "properties/"+id);
         }
 
         function getPropertiesImpl(advert_type) {

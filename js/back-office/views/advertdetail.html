@@ -14,13 +14,18 @@
             <div class="form-group">
                 <label class="col-sm-4" for="advert_type">Type d'annonce</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="advert_type" ng-model="advert.advert_type" />
+                    <select class="form-control" id="advert_type" ng-model="advert.advert_type">
+                        <option value="V">Vente</option>
+                        <option value="L">Location</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4" for="property_type">Type de bien</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="property_type" ng-model="advert.property_type" />
+                    <select class="form-control" id="property_type" ng-model="advert.property_type">
+                        <option ng-repeat="type in property_types" value="{{type.label}}">{{type.label}}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -56,7 +61,11 @@
             <div class="form-group">
                 <label class="col-sm-4" for="state">Etat du bien</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="state" ng-model="advert.state" />
+                    <select class="form-control" id="state" ng-model="advert.state">
+                        <option value="L">Libre</option>
+                        <option value="O">Occupé</option>
+                        <option value="A">En attente</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -94,13 +103,17 @@
             <div class="form-group">
                 <label class="col-sm-4" for="heating_type">Type de chauffage</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="heating_type" ng-model="advert.heating_type" />
+                    <select class="form-control" id="heating_type" ng-model="advert.heating_type">
+                        <option ng-repeat="type in heating_types" value="{{type.label}}">{{type.label}}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4" for="kitchen_type">Type de cuisine</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="text" id="kitchen_type" ng-model="advert.kitchen_type" />
+                    <select class="form-control" id="kitchen_type" ng-model="advert.kitchen_type">
+                        <option ng-repeat="type in kitchen_types" value="{{type.label}}">{{type.label}}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">

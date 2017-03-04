@@ -4,22 +4,22 @@ from API.models import *
 class Property_Type_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Property_Type
-        fields = ('id', 'label_fr', 'label_en')
+        fields = ('id', 'label')
 
 class Heating_Type_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Heating_Type
-        fields = ('id', 'label_fr', 'label_en')
+        fields = ('id', 'label')
 
 class Kitchen_Type_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Kitchen_Type
-        fields = ('id', 'label_fr', 'label_en')
+        fields = ('id', 'label')
 
 class Room_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ('id', 'room_type_fr', 'room_type_fr')
+        fields = ('id', 'room_type')
 
 class Property_Room_Serializer(serializers.ModelSerializer):
     class Meta:
@@ -35,7 +35,7 @@ class Property_Serializer(serializers.ModelSerializer):
     kitchen_type = serializers.SlugRelatedField(slug_field='label', queryset=Kitchen_Type.objects.all())
     class Meta:
         model = Property
-        fields = ('id', 'advert_type', 'state', 'title_fr', 'title_fr', 'description_fr', 'description_en', 
+        fields = ('id', 'advert_type', 'state', 'title_fr', 'title_en', 'description_fr', 'description_en', 
         'nb_rooms', 'price', 'address','postal_code','city','living_surface','total_surface','construction_year',
         'nb_floors','energy_consumption','gas_emission','is_favorite', 'property_type','heating_type','kitchen_type')
     
