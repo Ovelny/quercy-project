@@ -1,0 +1,174 @@
+<h3>
+    Gestion d'une annonce</h3>
+
+<form class="form-horizontal">
+    <div class="row">
+        <!-- Général -->
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-sm-4">Numéro annonce</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" ng-model="advert.id" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="advert_type">Type d'annonce</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="advert_type" ng-model="advert.advert_type" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="property_type">Type de bien</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="property_type" ng-model="advert.property_type" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="address">Adresse</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="address" ng-model="advert.address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="postal_code">CP</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="postal_code" ng-model="advert.postal_code" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="city">Ville</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="city" ng-model="advert.city" />
+                </div>
+            </div>
+        </div>
+        <!-- Etat du bien, configuration, détails -->
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-sm-4" for="price">Prix/loyer</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="number" id="price" ng-model="advert.price" />
+                        <div class="input-group-addon">€</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="state">Etat du bien</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="state" ng-model="advert.state" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="nb_floors">Etages</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="nb_floors" ng-model="advert.nb_floors" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="nb_rooms">Nb pièces</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="nb_rooms" ng-model="advert.nb_rooms" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="living_surface">Surface habitable</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="number" id="living_surface" ng-model="advert.living_surface" />
+                        <div class="input-group-addon">m²</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="total_surface">Surface totale</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="number" id="total_surface" ng-model="advert.total_surface" />
+                        <div class="input-group-addon">m²</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-sm-4" for="heating_type">Type de chauffage</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="heating_type" ng-model="advert.heating_type" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="kitchen_type">Type de cuisine</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="kitchen_type" ng-model="advert.kitchen_type" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="construction_year">Année de construction</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="construction_year" ng-model="advert.construction_year" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="energy_consumption">Consommations énergétiques</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="number" id="energy_consumption" ng-model="advert.energy_consumption" />
+                        <div class="input-group-addon">kWhEP/m²/an</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="gas_emission">Emissions gaz</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="number" id="gas_emission" ng-model="advert.gas_emission" />
+                        <div class="input-group-addon">kgeqCO2/m²/an</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 
+          (Pièces) 
+          -->
+        </div>
+    </div>
+    <!--<div class="row">-->
+
+
+    <!--</div>-->
+
+    <!-- Titre, Description -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group col-sm-12">
+                <label for="title_fr">Titre affiché (français)</label>
+                <div>
+                    <input class="form-control" type="text" id="title_fr" ng-model="advert.title_fr" />
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="description_fr">Description (français)</label>
+                <div>
+                    <textarea class="form-control" type="text" id="description_fr" ng-model="advert.description_fr"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group col-sm-12">
+                <label for="title_en">Titre affiché (anglais)</label>
+                <div>
+                    <input class="form-control" type="text" id="title_en" ng-model="advert.title_en" />
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="description_en">Description (anglais)</label>
+                <div>
+                    <textarea class="form-control" type="text" id="description_en" ng-model="advert.description_en"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>

@@ -24,6 +24,10 @@ class Property_List(generics.ListAPIView):
         urlfilter = self.request.query_params.get('property_type', None)
         if urlfilter is not None:
             queryset = queryset.filter(property_type=urlfilter) #id du property_type, pas libellé.
+        # advert_type
+        urlfilter = self.request.query_params.get('advert_type', None)
+        if urlfilter is not None:
+            queryset = queryset.filter(advert_type=urlfilter) 
         # nb_rooms
         urlfilter = self.request.query_params.get('nb_rooms', None)
         if urlfilter is not None:

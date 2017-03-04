@@ -6,12 +6,19 @@
             .when('/', { 
                 templateUrl: 'js/back-office/views/welcome.html' 
             })
+            .when('/presentation', { 
+                templateUrl: 'js/back-office/views/presentation.html' 
+            })
             .when('/biens/:advert_type', { 
-                controller: 'biensenvente.controller',
+                controller: 'advertslist.controller',
                 templateUrl: 'js/back-office/views/advertslist.html' 
             })
             .when('/coups-de-coeur', { 
-                templateUrl: 'js/back-office/views/welcome.html' 
+                templateUrl: 'js/back-office/views/coupsdecoeur.html' 
+            })
+            .when('/annonce/:advert_id', {
+                controller: 'advertdetail.controller',
+                templateUrl: 'js/back-office/views/advertdetail.html' 
             })
             .otherwise({ redirectTo: '/' });
 

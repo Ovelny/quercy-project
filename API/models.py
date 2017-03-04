@@ -38,10 +38,10 @@ class Property(models.Model):
     city = models.CharField(max_length=32)
     living_surface = models.DecimalField(max_digits=6, decimal_places=2)
     total_surface = models.DecimalField(max_digits=6, decimal_places=2)
-    construction_year = models.IntegerField()
+    construction_year = models.IntegerField(blank=True) #blank=True: allow empty value
     nb_floors = models.IntegerField()
-    energy_consumption = models.DecimalField(max_digits=6, decimal_places=2)
-    gas_emission = models.DecimalField(max_digits=6, decimal_places=2)
+    energy_consumption = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
+    gas_emission = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
     is_favorite = models.BooleanField()
     # Foreign keys
     property_type = models.ForeignKey("Property_Type", on_delete=models.PROTECT)
@@ -84,7 +84,7 @@ class Customer(models.Model):
     address = models.CharField(max_length=64)
     postal_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
-    phone_number = models.CharField(max_length=10, blank=True) #blank=True: allow empty value
+    phone_number = models.CharField(max_length=10, blank=True)
     mobile_phone = models.CharField(max_length=10, blank=True) 
     email_address = models.CharField(max_length=32, blank=True)
     # Many-to-many fields

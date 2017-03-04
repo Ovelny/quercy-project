@@ -6,8 +6,13 @@
         var baseUrl = "http://127.0.0.1:8000/api/";
 
         var service = {
+            getAdvert: getAdvertImpl,
             getProperties: getPropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl
+        }
+
+        function getAdvertImpl(id){
+            return $http.get(baseUrl + "properties/"+id);
         }
 
         function getPropertyTypesImpl() {
@@ -15,7 +20,8 @@
         }
 
         function getPropertiesImpl(advert_type) {
-            return $http.get(baseUrl + "properties/");
+            var adv_type = advert_type == "vente" ? "V" : "L";
+            return $http.get(baseUrl + "properties/?advert_type="+adv_type);
         }
 
         return service;
