@@ -4,7 +4,6 @@
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
-                // templateUrl: 'js/back-office/views/login.html'
                 templateUrl: 'js/back-office/views/welcome.html' 
             })
             .when('/login', {
@@ -23,7 +22,7 @@
             })
             .when('/coups-de-coeur', {
                 controller: 'favoriteslist.controller',
-                templateUrl: 'js/back-office/views/coupsdecoeur.html'
+                templateUrl: 'js/back-office/views/favoriteslist.html'
             })
             .when('/annonce/:advert_id', {
                 controller: 'advertdetail.controller',

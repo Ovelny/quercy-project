@@ -1,3 +1,4 @@
+
 <h3>Annonces coups de coeur</h3>
 
 <p>Pour ajouter un coup de coeur, accéder directement à la fiche voulue depuis le menu 
@@ -23,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="advert in advertsList" ng-click="goToAdvert(advert.id)">
+            <tr ng-repeat="advert in advertsList" ng-click="goToAdvert(advert)">
                 <td>{{advert.id}}</td>
                 <td>{{advert.property_type}}</td>
                 <td>{{advert.advert_type == 'L' ? 'Location' : 'Vente'}}</td>
@@ -33,7 +34,7 @@
                 <td></td>
                 <td>{{advert.postal_code}}</td>
                 <td>{{advert.city}}</td>
-                <td><button class="btn btn-danger" title="Retirer le coup de coeur">Retirer le cdc</button></td>
+                <td><button class="btn btn-danger" title="Retirer le coup de coeur" ng-click="removeFavorite(advert)">Retirer le cdc</button></td>
             </tr>
         </tbody>
     </table>
