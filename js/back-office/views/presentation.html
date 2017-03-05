@@ -1,1 +1,17 @@
-<h3>Page en construction.</h3>
+
+<h3>Texte de présentation</h3>
+
+<p><i>Gérez ici le texte de présentation qui s'affiche en première page du site.</i></p>
+
+<form ng-submit="save()">
+    <div class="form-group">
+        <label for="company_presentation_fr">Français</label>
+        <textarea id="company_presentation_fr" ng-model="company_presentation_fr" class="form-control company_presentation" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="company_presentation_en">Anglais</label>
+        <textarea id="company_presentation_en" ng-model="company_presentation_en" class="form-control company_presentation" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>

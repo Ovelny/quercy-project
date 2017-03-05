@@ -47,4 +47,8 @@
     text-align: left;
 }
 
+textarea {
+    max-width: 100%;
+}
+
 

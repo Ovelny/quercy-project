@@ -1,7 +1,7 @@
 (function () {
     angular.module('quercy-back')
-        .controller('advertdetail.controller', ['$scope', '$routeParams', 'adverts.datacontext', 'Notification',
-            function ($scope, $routeParams, datacontext, Notification) {
+        .controller('advertdetail.controller', ['$scope', '$routeParams', '$location', 'adverts.datacontext', 'Notification',
+            function ($scope, $routeParams, $location, datacontext, Notification) {
 
                 var advert_id = $routeParams["advert_id"];
                 $scope.advert = {};
@@ -103,6 +103,23 @@
                 $scope.toggleFavorite = function(){
                     $scope.advert.is_favorite = !$scope.advert.is_favorite;
                     $scope.save();
+                }
+
+                $scope.delete = function(){
+                    if (prompt("Voulez-vous vraiment supprimer définitivement cette annonce ? Tapez OUI pour confirmer","") == "OUI") {
+                        datacontext.deleteAdvert($scope.advert.id)
+                            .then(function (res) {
+                                Notification.success("Annonce supprimée.");
+                                if ($scope.advert.advert_type == "V")
+                                    $location.path('biens/vente');
+                                else
+                                    $location.path('biens/location');
+                            })
+                            .catch(function (err) {
+                                Notification.error("Une erreur est survenue lors de la suppression.");
+                                console.log(err);
+                            });
+                    }
                 }
 
             }]);

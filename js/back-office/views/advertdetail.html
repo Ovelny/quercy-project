@@ -193,13 +193,17 @@
 
     <button class="btn btn-primary" type="submit">Enregistrer</button>
     
-    <div class="pull-right" ng-if="advert.id">
-        <button ng-if="!advert.is_favorite" class="btn btn-success" ng-click="toggleFavorite()">
+    <button type="button" ng-if="advert.id" ng-click="toggleFavorite()"
+            ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]">
+        <span ng-if="!advert.is_favorite" >
             Marquer comme coup de coeur
-        </button>
-        <button ng-if="advert.is_favorite" class="btn btn-warning" ng-click="toggleFavorite()">
+        </span>
+        <span ng-if="advert.is_favorite" >
             Enlever le coup de coeur
-        </button>
-    </div>
+        </span>
+    </button>
+
+    
+    <button type="button" class="pull-right btn btn-danger" ng-click="delete()">Supprimer</button>
 
 </form>

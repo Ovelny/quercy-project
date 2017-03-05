@@ -13,7 +13,8 @@
             getFavoriteProperties: getFavoritePropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl,
             saveAdvert: saveAdvertImpl,
-            createAdvert: createAdvertImpl
+            createAdvert: createAdvertImpl,
+            deleteAdvert: deleteAdvertImpl
         }
 
         function getHeatingTypesImpl(){
@@ -48,6 +49,10 @@
         function createAdvertImpl(advert){
             delete advert.id;
             return $http.post(baseUrl + "properties/", advert);
+        }
+
+        function deleteAdvertImpl(advert_id){
+            return $http.delete(baseUrl + "properties/"+advert_id+"/");
         }
 
         return service;

@@ -14,6 +14,7 @@
                 templateUrl: 'js/back-office/views/welcome.html' 
             })
             .when('/presentation', {
+                controller: 'presentation.controller',
                 templateUrl: 'js/back-office/views/presentation.html'
             })
             .when('/biens/:advert_type', {
