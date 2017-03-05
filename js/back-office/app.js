@@ -22,6 +22,7 @@
                 templateUrl: 'js/back-office/views/advertslist.html'
             })
             .when('/coups-de-coeur', {
+                controller: 'favoriteslist.controller',
                 templateUrl: 'js/back-office/views/coupsdecoeur.html'
             })
             .when('/annonce/:advert_id', {

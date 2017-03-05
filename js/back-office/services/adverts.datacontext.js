@@ -10,6 +10,7 @@
             getHeatingTypes: getHeatingTypesImpl,
             getKitchenTypes: getKitchenTypesImpl,
             getProperties: getPropertiesImpl,
+            getFavoriteProperties: getFavoritePropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl,
             saveAdvert: saveAdvertImpl,
             createAdvert: createAdvertImpl
@@ -32,6 +33,10 @@
         function getPropertiesImpl(advert_type) {
             var adv_type = advert_type == "vente" ? "V" : "L";
             return $http.get(baseUrl + "properties/?advert_type="+adv_type);
+        }
+
+        function getFavoritePropertiesImpl(){
+            return $http.get(baseUrl + "properties/?is_favorite=1");
         }
 
         function saveAdvertImpl(advert){

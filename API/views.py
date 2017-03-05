@@ -28,6 +28,10 @@ class Property_List(generics.ListAPIView, mixins.CreateModelMixin):
         urlfilter = self.request.query_params.get('advert_type', None)
         if urlfilter is not None:
             queryset = queryset.filter(advert_type=urlfilter) 
+        # is_favorite
+        urlfilter = self.request.query_params.get('is_favorite', None)
+        if urlfilter is not None:
+            queryset = queryset.filter(is_favorite=True)
         # nb_rooms
         urlfilter = self.request.query_params.get('nb_rooms', None)
         if urlfilter is not None:
