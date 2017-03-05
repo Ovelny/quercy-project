@@ -1,7 +1,7 @@
 (function () {
     angular.module('quercy-back')
-        .controller('advertdetail.controller', ['$scope', '$routeParams', 'adverts.datacontext',
-            function ($scope, $routeParams, datacontext) {
+        .controller('advertdetail.controller', ['$scope', '$routeParams', 'adverts.datacontext', 'Notification',
+            function ($scope, $routeParams, datacontext, Notification) {
 
                 var advert_id = $routeParams["advert_id"];
                 $scope.advert = {};
@@ -53,9 +53,10 @@
                 $scope.save = function(){
                     datacontext.saveAdvert($scope.advert)
                         .then(function (res) {
-                            console.log(res);
+                            Notification.success("Modifications enregistrées !");
                         })
                         .catch(function (err) {
+                            Notification.error("Une erreur est survenue lors de l'enregistrement.");
                             console.log(err);
                         });
                 }

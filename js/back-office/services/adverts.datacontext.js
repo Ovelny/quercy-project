@@ -1,9 +1,9 @@
 (function () {
     var app = angular.module('quercy-back');
 
-    app.service('adverts.datacontext', function ($http) {
+    app.service('adverts.datacontext', ['$http', '$rootScope', function ($http, $rootScope) {
        
-        var baseUrl = "http://127.0.0.1:8000/api/";
+        var baseUrl = $rootScope.baseUrl;
 
         var service = {
             getAdvert: getAdvertImpl,
@@ -25,7 +25,7 @@
         }
 
         function getAdvertImpl(id){
-            return $http.get(baseUrl + "properties/"+id);
+            return $http.get(baseUrl + "properties/"+id+"/");
         }
 
         function getPropertiesImpl(advert_type) {
@@ -36,9 +36,9 @@
         function saveAdvertImpl(advert){
             var id = advert.id;
             var data = advert;
-            return $http.post(baseUrl + "properties/"+id+"/", data);
+            return $http.put(baseUrl + "properties/"+id+"/", data);
         }
 
         return service;
-    });
+    }]);
 })();

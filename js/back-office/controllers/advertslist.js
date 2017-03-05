@@ -8,7 +8,6 @@
 
                 datacontext.getProperties($scope.advert_type)
                     .then(function (res) {
-                        console.log(res);
                         $scope.advertsList = res.data;
                     })
                     .catch(function (err) {
