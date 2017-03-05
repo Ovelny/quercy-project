@@ -1,7 +1,7 @@
 (function () {
     var app = angular.module('quercy-back');
 
-    app.directive('sidemenu', function ($location) {
+    app.directive('sidemenu', ['$location', function ($location) {
         return {
             restrict: 'E',
             templateUrl: 'js/back-office/partials/sidemenu.html',
@@ -12,5 +12,5 @@
                 };
             }
         }
-    });
+    }]);
 })();

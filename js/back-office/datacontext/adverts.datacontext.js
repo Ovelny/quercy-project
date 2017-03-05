@@ -10,7 +10,8 @@
             getHeatingTypes: getHeatingTypesImpl,
             getKitchenTypes: getKitchenTypesImpl,
             getProperties: getPropertiesImpl,
-            getPropertyTypes: getPropertyTypesImpl
+            getPropertyTypes: getPropertyTypesImpl,
+            saveAdvert: saveAdvertImpl
         }
 
         function getHeatingTypesImpl(){
@@ -30,6 +31,12 @@
         function getPropertiesImpl(advert_type) {
             var adv_type = advert_type == "vente" ? "V" : "L";
             return $http.get(baseUrl + "properties/?advert_type="+adv_type);
+        }
+
+        function saveAdvertImpl(advert){
+            var id = advert.id;
+            var data = advert;
+            return $http.post(baseUrl + "properties/"+id+"/", data);
         }
 
         return service;

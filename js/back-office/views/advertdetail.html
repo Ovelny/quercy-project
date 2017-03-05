@@ -1,5 +1,5 @@
-<h3>
-    Gestion d'une annonce</h3>
+
+<h3>Gestion d'une annonce</h3>
 
 <form class="form-horizontal">
     <div class="row">
@@ -153,35 +153,43 @@
     <!-- Titre, Description -->
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group col-sm-12">
-                <label for="title_fr">Titre affiché (français)</label>
-                <div>
-                    <input class="form-control" type="text" id="title_fr" ng-model="advert.title_fr" />
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="title_fr">Titre affiché (français)</label>
+                    <div>
+                        <input class="form-control" type="text" id="title_fr" ng-model="advert.title_fr" />
+                    </div>
                 </div>
             </div>
-            <div class="form-group col-sm-12">
-                <label for="description_fr">Description (français)</label>
-                <div>
-                    <textarea class="form-control" type="text" id="description_fr" ng-model="advert.description_fr"></textarea>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="description_fr">Description (français)</label>
+                    <div>
+                        <textarea class="form-control" type="text" id="description_fr" ng-model="advert.description_fr"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group col-sm-12">
-                <label for="title_en">Titre affiché (anglais)</label>
-                <div>
-                    <input class="form-control" type="text" id="title_en" ng-model="advert.title_en" />
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="title_en">Titre affiché (anglais)</label>
+                    <div>
+                        <input class="form-control" type="text" id="title_en" ng-model="advert.title_en" />
+                    </div>
                 </div>
             </div>
-            <div class="form-group col-sm-12">
-                <label for="description_en">Description (anglais)</label>
-                <div>
-                    <textarea class="form-control" type="text" id="description_en" ng-model="advert.description_en"></textarea>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="description_en">Description (anglais)</label>
+                    <div>
+                        <textarea class="form-control" type="text" id="description_en" ng-model="advert.description_en"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <button class="btn btn-primary" ng-click="save()">Enregistrer</button>
 
 </form>

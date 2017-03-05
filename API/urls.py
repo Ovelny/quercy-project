@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 # from django.contrib import admin
 
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 
@@ -25,4 +26,12 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^properties/$', views.Property_List.as_view()),
     url(r'^properties/(?P<pk>[0-9]+)/$', views.Property_Detail.as_view()),
+    url(r'^authenticate', obtain_auth_token) # vue gérée par le rest_framework.
 ]
+
+# obtain_auth_token : reçoit en POST une requête avec "username" et "password" renseignés, 
+# renvoie un token si les infos correspondent à un user de la base.
+# Cette méthode d'authentification rend nécessaire l'utilisation de https en prod.
+
+# Une fois le token récupéré, le passer dans les futures requêtes dans le header "Authorization", 
+# précédé de "Token "

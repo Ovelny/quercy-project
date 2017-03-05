@@ -10,15 +10,15 @@
 
 <body ng-cloak>
 
-    <sidemenu></sidemenu>
+    <sidemenu ng-if="displayMenu()"></sidemenu>
 
     <div class="view">
         <div ng-view></div>
-
     </div>
           
 
     <script src="dependencies/angular.min.js"></script>
+    <script src="dependencies/angular-cookies.min.js"></script>
     <script src="dependencies/angular-route.min.js"></script>
     <script src="dependencies/angular-animate.min.js"></script>
     <script src="dependencies/ui-bootstrap-tpls-2.5.0.js"></script>
@@ -26,6 +26,7 @@
     <script src="js/back-office/directives/directives.js"></script>
     <script src="js/back-office/controllers/advertslist.js"></script>
     <script src="js/back-office/controllers/advertdetail.js"></script>
+    <script src="js/back-office/controllers/login.js"></script>
     <script src="js/back-office/datacontext/adverts.datacontext.js"></script>
 
 </body>
