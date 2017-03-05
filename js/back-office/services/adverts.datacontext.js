@@ -31,9 +31,10 @@
             return $http.get(baseUrl + "properties/"+id+"/");
         }
 
-        function getPropertiesImpl(advert_type) {
+        function getPropertiesImpl(advert_type, filter_type, filter_text) {
             var adv_type = advert_type == "vente" ? "V" : "L";
-            return $http.get(baseUrl + "properties/?advert_type="+adv_type);
+            var filter = filter_text == "" ? "" : "&" + filter_type + "=" + filter_text;
+            return $http.get(baseUrl + "properties/?advert_type=" + adv_type + filter);
         }
 
         function getFavoritePropertiesImpl(){

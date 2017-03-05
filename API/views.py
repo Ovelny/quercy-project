@@ -20,6 +20,10 @@ class Property_List(generics.ListAPIView, mixins.CreateModelMixin):
         by filtering against query parameters in the URL.
         """
         queryset = Property.objects.all().order_by('id')
+        # id
+        urlfilter = self.request.query_params.get('id', None)
+        if urlfilter is not None:
+            queryset = queryset.filter(id=urlfilter) 
         # property_type
         urlfilter = self.request.query_params.get('property_type', None)
         if urlfilter is not None:
@@ -51,6 +55,13 @@ class Property_List(generics.ListAPIView, mixins.CreateModelMixin):
         if urlfilter is not None:
             queryset = queryset.filter(total_surface__lte=urlfilter)
         # cp, département, ville
+        urlfilter = self.request.query_params.get('postal_code', None)
+        if urlfilter is not None:
+            queryset = queryset.filter(postal_code__startswith=urlfilter)
+        urlfilter = self.request.query_params.get('city', None)
+        if urlfilter is not None:
+            queryset = queryset.filter(city__icontains=urlfilter) # case-insensitive contains filter
+        # pour l'instant, filtre sur une seule valeur.
         return queryset
 
     def post(self, request):

@@ -1,6 +1,20 @@
 
 <h3>Liste des biens en {{advert_type}}</h3>
 
+<form class="form-inline form-filter">
+    <div class="form-group">
+        <label for="filterType">Filtrer :</label>
+        <select ng-model="filterType" id="filterType" class="form-control">
+            <option ng-repeat="opt in filterOptions" value="{{opt.value}}">{{opt.label}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="filterText" ng-model="filterText" />
+    </div>
+    <button class="btn btn-primary" ng-click="refreshList()">Filtrer</button>
+    <button class="btn btn-default" ng-click="filterText = '';refreshList()">Effacer le filtre</button>
+</form>
+
 <div ng-if="advertsList.length">
     <p><i>Cliquez sur une ligne pour accéder au détail de l'annonce.</i></p>
     <table class="table table-hover">
@@ -36,7 +50,7 @@
         </tbody>
     </table>
 </div>
-<div ng-if="!advertsList.length" class="">
+<div ng-if="!advertsList.length" class="form-group">
     <i>Aucune annonce trouvée.</i>
 </div>
 
