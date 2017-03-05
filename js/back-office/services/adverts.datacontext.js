@@ -11,7 +11,8 @@
             getKitchenTypes: getKitchenTypesImpl,
             getProperties: getPropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl,
-            saveAdvert: saveAdvertImpl
+            saveAdvert: saveAdvertImpl,
+            createAdvert: createAdvertImpl
         }
 
         function getHeatingTypesImpl(){
@@ -37,6 +38,11 @@
             var id = advert.id;
             var data = advert;
             return $http.put(baseUrl + "properties/"+id+"/", data);
+        }
+
+        function createAdvertImpl(advert){
+            delete advert.id;
+            return $http.post(baseUrl + "properties/", advert);
         }
 
         return service;

@@ -38,10 +38,12 @@ class Property(models.Model):
     city = models.CharField(max_length=32)
     living_surface = models.DecimalField(max_digits=6, decimal_places=2)
     total_surface = models.DecimalField(max_digits=6, decimal_places=2)
-    construction_year = models.IntegerField(blank=True) #blank=True: allow empty value
+    construction_year = models.IntegerField(blank=True, null=True) 
+    # blank=True: allow empty value
+    # null=True: store empty values as null in DB
     nb_floors = models.IntegerField()
-    energy_consumption = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
-    gas_emission = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
+    energy_consumption = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    gas_emission = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     is_favorite = models.BooleanField()
     # Foreign keys
     property_type = models.ForeignKey("Property_Type", on_delete=models.PROTECT)

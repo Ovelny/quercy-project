@@ -9,7 +9,7 @@
             <div ng-if="errorMessage" class="alert alert-danger">
                 {{errorMessage}}
             </div>
-            <form>
+            <form ng-submit="login()">
                 <div class="form-group">
                     <label for="username">Login</label>
                     <div>
@@ -22,7 +22,7 @@
                         <input class="form-control" type="password" id="password", ng-model="password" required />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="login()">Envoyer</button>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
         </div>
     </div>

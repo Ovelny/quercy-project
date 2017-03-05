@@ -1,5 +1,5 @@
 
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, mixins
 from rest_framework.permissions import IsAuthenticated
 
 from API.models import *
@@ -12,7 +12,7 @@ from API.serializers import *
 #     queryset = Property.objects.all().order_by('id')
 #     serializer_class = Property_Serializer
 
-class Property_List(generics.ListAPIView):
+class Property_List(generics.ListAPIView, mixins.CreateModelMixin):
     serializer_class = Property_Serializer
     def get_queryset(self): 
         """
@@ -48,6 +48,10 @@ class Property_List(generics.ListAPIView):
             queryset = queryset.filter(total_surface__lte=urlfilter)
         # cp, département, ville
         return queryset
+
+    def post(self, request):
+        # fonction create fournie par mixins
+        return self.create(request)
 
 class Property_Detail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Property.objects.all()

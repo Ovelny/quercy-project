@@ -17,5 +17,9 @@
                 $scope.goToAdvert = function(advert_id){
                     $location.path('annonce/' + advert_id);
                 }
+
+                $scope.newAdvert = function(){
+                    $location.path('annonce/creation');
+                }
             }]);
 })();
