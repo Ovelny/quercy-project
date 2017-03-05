@@ -2,24 +2,24 @@
 <div class="sidemenu">
     <div id="sidebar" class="well sidebar-nav">
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="#!/">Accueil</a></li>
+            <li ng-class="navClass('accueil')"><a href="#!/accueil">Accueil</a></li>
         </ul>
         <h5>
             <!--<i class="glyphicon glyphicon-home"></i>-->
             <small><b>Gestion site</b></small>
         </h5>
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="#!/presentation">Texte de présentation</a></li>
-            <li><a href="#!/biens/vente">Biens en vente</a></li>
-            <li><a href="#!/biens/location">Biens en location</a></li>
-            <li><a href="#!/coups-de-coeur">Coups de coeur</a></li>
+            <li ng-class="navClass('presentation')"><a href="#!/presentation">Texte de présentation</a></li>
+            <li ng-class="navClass('biens/vente')"><a href="#!/biens/vente">Biens en vente</a></li>
+            <li ng-class="navClass('biens/location')"><a href="#!/biens/location">Biens en location</a></li>
+            <li ng-class="navClass('coups-de-coeur')"><a href="#!/coups-de-coeur">Coups de coeur</a></li>
         </ul>
         <h5>
             <!--<i class="glyphicon glyphicon-user"></i>-->
             <small><b>CRM</b></small>
         </h5>
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="#!/">Gestion des clients</a></li>
+            <li ng-class="navClass('CRM')"><a href="#!/">Gestion des clients</a></li>
         </ul>
     </div>
 </div>
