@@ -1,6 +1,19 @@
 
+
 <h3 ng-if="advert.id">Gestion d'une annonce</h3>
 <h3 ng-if="!advert.id">Création d'une annonce</h3>
+
+<div class="form-group">
+    <button type="button" ng-if="advert.id" ng-click="toggleFavorite()"
+            ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]">
+        <span ng-if="!advert.is_favorite" >
+            Marquer comme coup de coeur
+        </span>
+        <span ng-if="advert.is_favorite" >
+            Retirer le coup de coeur
+        </span>
+    </button>
+</div>
 
 <form class="form-horizontal" ng-submit="save()">
     <div class="row">
@@ -188,17 +201,11 @@
     </div>
 
     <button class="btn btn-primary" type="submit">Enregistrer</button>
-    
-    <button type="button" ng-if="advert.id" ng-click="toggleFavorite()"
-            ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]">
-        <span ng-if="!advert.is_favorite" >
-            Marquer comme coup de coeur
-        </span>
-        <span ng-if="advert.is_favorite" >
-            Enlever le coup de coeur
-        </span>
-    </button>
 
+    <a class="btn btn-default" href="#!/annonces">
+        <span ng-if="advert.id">Retour à la liste</span>
+        <span ng-if="!advert.id">Annuler</span>
+    </a>
     
     <button type="button" class="pull-right btn btn-danger" ng-click="delete()">Supprimer</button>
 

@@ -1,11 +1,11 @@
 (function () {
     angular.module('quercy-back')
-        .controller('advertslist.controller', ['$scope', '$routeParams', 'adverts.datacontext', '$location',
-            function ($scope, $routeParams, datacontext, $location) {
+        .controller('advertslist.controller', ['$scope', 'adverts.datacontext', '$location',
+            function ($scope, datacontext, $location) {
 
-                $scope.advert_type = $routeParams["advert_type"];
                 $scope.advertsList = [];
-                
+                $scope.advertType = "";
+
                 $scope.filterOptions = [
                     {
                         "value": "id",
@@ -34,7 +34,7 @@
                         // only int allowed
                         $scope.filterText = "";
                     }
-                    datacontext.getProperties($scope.advert_type, $scope.filterType, $scope.filterText)
+                    datacontext.getProperties($scope.advertType, $scope.filterType, $scope.filterText)
                         .then(function (res) {
                             $scope.advertsList = res.data;
                         })

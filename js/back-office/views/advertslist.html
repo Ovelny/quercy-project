@@ -1,5 +1,15 @@
 
-<h3>Liste des biens en {{advert_type}}</h3>
+<h3>Liste des annonces</h3>
+
+<div class="row form-filter">
+    <div class="col-sm-3">
+        <select class="form-control" ng-model="advertType" ng-change="refreshList()">
+            <option value="">Ventes et locations</option>
+            <option value="V">Biens en vente</option>
+            <option value="L">Biens en location</option>
+        </select>
+    </div>
+</div>
 
 <form class="form-inline form-filter">
     <div class="form-group">
@@ -9,10 +19,12 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="filterText" ng-model="filterText" />
+        <input type="text" class="form-control" id="filterText" ng-model="filterText" placeholder="Recherche" />
     </div>
     <button class="btn btn-primary" ng-click="refreshList()">Filtrer</button>
     <button class="btn btn-default" ng-click="filterText = '';refreshList()">Effacer le filtre</button>
+    
+    <button class="btn btn-success pull-right" ng-click="newAdvert()">Nouvelle annonce</button>
 </form>
 
 <div ng-if="advertsList.length">
@@ -21,7 +33,8 @@
         <thead>
             <tr>
                 <th>Numéro</th>
-                <th>Type</th>
+                <th ng-if="advertType == ''">Type d'annonce</th>
+                <th>Type de bien</th>
                 <th>Nombre de pièces</th>
                 <th>Surface</th>
                 <th class="text-right">
@@ -37,6 +50,7 @@
         <tbody>
             <tr ng-repeat="advert in advertsList" ng-click="goToAdvert(advert.id)">
                 <td>{{advert.id}}</td>
+                <td ng-if="advertType == ''">{{advert.advert_type == 'L' ? 'Location' : 'Vente'}}</td>
                 <td>{{advert.property_type}}</td>
                 <td>{{advert.nb_rooms}}</td>
                 <td>{{advert.total_surface}}</td>
@@ -53,5 +67,3 @@
 <div ng-if="!advertsList.length" class="form-group">
     <i>Aucune annonce trouvée.</i>
 </div>
-
-<button class="btn btn-success" ng-click="newAdvert()">Nouvelle annonce</button>

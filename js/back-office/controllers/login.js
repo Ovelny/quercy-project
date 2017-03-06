@@ -22,7 +22,7 @@
                     })
                     .catch(function (err) {
                         // Une authentification échouée (mauvais login/pwd) donne un 400.
-                        $scope.errorMessage = "L'authentification a échoué. Vérifiez que vous avez entré les bonnes informations.";
+                        $scope.errorMessage = "L'authentification a échoué. Vérifiez que vous avez entré les bons paramètres.";
                         console.log(err);
                     });
             }

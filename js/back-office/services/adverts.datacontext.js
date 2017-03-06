@@ -32,9 +32,14 @@
         }
 
         function getPropertiesImpl(advert_type, filter_type, filter_text) {
-            var adv_type = advert_type == "vente" ? "V" : "L";
-            var filter = filter_text == "" ? "" : "&" + filter_type + "=" + filter_text;
-            return $http.get(baseUrl + "properties/?advert_type=" + adv_type + filter);
+            var adv_type = advert_type == "" ? "" : "advert_type=" + advert_type;
+            var filter = filter_text == "" ? "" : filter_type + "=" + filter_text;
+            if (adv_type != "" && filter != "")
+                return $http.get(baseUrl + "properties/?" + adv_type + "&" + filter);
+            else if (adv_type == "" && filter == "")
+                return $http.get(baseUrl + "properties/");
+            else
+                return $http.get(baseUrl + "properties/?" + adv_type + filter);
         }
 
         function getFavoritePropertiesImpl(){

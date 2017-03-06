@@ -104,16 +104,13 @@
                     $scope.advert.is_favorite = !$scope.advert.is_favorite;
                     $scope.save();
                 }
-
+                
                 $scope.delete = function(){
                     if (prompt("Voulez-vous vraiment supprimer définitivement cette annonce ? Tapez OUI pour confirmer","") == "OUI") {
                         datacontext.deleteAdvert($scope.advert.id)
                             .then(function (res) {
                                 Notification.success("Annonce supprimée.");
-                                if ($scope.advert.advert_type == "V")
-                                    $location.path('biens/vente');
-                                else
-                                    $location.path('biens/location');
+                                $location.path('annonces');
                             })
                             .catch(function (err) {
                                 Notification.error("Une erreur est survenue lors de la suppression.");
