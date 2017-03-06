@@ -10,8 +10,8 @@
         <thead>
             <tr>
                 <th>Numéro</th>
-                <th>Type de bien</th>
                 <th>Type d'annonce</th>
+                <th>Type de bien</th>
                 <th>Nb pièces</th>
                 <th>Surface</th>
                 <th class="text-right">
@@ -26,8 +26,8 @@
         <tbody>
             <tr ng-repeat="advert in advertsList" ng-click="goToAdvert(advert)">
                 <td>{{advert.id}}</td>
-                <td>{{advert.property_type}}</td>
                 <td>{{advert.advert_type == 'L' ? 'Location' : 'Vente'}}</td>
+                <td>{{advert.property_type}}</td>
                 <td>{{advert.nb_rooms}}</td>
                 <td>{{advert.total_surface}}</td>
                 <td class="text-right">{{advert.price}} €</td>

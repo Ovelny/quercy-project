@@ -17,7 +17,7 @@
                 controller: 'presentation.controller',
                 templateUrl: 'js/back-office/views/presentation.html'
             })
-            .when('/biens/:advert_type', {
+            .when('/annonces', {
                 controller: 'advertslist.controller',
                 templateUrl: 'js/back-office/views/advertslist.html'
             })

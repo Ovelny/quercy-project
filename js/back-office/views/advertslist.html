@@ -38,8 +38,9 @@
                 <th>Nombre de pièces</th>
                 <th>Surface</th>
                 <th class="text-right">
-                    <span ng-if="advert_type == 'vente'">Prix</span>
-                    <span ng-if="advert_type == 'location'">Loyer</span>
+                    <span ng-if="advertType == ''">Prix/Loyer</span>
+                    <span ng-if="advertType == 'V'">Prix</span>
+                    <span ng-if="advertType == 'L'">Loyer</span>
                 </th>
                 <th></th>
                 <th>CP</th>
