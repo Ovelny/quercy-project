@@ -3,9 +3,10 @@
 <h3 ng-if="advert.id">Gestion d'une annonce</h3>
 <h3 ng-if="!advert.id">Création d'une annonce</h3>
 
-<div class="form-group">
-    <button type="button" ng-if="advert.id" ng-click="toggleFavorite()"
-            ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]">
+<fieldset class="form-group" ng-disabled="!advert.id">
+    <button type="button" ng-click="toggleFavorite()"
+            ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]" 
+            title="{{{true: '', false: 'Enregistrez l\'annonce pour pouvoir la marquer comme coup de coeur.'}[advert.id !== undefined]}}">
         <span ng-if="!advert.is_favorite" >
             Marquer comme coup de coeur
         </span>
@@ -13,7 +14,11 @@
             Retirer le coup de coeur
         </span>
     </button>
-</div>
+    <button class="btn btn-primary pull-right" ng-click="gestionPhotos()"
+     title="{{{true: '', false: 'Enregistrez l\'annonce pour pouvoir gérer les photos rattachées.'}[advert.id !== undefined]}}">
+        Gérer les photos
+    </button>
+</fieldset>
 
 <form class="form-horizontal" ng-submit="save()">
     <div class="row">
@@ -64,7 +69,10 @@
         <!-- Etat du bien, configuration, détails -->
         <div class="col-md-4">
             <div class="form-group">
-                <label class="col-sm-4" for="price">Prix/loyer</label>
+                <label class="col-sm-4" for="price">
+                    <span ng-if="advert.advert_type == 'V'">Prix</span>
+                    <span ng-if="advert.advert_type == 'L'">Loyer</span>
+                </label>
                 <div class="col-sm-8">
                     <div class="input-group">
                         <input class="form-control" type="number" id="price" ng-model="advert.price" required />

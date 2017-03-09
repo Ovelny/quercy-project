@@ -29,6 +29,10 @@
                 controller: 'advertdetail.controller',
                 templateUrl: 'js/back-office/views/advertdetail.html'
             })
+            .when('/annonce/:advert_id/photos', {
+                controller: 'advertphotos.controller',
+                templateUrl: 'js/back-office/views/advertphotos.html'
+            })
             .otherwise({ redirectTo: '/' });
 
         }])

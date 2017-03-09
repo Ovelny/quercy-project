@@ -119,6 +119,10 @@
                     }
                 }
 
+                $scope.gestionPhotos = function(){
+                    $location.path('annonce/'+$scope.advert.id+'/photos');
+                }
+
             }]);
 
 })();
