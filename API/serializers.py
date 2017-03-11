@@ -1,6 +1,12 @@
 from rest_framework import serializers
 from API.models import *
 
+
+class Picture_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Picture
+        fields = ('id', 'prop', 'display_order', 'picture')
+        
 class Property_Type_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Property_Type

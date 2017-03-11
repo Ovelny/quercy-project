@@ -1,6 +1,9 @@
 
-from rest_framework import viewsets, generics, mixins
+from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+
+from django_filters.rest_framework import FilterSet, DjangoFilterBackend
+import django_filters
 
 from API.models import *
 from API.serializers import *
@@ -8,69 +11,29 @@ from API.serializers import *
 # Les viewsets gèrent le GET et le POST sur la liste des objets
 # ainsi que le GET, PUT, DELETE sur les objets individuels
 
-# class Property_Viewset(viewsets.ModelViewSet):
-#     queryset = Property.objects.all().order_by('id')
-#     serializer_class = Property_Serializer
+class Property_Filter(FilterSet):
+    min_price = django_filters.NumberFilter(name="price", lookup_expr='gte')
+    max_price = django_filters.NumberFilter(name="price", lookup_expr='lte')
+    min_surface = django_filters.NumberFilter(name="surface", lookup_expr='gte')
+    max_surface = django_filters.NumberFilter(name="surface", lookup_expr='lte')
+    postal_code = django_filters.CharFilter(name="postal_code", lookup_expr='startswith')
+    city = django_filters.CharFilter(name="city", lookup_expr='icontains')
+    class Meta:
+        model = Property
+        fields = ['id', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 'max_price',
+                'min_surface', 'max_surface', 'postal_code', 'city']
 
-class Property_List(generics.ListAPIView, mixins.CreateModelMixin):
+class Property_Viewset(viewsets.ModelViewSet):
+    queryset = Property.objects.all().order_by('id')
     serializer_class = Property_Serializer
-    def get_queryset(self): 
-        """
-        Optionally restricts the returned properties,
-        by filtering against query parameters in the URL.
-        """
-        queryset = Property.objects.all().order_by('id')
-        # id
-        urlfilter = self.request.query_params.get('id', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(id=urlfilter) 
-        # property_type
-        urlfilter = self.request.query_params.get('property_type', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(property_type=urlfilter) #id du property_type, pas libellé.
-        # advert_type
-        urlfilter = self.request.query_params.get('advert_type', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(advert_type=urlfilter) 
-        # is_favorite
-        urlfilter = self.request.query_params.get('is_favorite', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(is_favorite=True)
-        # nb_rooms
-        urlfilter = self.request.query_params.get('nb_rooms', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(nb_rooms=urlfilter)
-        # price
-        urlfilter = self.request.query_params.get('price_min', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(price__gte=urlfilter)
-        urlfilter = self.request.query_params.get('price_max', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(price__lte=urlfilter)
-        # surface
-        urlfilter = self.request.query_params.get('surface_min', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(total_surface__gte=urlfilter)
-        urlfilter = self.request.query_params.get('surface_max', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(total_surface__lte=urlfilter)
-        # cp, département, ville
-        urlfilter = self.request.query_params.get('postal_code', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(postal_code__startswith=urlfilter)
-        urlfilter = self.request.query_params.get('city', None)
-        if urlfilter is not None:
-            queryset = queryset.filter(city__icontains=urlfilter) # case-insensitive contains filter
-        # pour l'instant, filtre sur une seule valeur.
-        return queryset
+    filter_backends = (DjangoFilterBackend,)
+    filter_class = Property_Filter
 
-    def post(self, request):
-        # fonction create fournie par mixins
-        return self.create(request)
-
-class Property_Detail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Property.objects.all()
-    serializer_class = Property_Serializer
+class Picture_Viewset(viewsets.ModelViewSet):
+    queryset = Picture.objects.all().order_by('display_order')
+    serializer_class = Picture_Serializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('prop',)
 
 class Property_Type_Viewset(viewsets.ModelViewSet):
     queryset = Property_Type.objects.all()

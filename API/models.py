@@ -57,7 +57,8 @@ class Property(models.Model):
 class Picture(models.Model):
     prop = models.ForeignKey("Property", on_delete=models.CASCADE)
     display_order = models.IntegerField() 
-    # picture = models.FileField() # might be tricky, will deal with later
+    # file will be uploaded to MEDIA_ROOT/uploads
+    picture = models.ImageField(upload_to="uploads/")
 
 class Property_Type(models.Model):
     label = models.CharField(max_length=20, unique=True)
