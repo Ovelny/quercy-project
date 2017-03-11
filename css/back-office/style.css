@@ -59,11 +59,35 @@ textarea {
 /* ------------------------ */
 /* Photos                 */
 /* ------------------------ */
-.photo-list img {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
 .photo-select {
     width: 100%;
+}
+
+.photo-container {
+    margin-bottom: 30px;
+}
+
+.photo-container img {
+    width: 100%;
+}
+.photo-container .panel {
+    padding: 5px;
+}
+
+
+.photo-container .row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.photo-container .col-xs-3,
+.photo-container .col-sm-3,
+.photo-container .col-xs-12 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.photo-container button,
+.photo-container input {
+    width: 100%;
+    margin-bottom: 5px;
 }

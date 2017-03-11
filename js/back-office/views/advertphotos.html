@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">Ajouter une photo</div>
     <div class="panel-body">
-        <form ng-submit="save()" id="addPhotoForm">
+        <form ng-submit="addPhoto()" id="addPhotoForm">
             <div class="form-group">
                 <input type="file" class="photo-select" nv-file-select uploader="uploader" required />
             </div>
@@ -15,11 +15,31 @@
     </div>
 </div>
 
+<p ng-if="photos.length" class="alert alert-info">Les photos apparaîtront sur l'annonce dans l'ordre affiché ici. 
+    Utilisez les flèches pour modifier l'ordre.</p>
 
-<div class="photo-list">
-    <div class=row ng-repeat="photo in photos track by $index" ng-if="$index%4==0">
-        <div class="col-sm-3" ng-repeat="i in [$index,$index+1,$index+2,$index+3]" ng-if="photos[i]!=undefined">
-            <img ng-src="{{photos[i].picture}}" />
+<div class="row" ng-repeat="photo in photos track by $index" ng-if="$index%4==0">
+    <div class="col-sm-3" ng-repeat="i in [$index,$index+1,$index+2,$index+3]" ng-if="photos[i]!=undefined">
+        <div class="photo-container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <button class="btn btn-default" ng-disabled="i==0" ng-click="switchOrder(i, i-1)"><</button>
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" value="{{i+1}}" readonly />
+                </div>
+                <div class="col-xs-3">
+                    <button class="btn btn-default" ng-disabled="i==photos.length-1" ng-click="switchOrder(i, i+1)">></button>
+                </div>
+                <div class="col-xs-3">
+                    <button class="btn btn-danger" ng-click="removePhoto(i)">X</button>
+                </div>
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <img ng-src="{{photos[i].picture}}" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -52,7 +52,8 @@
                 }
 
                 function getDisplayOrder(){
-                    return 1;
+                    // renvoie le numéro que devra avoir la photo ajoutée (par défaut, elle est ajoutée à la fin de la liste)
+                    return $scope.photos.length;
                 }
 
                 $scope.uploader.onBeforeUploadItem = function (item) {
@@ -63,11 +64,39 @@
                     });
                 }
 
-                $scope.save = function(){
+                $scope.addPhoto = function(){
                     if ($scope.uploader.getNotUploadedItems().length < 1)
                         return;
-                    console.log("save");
                     $scope.uploader.uploadItem(0);
+                }
+
+
+                $scope.switchOrder = function(index1, index2){
+                    var temp = $scope.photos[index1];
+                    $scope.photos[index1] = $scope.photos[index2];
+                    $scope.photos[index2] = temp;
+                    $scope.photos[index1].display_order = index1;
+                    $scope.photos[index2].display_order = index2;
+                    datacontext.savePhotoDisplayOrder($scope.photos[index1])
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                    datacontext.savePhotoDisplayOrder($scope.photos[index2])
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                }
+                
+                $scope.removePhoto = function(index){
+                    if (confirm("Voulez-vous vraiment supprimer cette photo ?")){
+                        datacontext.deletePhoto($scope.photos[index].id)
+                            .then(function (res) {
+                                $scope.photos.splice(index, 1);
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            });
+                    }
                 }
 
                 $scope.back = function(){

@@ -7,7 +7,9 @@
 
         var service = {
             // addPhoto: addPhotoImpl,
-            getPhotos: getPhotosImpl
+            getPhotos: getPhotosImpl,
+            savePhotoDisplayOrder: savePhotoDisplayOrderImpl,
+            deletePhoto: deletePhotoImpl
         }
 
         // function addPhotoImpl(prop, display_order, file){
@@ -17,6 +19,15 @@
 
         function getPhotosImpl(advertid){
             return $http.get(baseUrl + "pictures/?prop="+advertid);
+        }
+
+        function savePhotoDisplayOrderImpl(photo){
+            var data = {"display_order": photo.display_order};
+            return $http.patch(baseUrl + "pictures/"+photo.id+"/", data);
+        }
+
+        function deletePhotoImpl(id){
+            return $http.delete(baseUrl + "pictures/"+id+"/");
         }
 
         return service;
