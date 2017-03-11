@@ -8,7 +8,11 @@
     <div class="panel-body">
         <form ng-submit="addPhoto()" id="addPhotoForm">
             <div class="form-group">
-                <input type="file" class="photo-select" nv-file-select uploader="uploader" required />
+                <input type="file" class="photo-select" nv-file-select uploader="uploader" required 
+                fileinput="file" filepreview="filepreview" />
+            </div>
+            <div class="form-group">
+                <img ng-src="{{filepreview}}" ng-show="filepreview" class="photo-preview" />
             </div>
             <button class="btn btn-success">Envoyer</button>
         </form>
@@ -32,7 +36,7 @@
                     <button class="btn btn-default" ng-disabled="i==photos.length-1" ng-click="switchOrder(i, i+1)">></button>
                 </div>
                 <div class="col-xs-3">
-                    <button class="btn btn-danger" ng-click="removePhoto(i)">X</button>
+                    <button class="btn btn-danger" ng-click="removePhoto(i)" title="Supprimer la photo">X</button>
                 </div>
                 <div class="col-xs-12">
                     <div class="panel panel-default">

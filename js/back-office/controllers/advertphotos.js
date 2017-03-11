@@ -1,8 +1,9 @@
 (function () {
     angular.module('quercy-back')
-        .controller('advertphotos.controller', ['$scope', '$routeParams', '$rootScope','$location', '$http',
+        .controller('advertphotos.controller', ['$scope', '$routeParams', '$rootScope','$location', '$http', '$route',
                                                 'adverts.datacontext', 'photos.datacontext', 'Notification', 'FileUploader',
-            function ($scope, $routeParams, $rootScope, $location, $http, advertdatacontext, datacontext, Notification, FileUploader) {
+            function ($scope, $routeParams, $rootScope, $location, $http, $route, advertdatacontext, datacontext, 
+                        Notification, FileUploader) {
                 
                 var advert_id = $routeParams["advert_id"];
                 $scope.photos = [];
@@ -23,8 +24,9 @@
 
                 // Refresh display after successful upload + un-select selected file.
                 $scope.uploader.onSuccessItem = function(item, response, status, headers){
-                    document.getElementById("addPhotoForm").reset();
-                    getPhotos();
+                    // document.getElementById("addPhotoForm").reset();
+                    // getPhotos();
+                    $route.reload(); // refresh page. easier to make the preview reset too...
                 }
 
                 // Catch upload errors
@@ -69,7 +71,6 @@
                         return;
                     $scope.uploader.uploadItem(0);
                 }
-
 
                 $scope.switchOrder = function(index1, index2){
                     var temp = $scope.photos[index1];

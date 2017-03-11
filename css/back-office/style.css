@@ -63,6 +63,10 @@ textarea {
     width: 100%;
 }
 
+.photo-preview {
+    max-height: 200px;
+}
+
 .photo-container {
     margin-bottom: 30px;
 }
