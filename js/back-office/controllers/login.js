@@ -5,7 +5,12 @@
             
             $scope.username = "";
             $scope.password = "";
+            
             $scope.errorMessage = "";
+            if (window.sessionStorage['expired'] == "true"){
+                $scope.errorMessage = "Votre session a expiré. Vous devez vous reconnecter.";
+                delete window.sessionStorage['expired'];
+            }
 
             authenticationService.clearAuth(); // Log out user on page load.
 

@@ -1,7 +1,7 @@
 (function () {
     var app = angular.module('quercy-back', ['ngRoute', 'ngCookies', 'ui-notification', 'angularFileUpload']);
 
-    app.config(['$routeProvider', function ($routeProvider) {
+    app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'js/back-office/views/welcome.html' 
@@ -35,6 +35,19 @@
             })
             .otherwise({ redirectTo: '/' });
 
+
+            $httpProvider.interceptors.push(function($q, $location) {
+                return {
+                    'responseError': function(rejection) {
+                        if (rejection.status == 401){
+                            if (rejection.data.detail == "Token has expired")
+                                window.sessionStorage.setItem('expired', true);
+                            $location.path('/login');
+                        }
+                        return $q.reject(rejection);
+                    }
+                };
+            });
         }])
         .run(['$rootScope', '$location', '$http', '$cookies', 
         function ($rootScope, $location, $http, $cookies) {
@@ -51,7 +64,6 @@
                 $http.defaults.headers.common['Authorization'] = 'Token ' + $rootScope.currentUser.token; 
             }
 
-            // $rootScope.$on('$locationChangeStart', function (event, next, current) {
             $rootScope.$on('$routeChangeStart', function (event, next, current) {
                 // redirect to login page if not logged in and trying to access a restricted page
                 var loggedIn = ($rootScope.currentUser !== undefined);

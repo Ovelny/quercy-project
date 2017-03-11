@@ -1,4 +1,11 @@
 
+import datetime
+from django.utils import timezone
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from django.http import HttpResponse
+import json
+
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
@@ -79,3 +86,26 @@ class Estimate_Viewset(viewsets.ModelViewSet):
 class Company_Info_Viewset(viewsets.ModelViewSet):
     queryset = Company_Info.objects.all()
     serializer_class = Company_Info_Serializer
+
+
+#------------------------------
+
+# Overriding the default token class to get a token that expires after a while.
+class ObtainExpiringAuthToken(ObtainAuthToken):
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            user = serializer.validated_data['user']
+            token, created = Token.objects.get_or_create(user=user)
+
+            utc_now = timezone.now()
+            if not created and token.created < utc_now - datetime.timedelta(hours=2):
+                token.delete()
+                token = Token.objects.create(user=user)
+                token.created = timezone.now()
+                token.save()
+
+            response_data = {'token': token.key}
+            return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+        return HttpResponse(serializer.errors, status=400)
