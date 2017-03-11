@@ -55,3 +55,15 @@ textarea {
     margin-bottom: 10px;
 }
 
+
+/* ------------------------ */
+/* Photos                 */
+/* ------------------------ */
+.photo-list img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.photo-select {
+    width: 100%;
+}

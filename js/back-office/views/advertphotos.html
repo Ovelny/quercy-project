@@ -3,7 +3,26 @@
 <h4>Annonce n°{{advert.id}} - {{advert.title_fr}}</h4>
 
 
-<button class="btn btn-success">Enregistrer</button>
+<div class="panel panel-default">
+    <div class="panel-heading">Ajouter une photo</div>
+    <div class="panel-body">
+        <form ng-submit="save()" id="addPhotoForm">
+            <div class="form-group">
+                <input type="file" class="photo-select" nv-file-select uploader="uploader" required />
+            </div>
+            <button class="btn btn-success">Envoyer</button>
+        </form>
+    </div>
+</div>
 
-<button class="btn btn-default" ng-click="back()">Retour</button>
+
+<div class="photo-list">
+    <div class=row ng-repeat="photo in photos track by $index" ng-if="$index%4==0">
+        <div class="col-sm-3" ng-repeat="i in [$index,$index+1,$index+2,$index+3]" ng-if="photos[i]!=undefined">
+            <img ng-src="{{photos[i].picture}}" />
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-default" ng-click="back()">Retour à l'annonce</button>
 

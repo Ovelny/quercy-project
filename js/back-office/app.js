@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('quercy-back', ['ngRoute', 'ngCookies', 'ui-notification']);
+    var app = angular.module('quercy-back', ['ngRoute', 'ngCookies', 'ui-notification', 'angularFileUpload']);
 
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider

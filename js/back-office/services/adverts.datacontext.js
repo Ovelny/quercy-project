@@ -10,7 +10,6 @@
             getHeatingTypes: getHeatingTypesImpl,
             getKitchenTypes: getKitchenTypesImpl,
             getProperties: getPropertiesImpl,
-            getPhotos: getPhotosImpl,
             getFavoriteProperties: getFavoritePropertiesImpl,
             getPropertyTypes: getPropertyTypesImpl,
             saveAdvert: saveAdvertImpl,
@@ -41,10 +40,6 @@
                 return $http.get(baseUrl + "properties/");
             else
                 return $http.get(baseUrl + "properties/?" + adv_type + filter);
-        }
-
-        function getPhotosImpl(advertid){
-
         }
 
         function getFavoritePropertiesImpl(){
