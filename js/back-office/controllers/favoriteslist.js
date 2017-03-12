@@ -5,13 +5,27 @@
 
                 $scope.advertsList = [];
 
-                datacontext.getFavoriteProperties()
-                    .then(function (res) {
-                        $scope.advertsList = res.data;
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    });
+                $scope.sortparams = {
+                    "orderby": "id",
+                    "asc": true,
+                    "sortfct": function (orderby) {
+                        if (orderby != $scope.sortparams.orderby)
+                            $scope.sortparams.orderby = orderby;
+                        else
+                            $scope.sortparams.asc = !$scope.sortparams.asc;
+                        $scope.refreshList();
+                    }
+                }
+                
+                $scope.refreshList = function(){
+                    datacontext.getFavoriteProperties($scope.sortparams.orderby, $scope.sortparams.asc)
+                        .then(function (res) {
+                            $scope.advertsList = res.data;
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                }
 
                 $scope.goToAdvert = function(advert){
                     // Si on clique sur le btn "enlever le cdc", on a les deux actions qui s'exécutent...
@@ -32,5 +46,7 @@
                             console.log(err);
                         });
                 }
+
+                $scope.refreshList();
             }]);
 })();

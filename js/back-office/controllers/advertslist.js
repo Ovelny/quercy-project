@@ -6,6 +6,18 @@
                 $scope.advertsList = [];
                 $scope.advertType = "";
 
+                $scope.sortparams = {
+                    "orderby": "id",
+                    "asc": true,
+                    "sortfct": function (orderby) {
+                        if (orderby != $scope.sortparams.orderby)
+                            $scope.sortparams.orderby = orderby;
+                        else
+                            $scope.sortparams.asc = !$scope.sortparams.asc;
+                        $scope.refreshList();
+                    }
+                }
+
                 $scope.filterOptions = [
                     {
                         "value": "id",
@@ -34,7 +46,7 @@
                         // only int allowed
                         $scope.filterText = "";
                     }
-                    datacontext.getProperties($scope.advertType, $scope.filterType, $scope.filterText)
+                    datacontext.getProperties($scope.advertType, $scope.filterType, $scope.filterText, $scope.sortparams.orderby, $scope.sortparams.asc)
                         .then(function (res) {
                             $scope.advertsList = res.data;
                         })

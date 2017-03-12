@@ -31,19 +31,21 @@
             return $http.get(baseUrl + "properties/"+id+"/");
         }
 
-        function getPropertiesImpl(advert_type, filter_type, filter_text) {
+        function getPropertiesImpl(advert_type, filter_type, filter_text, orderby, orderasc) {
             var adv_type = advert_type == "" ? "" : "advert_type=" + advert_type;
             var filter = filter_text == "" ? "" : filter_type + "=" + filter_text;
+            var ordering = "ordering=" + (orderasc ? '' : '-') + orderby;
             if (adv_type != "" && filter != "")
-                return $http.get(baseUrl + "properties/?" + adv_type + "&" + filter);
+                return $http.get(baseUrl + "properties/?" + adv_type + "&" + filter + "&" + ordering);
             else if (adv_type == "" && filter == "")
-                return $http.get(baseUrl + "properties/");
+                return $http.get(baseUrl + "properties/?" + ordering);
             else
-                return $http.get(baseUrl + "properties/?" + adv_type + filter);
+                return $http.get(baseUrl + "properties/?" + adv_type + filter + "&" + ordering);
         }
 
-        function getFavoritePropertiesImpl(){
-            return $http.get(baseUrl + "properties/?is_favorite=1");
+        function getFavoritePropertiesImpl(orderby, orderasc){
+            var ordering = (orderasc ? '' : '-') + orderby;
+            return $http.get(baseUrl + "properties/?is_favorite=True&ordering=" + ordering);
         }
 
         function saveAdvertImpl(advert){

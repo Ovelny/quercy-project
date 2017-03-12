@@ -56,8 +56,18 @@ textarea {
 }
 
 
+.sortable {
+    cursor: pointer;
+}
+.sortable > span.glyphicon {
+    font-size:10px;
+}
+/*.advertslist span.glyphicon-heart {
+    color: red;
+}*/
+
 /* ------------------------ */
-/* Photos                 */
+/* Photos                   */
 /* ------------------------ */
 .photo-select {
     width: 100%;

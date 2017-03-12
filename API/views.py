@@ -6,7 +6,7 @@ from rest_framework.authtoken.models import Token
 from django.http import HttpResponse
 import json
 
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated
 
 from django_filters.rest_framework import FilterSet, DjangoFilterBackend
@@ -33,8 +33,9 @@ class Property_Filter(FilterSet):
 class Property_Viewset(viewsets.ModelViewSet):
     queryset = Property.objects.all().order_by('id')
     serializer_class = Property_Serializer
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,filters.OrderingFilter,)
     filter_class = Property_Filter
+    ordering_fields = ('id', 'property_type', 'advert_type', 'nb_rooms', 'total_surface', 'price', 'postal_code', 'city')
 
 class Picture_Viewset(viewsets.ModelViewSet):
     queryset = Picture.objects.all().order_by('display_order')

@@ -13,6 +13,23 @@
             }
         }
     }]);
+    
+    app.directive("sortable", [function() {
+        return {
+            restrict: 'A',
+            transclude: true,
+            scope: {
+                sortfield: "=sortable",
+                params: "=sortParams"
+            },
+            controller: function($scope){
+                $scope.onclick = function(){
+                    $scope.params.sortfct($scope.sortfield);
+                }
+            },
+            templateUrl: 'js/back-office/partials/sortable.html'
+        }
+    }]);
 
     app.directive("fileinput", [function() {
         return {

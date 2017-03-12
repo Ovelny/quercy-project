@@ -1,0 +1,9 @@
+
+
+<div class="sortable" ng-click="onclick()">
+    <span ng-transclude></span>
+
+    <span class="glyphicon glyphicon-sort" aria-hidden="true" ng-if="params.orderby!=sortfield"></span>
+    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true" ng-if="params.orderby==sortfield && params.asc==false"></span>
+    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" ng-if="params.orderby==sortfield && params.asc==true"></span>
+</div>

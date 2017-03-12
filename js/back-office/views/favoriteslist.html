@@ -9,17 +9,17 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Numéro</th>
-                <th>Type d'annonce</th>
-                <th>Type de bien</th>
-                <th>Nb pièces</th>
-                <th>Surface</th>
-                <th class="text-right">
+                <th sortable="'id'" sort-params="sortparams">Numéro</th>
+                <th sortable="'advert_type'" sort-params="sortparams">Type d'annonce</th>
+                <th sortable="'property_type'" sort-params="sortparams">Type de bien</th>
+                <th sortable="'nb_rooms'" sort-params="sortparams">Nb pièces</th>
+                <th sortable="'total_surface'" sort-params="sortparams">Surface</th>
+                <th sortable="'price'" sort-params="sortparams" class="text-right">
                     Prix/loyer
                 </th>
                 <th></th>
-                <th>CP</th>
-                <th>Ville</th>
+                <th sortable="'postal_code'" sort-params="sortparams">CP</th>
+                <th sortable="'city'" sort-params="sortparams">Ville</th>
                 <th></th>
             </tr>
         </thead>

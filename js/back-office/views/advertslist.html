@@ -29,22 +29,22 @@
 
 <div ng-if="advertsList.length">
     <p><i>Cliquez sur une ligne pour accéder au détail de l'annonce.</i></p>
-    <table class="table table-hover">
+    <table class="table table-hover advertslist">
         <thead>
             <tr>
-                <th>Numéro</th>
-                <th ng-if="advertType == ''">Type d'annonce</th>
-                <th>Type de bien</th>
-                <th>Nombre de pièces</th>
-                <th>Surface</th>
-                <th class="text-right">
+                <th sortable="'id'" sort-params="sortparams">Numéro</th>
+                <th sortable="'advert_type'" sort-params="sortparams" ng-if="advertType == ''">Type d'annonce</th>
+                <th sortable="'property_type'" sort-params="sortparams">Type de bien</th>
+                <th sortable="'nb_rooms'" sort-params="sortparams">Nombre de pièces</th>
+                <th sortable="'total_surface'" sort-params="sortparams">Surface</th>
+                <th sortable="'price'" sort-params="sortparams" class="text-right">
                     <span ng-if="advertType == ''">Prix/Loyer</span>
                     <span ng-if="advertType == 'V'">Prix</span>
                     <span ng-if="advertType == 'L'">Loyer</span>
                 </th>
                 <th></th>
-                <th>CP</th>
-                <th>Ville</th>
+                <th sortable="'postal_code'" sort-params="sortparams">CP</th>
+                <th sortable="'city'" sort-params="sortparams">Ville</th>
                 <th></th>
             </tr>
         </thead>
@@ -59,8 +59,12 @@
                 <td></td>
                 <td>{{advert.postal_code}}</td>
                 <td>{{advert.city}}</td>
-                <td><img ng-if="advert.is_favorite" title="Cette annonce est marquée comme coup de coeur" 
-                    src="images/red-heart.png"></img></td>
+                <td>
+                    <img ng-if="advert.is_favorite" title="Cette annonce est marquée comme coup de coeur" 
+                    src="images/red-heart.png"></img>
+                    <!--<span ng-if="advert.is_favorite" title="Cette annonce est marquée comme coup de coeur" 
+                    class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
+                    </td>
             </tr>
         </tbody>
     </table>
