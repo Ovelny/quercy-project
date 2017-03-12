@@ -8,15 +8,15 @@
             ng-class="{true:'btn btn-success', false:'btn btn-warning'}[!advert.is_favorite]" 
             title="{{{true: '', false: 'Enregistrez l\'annonce pour pouvoir la marquer comme coup de coeur.'}[advert.id !== undefined]}}">
         <span ng-if="!advert.is_favorite" >
-            Marquer comme coup de coeur
+            <i class="fa fa-heart"></i> Marquer comme coup de coeur
         </span>
         <span ng-if="advert.is_favorite" >
-            Retirer le coup de coeur
+            <i class="fa fa-times-circle"></i> Retirer le coup de coeur
         </span>
     </button>
     <button class="btn btn-primary pull-right" ng-click="gestionPhotos()"
      title="{{{true: '', false: 'Enregistrez l\'annonce pour pouvoir gérer les photos rattachées.'}[advert.id !== undefined]}}">
-        Gérer les photos
+        <i class="fa fa-camera"></i> Gérer les photos
     </button>
 </fieldset>
 
@@ -208,13 +208,13 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" type="submit">Enregistrer</button>
+    <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> Enregistrer</button>
 
     <a class="btn btn-default" href="#!/annonces">
-        <span ng-if="advert.id">Retour à la liste</span>
-        <span ng-if="!advert.id">Annuler</span>
+        <span ng-if="advert.id"><i class="fa fa-bars"></i> Retour à la liste</span>
+        <span ng-if="!advert.id"><i class="fa fa-times"></i> Annuler</span>
     </a>
     
-    <button type="button" class="pull-right btn btn-danger" ng-click="delete()">Supprimer</button>
+    <button ng-if="advert.id" type="button" class="pull-right btn btn-danger" ng-click="delete()"><i class="fa fa-times fa-lg"></i> Supprimer</button>
 
 </form>
