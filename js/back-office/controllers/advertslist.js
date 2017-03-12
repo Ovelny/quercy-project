@@ -9,12 +9,8 @@
                 $scope.sortparams = {
                     "orderby": "id",
                     "asc": true,
-                    "sortfct": function (orderby) {
-                        if (orderby != $scope.sortparams.orderby)
-                            $scope.sortparams.orderby = orderby;
-                        else
-                            $scope.sortparams.asc = !$scope.sortparams.asc;
-                        $scope.refreshList();
+                    "onsort": function(){
+                        $scope.refreshList()
                     }
                 }
 

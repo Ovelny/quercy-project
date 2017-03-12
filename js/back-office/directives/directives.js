@@ -24,7 +24,11 @@
             },
             controller: function($scope){
                 $scope.onclick = function(){
-                    $scope.params.sortfct($scope.sortfield);
+                    if ($scope.sortfield != $scope.params.orderby)
+                        $scope.params.orderby = $scope.sortfield;
+                    else
+                        $scope.params.asc = !$scope.params.asc;
+                    $scope.params.onsort($scope.sortfield);
                 }
             },
             templateUrl: 'js/back-office/partials/sortable.html'
