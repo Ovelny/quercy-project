@@ -5,6 +5,8 @@
 
                 var customer_id = $routeParams["customer_id"];
                 $scope.customer = {};
+                $scope.estimates = [];
+                $scope.visit_reports = [];
 
                 function main(){
                     if (customer_id == "creation") {
@@ -22,6 +24,22 @@
                         datacontext.getCustomer(customer_id)
                             .then(function (res) {
                                 $scope.customer = res.data;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            });
+
+                        datacontext.getEstimatesByCustomer(customer_id)
+                            .then(function (res) {
+                                $scope.estimates = res.data;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            });
+
+                        datacontext.getVisitReportsByCustomer(customer_id)
+                            .then(function (res) {
+                                $scope.visit_reports = res.data;
                             })
                             .catch(function (err) {
                                 console.log(err);
@@ -71,6 +89,9 @@
                     }
                 }
                 
+                $scope.goToReport = function(id){
+                    $location.path('compte-rendu/'+id);
+                }
 
             }]);
 

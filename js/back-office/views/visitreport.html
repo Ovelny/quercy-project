@@ -1,0 +1,49 @@
+
+<h3>Compte-rendu de visite</h3>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Client</div>
+            <div class="panel-body">
+                <div>Id client : {{customer.id}}</div>
+                <div>{{customer.first_name}} {{customer.last_name}}</div>
+                <div>{{customer.address}}</div>
+                <div>{{customer.postal_code}} {{customer.city}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Bien visité</div>
+            <div class="panel-body">
+                <div>Bien n°{{property.id}} - {{property.advert_type == 'V' ? 'Vente' : 'Location'}}</div>
+                <div>{{property.title_fr}}</div>
+                <div>{{property.address}}</div>
+                <div>{{property.postal_code}} {{property.city}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="comments">Date de la visite</label>
+            <div>
+                <input type="date" class="form-control" id="date" ng-model="report.date" required></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="comments">Commentaires</label>
+    <div>
+        <textarea class="form-control" id="comments" ng-model="report.comments"></textarea>
+    </div>
+</div>
+
+<button class="btn btn-default" ng-click="back()">
+    Retour à la fiche client
+</button>

@@ -6,12 +6,13 @@
         var baseUrl = $rootScope.baseUrl;
 
         var service = {
-            getAdvert: getAdvertImpl,
             getHeatingTypes: getHeatingTypesImpl,
             getKitchenTypes: getKitchenTypesImpl,
+            getPropertyTypes: getPropertyTypesImpl,
+
+            getProperty: getPropertyImpl,
             getProperties: getPropertiesImpl,
             getFavoriteProperties: getFavoritePropertiesImpl,
-            getPropertyTypes: getPropertyTypesImpl,
             saveAdvert: saveAdvertImpl,
             createAdvert: createAdvertImpl,
             deleteAdvert: deleteAdvertImpl
@@ -27,7 +28,7 @@
             return $http.get(baseUrl + "property_types/");
         }
 
-        function getAdvertImpl(id){
+        function getPropertyImpl(id){
             return $http.get(baseUrl + "properties/"+id+"/");
         }
 

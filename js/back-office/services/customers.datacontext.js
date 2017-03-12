@@ -10,16 +10,21 @@
             getCustomers: getCustomersImpl,
             createCustomer: createCustomerImpl,
             saveCustomer: saveCustomerImpl,
-            deleteCustomer: deleteCustomerImpl
+            deleteCustomer: deleteCustomerImpl,
+
+            getEstimatesByCustomer: getEstimatesByCustomerImpl,
+            getVisitReportsByCustomer: getVisitReportsByCustomerImpl,
+            getVisitReport: getVisitReportImpl
         }
 
         function getCustomerImpl(id){
             return $http.get(baseUrl + "customers/" + id + "/");
         }
 
-        function getCustomersImpl(filter, orderby, orderasc) {
+        function getCustomersImpl(filterText, orderby, orderasc) {
             var ordering = (orderasc ? '' : '-') + orderby;
-            return $http.get(baseUrl + "customers/?ordering=" + ordering);
+            var filter = filterText == "" ? "" : "&search=" + filterText;
+            return $http.get(baseUrl + "customers/?ordering=" + ordering + filter);
         }
 
         function saveCustomerImpl(customer){
@@ -35,6 +40,17 @@
 
         function deleteCustomerImpl(id){
             return $http.delete(baseUrl + "customers/" + id + "/");
+        }
+
+        function getEstimatesByCustomerImpl(customer_id){
+            return $http.get(baseUrl + "estimates/?customer=" + customer_id);
+        }
+        function getVisitReportsByCustomerImpl(customer_id){
+            return $http.get(baseUrl + "visit_reports/?customer=" + customer_id);
+        }
+
+        function getVisitReportImpl(id){
+            return $http.get(baseUrl + "visit_reports/" + id + "/");
         }
 
         return service;

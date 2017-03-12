@@ -35,7 +35,7 @@
                             "kitchen_type": "Equipée"
                         };
                     } else {
-                        datacontext.getAdvert(advert_id)
+                        datacontext.getProperty(advert_id)
                             .then(function (res) {
                                 $scope.advert = res.data;
                                 // Champs de type "decimal" sont renvoyés en chaine, donc convertion

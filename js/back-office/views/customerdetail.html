@@ -62,9 +62,52 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
+
+    <div class="row">
+        <!-- Visites -->
+        <div class="col-sm-6">
+            <h4>Visites</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Date</th>
+                        <th>Commentaires</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="report in visit_reports" ng-click="goToReport(report.id)">
+                        <td>{{$index + 1}}</td>
+                        <td>{{report.date | date:'dd/MM/yy'}}</td>
+                        <td>{{report.comments}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Devis -->
+        <div class="col-sm-6">
+            <h4>Devis</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Date</th>
+                        <th>Commentaires</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="estimate in estimates">
+                        <td>{{$index + 1}}</td>
+                        <td>{{estimate.creation_date | date:'dd/MM/yy'}}</td>
+                        <td>{{estimate.comments}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> Enregistrer</button>
 

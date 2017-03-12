@@ -1,7 +1,14 @@
 
 <h3>Liste des clients</h3>
 
-<form class="form-inline form-filter">    
+<form class="form-inline form-filter">
+    <div class="form-group">
+        <!--<label for="filterText">Filtrer :</label>-->
+        <input type="text" class="form-control" id="filterText" ng-model="filterText" placeholder="Nom / Prénom" />
+    </div>
+    <button class="btn btn-primary" ng-click="refreshList()">Filtrer</button>
+    <button class="btn btn-default" ng-click="filterText = '';refreshList()">Effacer le filtre</button>
+    
     <button class="btn btn-success pull-right" ng-click="newCustomer()"><i class="fa fa-plus"></i> Nouvelle fiche</button>
 </form>
 

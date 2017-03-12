@@ -4,6 +4,7 @@
             function ($scope, datacontext, $location) {
 
                 $scope.list = [];
+                $scope.filterText = "";
 
                 $scope.sortparams = {
                     "orderby": "id",
@@ -22,7 +23,7 @@
                 }
 
                 $scope.refreshList = function(){
-                    datacontext.getCustomers("", $scope.sortparams.orderby, $scope.sortparams.asc)
+                    datacontext.getCustomers($scope.filterText, $scope.sortparams.orderby, $scope.sortparams.asc)
                         .then(function (res) {
                             $scope.list = res.data;
                         })

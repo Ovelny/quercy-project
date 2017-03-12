@@ -104,7 +104,7 @@
                     $location.path('annonce/'+advert_id);
                 }
 
-                advertdatacontext.getAdvert(advert_id)
+                advertdatacontext.getProperty(advert_id)
                     .then(function (res) {
                         $scope.advert = res.data;
                     })

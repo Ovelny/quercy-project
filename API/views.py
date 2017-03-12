@@ -71,19 +71,24 @@ class Customer_Viewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     queryset = Customer.objects.all()
     serializer_class = Customer_Serializer
-    filter_backends = (filters.OrderingFilter,)
+    filter_backends = (filters.OrderingFilter,filters.SearchFilter,)
     ordering_fields = ('id', 'last_name','first_name', 'postal_code', 'city')
-    # filter_fields = ('id','last_name','first_name',)
+    search_fields = ('last_name', 'first_name')
 
 class Visit_Report_Viewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    queryset = Visit_Report.objects.all()
+    queryset = Visit_Report.objects.all().order_by('date')
     serializer_class = Visit_Report_Serializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('prop', 'customer')
 
 class Estimate_Viewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    queryset = Estimate.objects.all()
+    queryset = Estimate.objects.all().order_by('creation_date')
     serializer_class = Estimate_Serializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('prop', 'customer')
+
 
 #------------------------------
 
