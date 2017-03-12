@@ -33,6 +33,14 @@
                 controller: 'advertphotos.controller',
                 templateUrl: 'js/back-office/views/advertphotos.html'
             })
+            .when('/clients', {
+                controller: 'customerslist.controller',
+                templateUrl: 'js/back-office/views/customerslist.html'
+            })
+            .when('/client/:customer_id', {
+                controller: 'customerdetail.controller',
+                templateUrl: 'js/back-office/views/customerdetail.html'
+            })
             .otherwise({ redirectTo: '/' });
 
 

@@ -55,7 +55,13 @@ textarea {
     margin-bottom: 10px;
 }
 
+.advertslist .fa-heart {
+    color: red;
+}
 
+/* ------------------------ */
+/* Sortable                 */
+/* ------------------------ */
 .sortable {
     cursor: pointer;
 }
@@ -84,7 +90,6 @@ textarea {
 .photo-container .panel {
     padding: 5px;
 }
-
 
 .photo-container .row {
     margin-left: -5px;

@@ -1,0 +1,35 @@
+
+<h3>Liste des clients</h3>
+
+<form class="form-inline form-filter">    
+    <button class="btn btn-success pull-right" ng-click="newCustomer()"><i class="fa fa-plus"></i> Nouvelle fiche</button>
+</form>
+
+<div ng-if="list.length">
+    <p><i>Cliquez sur une ligne pour accéder à la fiche client.</i></p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th sortable="'id'" sort-params="sortparams">Id</th>
+                <th sortable="'last_name'" sort-params="sortparams">Nom</th>
+                <th sortable="'first_name'" sort-params="sortparams">Prénom</th>
+                <th>Adresse</th>
+                <th sortable="'postal_code'" sort-params="sortparams">CP</th>
+                <th sortable="'city'" sort-params="sortparams">Ville</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="customer in list" ng-click="goToCustomer(customer.id)">
+                <td>{{customer.id}}</td>
+                <td>{{customer.last_name}}</td>
+                <td>{{customer.first_name}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.postal_code}}</td>
+                <td>{{customer.city}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-if="!list.length" class="form-group">
+    <i>Aucun client trouvé.</i>
+</div>

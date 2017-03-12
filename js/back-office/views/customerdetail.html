@@ -1,0 +1,78 @@
+
+<h3>Fiche client</h3>
+
+<form class="form-horizontal" ng-submit="save()">
+    <div class="row">
+        <!-- Général -->
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-sm-4">Id client</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" ng-model="customer.id" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="last_name">Nom</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="last_name" ng-model="customer.last_name" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="first_name">Prénom</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="first_name" ng-model="customer.first_name" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="phone_number">Téléphone</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="phone_number" ng-model="customer.phone_number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="mobile_phone">Mobile</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="mobile_phone" ng-model="customer.mobile_phone" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-sm-4" for="email_address">Mail</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="email" id="email_address" ng-model="customer.email_address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="address">Adresse</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="address" ng-model="customer.address" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="postal_code">CP</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="postal_code" ng-model="customer.postal_code" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="city">Ville</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="city" ng-model="customer.city" required />
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> Enregistrer</button>
+
+    <a class="btn btn-default" href="#!/clients">
+        <span ng-if="customer.id"><i class="fa fa-bars"></i> Retour à la liste</span>
+        <span ng-if="!customer.id"><i class="fa fa-times"></i> Annuler</span>
+    </a>
+    
+    <button ng-if="customer.id" type="button" class="pull-right btn btn-danger" ng-click="delete()"><i class="fa fa-times fa-lg"></i> Supprimer</button>
+
+</form>

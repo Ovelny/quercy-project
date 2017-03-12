@@ -106,7 +106,7 @@
                 }
                 
                 $scope.delete = function(){
-                    if (prompt("Voulez-vous vraiment supprimer définitivement cette annonce ? Tapez OUI pour confirmer","") == "OUI") {
+                    if (prompt("Voulez-vous vraiment supprimer définitivement cette annonce ? Tapez OUI pour confirmer.","") == "OUI") {
                         datacontext.deleteAdvert($scope.advert.id)
                             .then(function (res) {
                                 Notification.success("Annonce supprimée.");

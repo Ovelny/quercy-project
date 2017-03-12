@@ -71,6 +71,9 @@ class Customer_Viewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     queryset = Customer.objects.all()
     serializer_class = Customer_Serializer
+    filter_backends = (filters.OrderingFilter,)
+    ordering_fields = ('id', 'last_name','first_name', 'postal_code', 'city')
+    # filter_fields = ('id','last_name','first_name',)
 
 class Visit_Report_Viewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)

@@ -59,10 +59,8 @@
                 <td></td>
                 <td>{{advert.postal_code}}</td>
                 <td>{{advert.city}}</td>
-                <td>
-                    <img ng-if="advert.is_favorite" title="Cette annonce est marquée comme coup de coeur" 
-                    src="images/red-heart.png"></img>
-                </td>
+                <td><i ng-if="advert.is_favorite" title="Cette annonce est marquée comme coup de coeur"
+                        class="fa fa-heart"></i></td>
             </tr>
         </tbody>
     </table>
