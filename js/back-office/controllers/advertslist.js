@@ -3,6 +3,9 @@
         .controller('advertslist.controller', ['$scope', 'adverts.datacontext', '$location',
             function ($scope, datacontext, $location) {
 
+                var search = $location.search();
+                $scope.selectmode = search.mode == "selection";
+
                 $scope.advertsList = [];
                 $scope.advertType = "";
 
@@ -29,8 +32,16 @@
                 $scope.filterType = $scope.filterOptions[0].value;
                 $scope.filterText = "";
 
-                $scope.goToAdvert = function(advert_id){
-                    $location.path('annonce/' + advert_id);
+                $scope.clickAdvert = function(advert_id){
+                    if (!$scope.selectmode)
+                        $location.path('annonce/' + advert_id);
+                    else {
+                        window.sessionStorage.setItem("selectedProperty", advert_id);
+                        var path = window.sessionStorage.getItem("returnTo");
+                        delete window.sessionStorage["returnTo"];
+                        $location.$$search = {};
+                        $location.path(path);
+                    }
                 }
 
                 $scope.newAdvert = function(){

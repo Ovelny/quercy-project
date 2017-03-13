@@ -17,33 +17,46 @@
         <div class="panel panel-default">
             <div class="panel-heading">Bien visité</div>
             <div class="panel-body">
-                <div>Bien n°{{property.id}} - {{property.advert_type == 'V' ? 'Vente' : 'Location'}}</div>
-                <div>{{property.title_fr}}</div>
-                <div>{{property.address}}</div>
-                <div>{{property.postal_code}} {{property.city}}</div>
+                <div ng-if="property.id">
+                    <div>Bien n°{{property.id}} - {{property.advert_type == 'V' ? 'Vente' : 'Location'}}</div>
+                    <div>{{property.title_fr}}</div>
+                    <div>{{property.address}}</div>
+                    <div>{{property.postal_code}} {{property.city}}</div>
+                    <button ng-if="!report.id" class="btn btn-default margintop" ng-click="defineProperty()">Modifier le bien visité</button>
+                </div>
+                <div ng-if="!property.id">
+                    <button class="btn btn-success" ng-click="defineProperty()">Définir le bien visité</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-4">
-        <div class="form-group">
-            <label for="comments">Date de la visite</label>
-            <div>
-                <input type="date" class="form-control" id="date" ng-model="report.date" required></textarea>
+<form ng-submit="save()">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="comments">Date de la visite</label>
+                <div>
+                    <input type="date" class="form-control" id="date" ng-model="report_date" required />
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label for="comments">Commentaires</label>
-    <div>
-        <textarea class="form-control" id="comments" ng-model="report.comments"></textarea>
+    <div class="form-group">
+        <label for="comments">Commentaires</label>
+        <div>
+            <textarea class="form-control" id="comments" ng-model="report.comments" required></textarea>
+        </div>
     </div>
-</div>
 
-<button class="btn btn-default" ng-click="back()">
-    Retour à la fiche client
-</button>
+    <button class="btn btn-primary" type="submit" ng-disabled="!property.id || !report.comments"><i class="fa fa-check"></i> Enregistrer</button>
+    
+    <button class="btn btn-default" type="button" ng-click="back()">
+        Retour à la fiche client
+    </button>
+    
+    <button ng-if="report.id" type="button" class="pull-right btn btn-danger" ng-click="delete()"><i class="fa fa-times fa-lg"></i> Supprimer</button>
+</form>
+

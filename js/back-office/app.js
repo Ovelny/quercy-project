@@ -41,7 +41,7 @@
                 controller: 'customerdetail.controller',
                 templateUrl: 'js/back-office/views/customerdetail.html'
             })
-            .when('/compte-rendu/:report_id', {
+            .when('/client/:customer_id/compte-rendu/:report_id', {
                 controller: 'visitreport.controller',
                 templateUrl: 'js/back-office/views/visitreport.html'
             })
