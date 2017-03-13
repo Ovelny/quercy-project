@@ -14,7 +14,10 @@
 
             getEstimatesByCustomer: getEstimatesByCustomerImpl,
             getVisitReportsByCustomer: getVisitReportsByCustomerImpl,
-            getVisitReport: getVisitReportImpl
+            getVisitReport: getVisitReportImpl,
+            saveVisitReport: saveVisitReportImpl,
+            createVisitReport: createVisitReportImpl,
+            deleteVisitReport: deleteVisitReportImpl
         }
 
         function getCustomerImpl(id){
@@ -28,9 +31,7 @@
         }
 
         function saveCustomerImpl(customer){
-            var id = customer.id;
-            var data = customer;
-            return $http.put(baseUrl + "customers/"+id+"/", data);
+            return $http.put(baseUrl + "customers/" + customer.id + "/", customer);
         }
 
         function createCustomerImpl(customer){
@@ -51,6 +52,15 @@
 
         function getVisitReportImpl(id){
             return $http.get(baseUrl + "visit_reports/" + id + "/");
+        }
+        function saveVisitReportImpl(report){
+            return $http.put(baseUrl + "visit_reports/" + report.id + "/", report);
+        }
+        function createVisitReportImpl(report){
+            return $http.post(baseUrl + "visit_reports/", report);
+        }
+        function deleteVisitReportImpl(id){
+            return $http.delete(baseUrl + "visit_reports/" + id + "/");
         }
 
         return service;

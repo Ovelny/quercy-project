@@ -90,7 +90,7 @@
                 }
                 
                 $scope.goToReport = function(id){
-                    $location.path('compte-rendu/'+id);
+                    $location.path('client/'+$scope.customer.id+'/compte-rendu/'+id);
                 }
 
             }]);

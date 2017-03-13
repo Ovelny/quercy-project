@@ -59,6 +59,10 @@ textarea {
     color: red;
 }
 
+.margintop {
+    margin-top: 15px;
+}
+
 /* ------------------------ */
 /* Sortable                 */
 /* ------------------------ */

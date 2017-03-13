@@ -66,14 +66,18 @@
 
 
     <div class="row">
-        <!-- Visites -->
         <div class="col-sm-6">
             <h4>Visites</h4>
-            <table class="table table-hover">
+            <button class="btn btn-success" type="button" ng-disabled="!customer.id" ng-click="goToReport('creation')"
+            title="{{{true: '', false: 'Enregistrez le client pour pouvoir ajouter un compte-rendu.'}[customer.id !== undefined]}}">
+                <i class="fa fa-plus"></i> Ajouter un compte-rendu de visite
+            </button>
+            <table class="table table-hover" ng-if="visit_reports.length > 0">
                 <thead>
                     <tr>
                         <th>N°</th>
                         <th>Date</th>
+                        <th>Bien</th>
                         <th>Commentaires</th>
                     </tr>
                 </thead>
@@ -81,16 +85,23 @@
                     <tr ng-repeat="report in visit_reports" ng-click="goToReport(report.id)">
                         <td>{{$index + 1}}</td>
                         <td>{{report.date | date:'dd/MM/yy'}}</td>
+                        <td>{{report.prop}}</td>
                         <td>{{report.comments}}</td>
                     </tr>
                 </tbody>
             </table>
+            <div ng-if="visit_reports.length < 1" class="table">
+                <!--<i>Aucun compte-rendu de visite enregistré.</i>-->
+            </div>
         </div>
 
-        <!-- Devis -->
         <div class="col-sm-6">
             <h4>Devis</h4>
-            <table class="table table-hover">
+            <button class="btn btn-success" type="button" ng-disabled="!customer.id"
+                title="{{{true: '', false: 'Enregistrez le client pour pouvoir ajouter un devis.'}[customer.id !== undefined]}}">
+                <i class="fa fa-plus"></i> Ajouter un devis
+            </button>
+            <table class="table table-hover" ng-if="estimates.length > 0">
                 <thead>
                     <tr>
                         <th>N°</th>
