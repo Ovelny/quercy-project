@@ -5,8 +5,7 @@
 
 .google-maps {
     position: relative;
-    padding-bottom: 75%; // This is the aspect ratio
-    height: 0;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -15,7 +14,7 @@
     top: 0;
     left: 0;
     width: 100% !important;
-    height: 25% !important;
+    height: 100% !important;
 }
 
 .footer {
@@ -30,7 +29,7 @@
 
 
 .lib-panel {
-    margin-bottom: 20Px;
+    margin-bottom: 20px;
 }
 .lib-panel img {
     width: 100%;

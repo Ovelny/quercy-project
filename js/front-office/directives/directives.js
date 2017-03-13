@@ -41,4 +41,12 @@
 
     });
 
+    app.directive('presentation', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'js/front-office/views/presentation.html'
+        }
+
+    });
+
 })();
