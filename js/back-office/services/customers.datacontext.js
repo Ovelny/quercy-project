@@ -13,12 +13,19 @@
             deleteCustomer: deleteCustomerImpl,
 
             getEstimatesByCustomer: getEstimatesByCustomerImpl,
+            getEstimate: getEstimateImpl,
+            saveEstimate: saveEstimateImpl,
+            createEstimate: createEstimateImpl,
+            deleteEstimate: deleteEstimateImpl,
+
             getVisitReportsByCustomer: getVisitReportsByCustomerImpl,
             getVisitReport: getVisitReportImpl,
             saveVisitReport: saveVisitReportImpl,
             createVisitReport: createVisitReportImpl,
             deleteVisitReport: deleteVisitReportImpl
         }
+
+        // -- Customers
 
         function getCustomerImpl(id){
             return $http.get(baseUrl + "customers/" + id + "/");
@@ -43,13 +50,29 @@
             return $http.delete(baseUrl + "customers/" + id + "/");
         }
 
+        // -- Estimates
+
         function getEstimatesByCustomerImpl(customer_id){
             return $http.get(baseUrl + "estimates/?customer=" + customer_id);
         }
+        function getEstimateImpl(id){
+            return $http.get(baseUrl + "estimates/" + id + "/");
+        }
+        function saveEstimateImpl(estimate){
+            return $http.put(baseUrl + "estimates/" + estimate.id + "/", estimate);
+        }
+        function createEstimateImpl(estimate){
+            return $http.post(baseUrl + "estimates/", estimate);
+        }
+        function deleteEstimateImpl(id){
+            return $http.delete(baseUrl + "estimates/" + id + "/");
+        }
+
+        // -- Visit reports
+
         function getVisitReportsByCustomerImpl(customer_id){
             return $http.get(baseUrl + "visit_reports/?customer=" + customer_id);
         }
-
         function getVisitReportImpl(id){
             return $http.get(baseUrl + "visit_reports/" + id + "/");
         }

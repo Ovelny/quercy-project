@@ -45,6 +45,10 @@
                 controller: 'visitreport.controller',
                 templateUrl: 'js/back-office/views/visitreport.html'
             })
+            .when('/client/:customer_id/devis/:estimate_id', {
+                controller: 'estimate.controller',
+                templateUrl: 'js/back-office/views/estimate.html'
+            })
             .otherwise({ redirectTo: '/' });
 
 

@@ -1,16 +1,17 @@
 (function () {
     angular.module('quercy-back')
-        .controller('visitreport.controller', ['$scope', '$routeParams', '$location', 'customers.datacontext', 
+        .controller('estimate.controller', ['$scope', '$routeParams', '$location', 'customers.datacontext', 
                     'adverts.datacontext', 'Notification',
             function ($scope, $routeParams, $location, datacontext, advertsdatacontext, Notification) {
 
-                var report_id = $routeParams["report_id"];
+                var estimate_id = $routeParams["estimate_id"];
                 var customer_id = $routeParams["customer_id"];
-                $scope.report = {};
+                $scope.estimate = {};
                 $scope.customer = {};
                 $scope.property = {};  
 
-                $scope.report_date = new Date();              
+                $scope.request_date = new Date();              
+                $scope.creation_date = new Date();              
 
                 function main(){
                     datacontext.getCustomer(customer_id)
@@ -20,10 +21,11 @@
                         .catch(function (err) {
                             console.log(err);
                         });
-                    if (report_id == "creation") {
-                        $scope.report = {
-                            "date": "",
-                            "comments": "",
+                    if (estimate_id == "creation") {
+                        $scope.estimate = {
+                            "request_date": "",
+                            "creation_date": "",
+                            "estimated_amount": 0,
                             "customer": customer_id,
                             "prop": 0
                         };
@@ -31,7 +33,7 @@
                             advertsdatacontext.getProperty(window.sessionStorage["selectedProperty"])
                                 .then(function (res) {
                                     $scope.property = res.data;
-                                    $scope.report.prop = $scope.property.id;
+                                    $scope.estimate.prop = $scope.property.id;
                                 })
                                 .catch(function (err) {
                                     console.log(err);
@@ -41,11 +43,14 @@
                                 });
                         }
                     } else {
-                        datacontext.getVisitReport(report_id)
+                        datacontext.getEstimate(estimate_id)
                             .then(function (res) {
-                                $scope.report = res.data;
-                                $scope.report_date = new Date($scope.report.date);
-                                advertsdatacontext.getProperty($scope.report.prop)
+                                $scope.estimate = res.data;
+                                $scope.estimate.estimated_amount = Number($scope.estimate.estimated_amount); // Champs de type "decimal" sont renvoyés en chaine, donc convertion
+                                $scope.request_date = new Date($scope.estimate.request_date); 
+                                if ($scope.estimate.creation_date != null)
+                                    $scope.creation_date = new Date($scope.estimate.creation_date);
+                                advertsdatacontext.getProperty($scope.estimate.prop)
                                     .then(function (res) {
                                         $scope.property = res.data;
                                     })
@@ -63,10 +68,11 @@
 
 
                 $scope.save = function(){
-                    $scope.report.date = $scope.report_date.toISOString().substring(0, 10);
-                    if ($scope.report.id) {
-                        // Fiche existante
-                        datacontext.saveVisitReport($scope.report)
+                    $scope.estimate.request_date = $scope.request_date.toISOString().substring(0, 10);
+                    $scope.estimate.creation_date = $scope.creation_date.toISOString().substring(0, 10);
+                    if ($scope.estimate.id) {
+                        // Devis existant
+                        datacontext.saveEstimate($scope.estimate)
                             .then(function (res) {
                                 Notification.success("Modifications enregistrées !");
                             })
@@ -75,25 +81,24 @@
                                 console.log(err);
                             });
                     } else {
-                        // Nouvelle fiche
-                        datacontext.createVisitReport($scope.report)
+                        // Nouveau devis
+                        datacontext.createEstimate($scope.estimate)
                             .then(function (res) {
-                                Notification.success("Compte-rendu enregistré !");
+                                Notification.success("Devis enregistré !");
                                 $location.path('client/' + customer_id);
                             })
                             .catch(function (err) {
                                 Notification.error("Une erreur est survenue lors de l'enregistrement.");
                                 console.log(err);
                             });
-                        
                     }
                 }
 
                 $scope.delete = function(){
-                    if (prompt("Voulez-vous vraiment supprimer définitivement ce compte-rendu de visite ? Tapez OUI pour confirmer.","") == "OUI") { 
-                        datacontext.deleteVisitReport($scope.report.id)
+                    if (prompt("Voulez-vous vraiment supprimer définitivement ce devis ? Tapez OUI pour confirmer.","") == "OUI") { 
+                        datacontext.deleteEstimate($scope.estimate.id)
                             .then(function (res) {
-                                Notification.success("Compte-rendu supprimé.");
+                                Notification.success("Devis supprimé.");
                                 $location.path('client/' + customer_id);
                             })
                             .catch(function (err) {

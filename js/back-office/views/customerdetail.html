@@ -97,7 +97,7 @@
 
         <div class="col-sm-6">
             <h4>Devis</h4>
-            <button class="btn btn-success" type="button" ng-disabled="!customer.id"
+            <button class="btn btn-success" type="button" ng-disabled="!customer.id" ng-click="goToEstimate('creation')"
                 title="{{{true: '', false: 'Enregistrez le client pour pouvoir ajouter un devis.'}[customer.id !== undefined]}}">
                 <i class="fa fa-plus"></i> Ajouter un devis
             </button>
@@ -105,15 +105,17 @@
                 <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Date</th>
-                        <th>Commentaires</th>
+                        <th>Date demande</th>
+                        <th>Date création</th>
+                        <th>Montant estimé</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="estimate in estimates">
+                    <tr ng-repeat="estimate in estimates" ng-click="goToEstimate(estimate.id)">
                         <td>{{$index + 1}}</td>
+                        <td>{{estimate.request_date | date:'dd/MM/yy'}}</td>
                         <td>{{estimate.creation_date | date:'dd/MM/yy'}}</td>
-                        <td>{{estimate.comments}}</td>
+                        <td>{{estimate.estimated_amount}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -93,6 +93,10 @@
                     $location.path('client/'+$scope.customer.id+'/compte-rendu/'+id);
                 }
 
+                $scope.goToEstimate = function(id){
+                    $location.path('client/'+$scope.customer.id+'/devis/'+id);
+                }
+
             }]);
 
 })();

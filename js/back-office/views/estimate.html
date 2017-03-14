@@ -1,0 +1,77 @@
+
+<h3>Devis</h3>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Client</div>
+            <div class="panel-body">
+                <div>Id client : {{customer.id}}</div>
+                <div>{{customer.first_name}} {{customer.last_name}}</div>
+                <div>{{customer.address}}</div>
+                <div>{{customer.postal_code}} {{customer.city}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Bien estimé</div>
+            <div class="panel-body">
+                <div ng-if="property.id">
+                    <div>Bien n°{{property.id}} - {{property.advert_type == 'V' ? 'Vente' : 'Location'}}</div>
+                    <div>{{property.title_fr}}</div>
+                    <div>{{property.address}}</div>
+                    <div>{{property.postal_code}} {{property.city}}</div>
+                </div>
+                <div ng-if="!property.id">
+                    <b><p>Attention ! Vous devez d'abord créer la fiche du bien depuis le menu "gestion des annonces". </p>
+                    <p>N'oubliez pas de définir son statut comme "en attente".</p></b>
+                    <button class="btn btn-success" ng-click="defineProperty()">Définir le bien estimé</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form ng-submit="save()">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="request_date">Date demande</label>
+                <div>
+                    <input type="date" class="form-control" id="request_date" ng-model="request_date" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="creation_date">Date création</label>
+                <div>
+                    <input type="date" class="form-control" id="creation_date" ng-model="creation_date" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="estimated_amount">Montant estimé</label>
+                <div>
+                    <input type="number" class="form-control" id="estimated_amount" ng-model="estimate.estimated_amount" required />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" ng-disabled="!property.id"><i class="fa fa-check"></i> Enregistrer</button>
+    
+    <button class="btn btn-default" type="button" ng-click="back()">
+        Retour à la fiche client
+    </button>
+    
+    <button ng-if="estimate.id" type="button" class="pull-right btn btn-danger" ng-click="delete()"><i class="fa fa-times fa-lg"></i> Supprimer</button>
+
+</form>
+

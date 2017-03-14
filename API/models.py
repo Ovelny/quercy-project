@@ -105,7 +105,7 @@ class Estimate(models.Model):
     prop = models.ForeignKey(Property, on_delete=models.PROTECT)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     request_date = models.DateField()
-    creation_date = models.DateField()
+    creation_date = models.DateField(blank=True, null=True)
     estimated_amount = models.DecimalField(max_digits=11, decimal_places=2)
 
 # -- Other tables

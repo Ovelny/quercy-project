@@ -13,7 +13,7 @@
                     if (advert_id == "creation") {
                         $scope.advert = {
                             "advert_type": "V",
-                            "state": "L",
+                            "state": "A", // En attente par défaut.
                             "title_fr": "",
                             "title_en": "",
                             "description_fr": "",

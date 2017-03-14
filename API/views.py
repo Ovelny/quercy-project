@@ -35,7 +35,7 @@ class Property_Viewset(viewsets.ModelViewSet):
     serializer_class = Property_Serializer
     filter_backends = (DjangoFilterBackend,filters.OrderingFilter,)
     filter_class = Property_Filter
-    ordering_fields = ('id', 'property_type', 'advert_type', 'nb_rooms', 'total_surface', 'price', 'postal_code', 'city')
+    ordering_fields = ('id', 'property_type', 'advert_type', 'state', 'nb_rooms', 'total_surface', 'price', 'postal_code', 'city')
 
 class Picture_Viewset(viewsets.ModelViewSet):
     queryset = Picture.objects.all().order_by('display_order')
