@@ -96,14 +96,14 @@ class Customer(models.Model):
     # related_name = "The name to use for the relation from the related object back to this one."
 
 class Visit_Report(models.Model):
-    prop = models.ForeignKey(Property, on_delete=models.PROTECT)
-    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
+    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateField()
     comments = models.TextField()
 
 class Estimate(models.Model):
-    prop = models.ForeignKey(Property, on_delete=models.PROTECT)
-    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
+    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     request_date = models.DateField()
     creation_date = models.DateField(blank=True, null=True)
     estimated_amount = models.DecimalField(max_digits=11, decimal_places=2)

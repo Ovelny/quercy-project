@@ -88,7 +88,7 @@
                             });
                     }
                 }
-                
+
                 $scope.goToReport = function(id){
                     $location.path('client/'+$scope.customer.id+'/compte-rendu/'+id);
                 }
