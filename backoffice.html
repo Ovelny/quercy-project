@@ -24,8 +24,9 @@
     <script src="dependencies/angular-file-upload.min.js"></script>
     <script src="dependencies/angular-route.min.js"></script>
     <script src="dependencies/angular-animate.min.js"></script>
-    <script src="dependencies/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="dependencies/angular-ui-notification.min.js"></script>
+    <script src="dependencies/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="dependencies/jquery-3.1.1.min.js"></script>
 
     <script src="js/back-office/app.js"></script>
     <script src="js/back-office/directives/directives.js"></script>
@@ -46,6 +47,18 @@
     <script src="js/back-office/services/company.datacontext.js"></script>
     <script src="js/back-office/services/customers.datacontext.js"></script>
     <script src="js/back-office/services/photos.datacontext.js"></script>
+
+    <script>
+    $(window).resize(function() {
+        var path = $(this);
+        var contW = path.width();
+        if (contW >= 751){
+            document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+        } else {
+            document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
+        }
+    });
+    </script>
 
 </body>
 

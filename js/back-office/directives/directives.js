@@ -14,6 +14,22 @@
         }
     }]);
     
+    app.directive('menuToggle', [function(){
+       return {
+           restrict: 'A',
+           link: function(scope, element, attributes){
+                element.bind('click', function() {
+                    var elem = document.getElementById("sidebar-wrapper");
+                    left = window.getComputedStyle(elem,null).getPropertyValue("left");
+                    if (left == "250px")
+                        document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
+                    else if (left == "-250px")
+                        document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+                });
+           }
+       }
+    }])
+
     app.directive("sortable", [function() {
         return {
             restrict: 'A',
