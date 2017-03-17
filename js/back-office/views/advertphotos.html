@@ -23,7 +23,7 @@
     Utilisez les flèches pour modifier l'ordre.</p>
 
 <div class="row" ng-repeat="photo in photos track by $index" ng-if="$index%4==0">
-    <div class="col-sm-3" ng-repeat="i in [$index,$index+1,$index+2,$index+3]" ng-if="photos[i]!=undefined">
+    <div class="col-md-3 col-xs-6" ng-repeat="i in [$index,$index+1,$index+2,$index+3]" ng-if="photos[i]!=undefined">
         <div class="photo-container">
             <div class="row">
                 <div class="col-xs-3">

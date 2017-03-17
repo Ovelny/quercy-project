@@ -9,11 +9,11 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th sortable="'id'" sort-params="sortparams">Numéro</th>
+                <th sortable="'id'" sort-params="sortparams">N°</th>
                 <th sortable="'advert_type'" sort-params="sortparams">Type d'annonce</th>
                 <th sortable="'property_type'" sort-params="sortparams">Type de bien</th>
-                <th sortable="'nb_rooms'" sort-params="sortparams">Nb pièces</th>
-                <th sortable="'total_surface'" sort-params="sortparams">Surface</th>
+                <th sortable="'nb_rooms'" sort-params="sortparams" class="hidden-xs">Nb pièces</th>
+                <th sortable="'total_surface'" sort-params="sortparams" class="hidden-xs">Surface</th>
                 <th sortable="'price'" sort-params="sortparams" class="text-right">
                     Prix/loyer
                 </th>
@@ -28,8 +28,8 @@
                 <td>{{advert.id}}</td>
                 <td>{{advert.advert_type == 'L' ? 'Location' : 'Vente'}}</td>
                 <td>{{advert.property_type}}</td>
-                <td>{{advert.nb_rooms}}</td>
-                <td>{{advert.total_surface}}</td>
+                <td class="hidden-xs">{{advert.nb_rooms}}</td>
+                <td class="hidden-xs">{{advert.total_surface}}</td>
                 <td class="text-right">{{advert.price}} €</td>
                 <td></td>
                 <td>{{advert.postal_code}}</td>

@@ -83,8 +83,9 @@
             $rootScope.$on('$routeChangeStart', function (event, next, current) {
                 // redirect to login page if not logged in and trying to access a restricted page
                 var loggedIn = ($rootScope.currentUser !== undefined);
-                if (!loggedIn && $location.path() != '/login') {
-                    $location.path('/login');
+                var path = $location.path();
+                if (!loggedIn && path != '/login') {
+                    $location.path('/login').search("returnTo", path);
                 }
             });
         }]);

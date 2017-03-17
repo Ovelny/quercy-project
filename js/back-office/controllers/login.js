@@ -22,7 +22,12 @@
                     .then(function (res) {
                         if (res.data.token) {
                             authenticationService.setAuth($scope.username, res.data.token);
-                            $location.path('accueil');
+                            if ($location.$$search.returnTo) {
+                                var p = $location.$$search.returnTo;
+                                $location.$$search = {};
+                                $location.path(p);
+                            } else
+                                $location.path('accueil');
                         }
                     })
                     .catch(function (err) {
