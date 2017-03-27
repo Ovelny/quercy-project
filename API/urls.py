@@ -25,8 +25,6 @@ router.register(r'company_info', views.Company_Info_Viewset)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    # url(r'^properties/$', views.Property_List.as_view()),
-    # url(r'^properties/(?P<pk>[0-9]+)/$', views.Property_Detail.as_view()),
     # url(r'^authenticate', obtain_auth_token) # vue gérée par le rest_framework.
     url(r'^authenticate', views.ObtainExpiringAuthToken.as_view())
 ]
