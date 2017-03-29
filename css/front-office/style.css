@@ -104,13 +104,19 @@ hr {
 .col-centered {
     display:inline-block;
     float: none;
-    /* reset the text-align */
     text-align:left;
-    /* inline-block space fix */
     margin-right:-4px;
 }
 
 .col-nopadding {
     padding: 0 !important;
     /*margin: 0 !important;*/
+}
+
+.team-members {
+    margin-bottom: 50px;
+}
+
+legend {
+    padding-left: 50px;
 }

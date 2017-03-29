@@ -41,6 +41,14 @@
 
     });
 
+    app.directive('meetTheTeam', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'js/front-office/partials/meet-the-team.html'
+        }
+
+    });
+
     app.directive('presentation', function () {
         return {
             restrict: 'E',
