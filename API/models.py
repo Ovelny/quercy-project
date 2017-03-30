@@ -60,6 +60,16 @@ class Picture(models.Model):
     # file will be uploaded to MEDIA_ROOT/uploads
     picture = models.ImageField(upload_to="uploads/")
 
+# Receive the post_delete signal and delete the file associated with the model instance.
+from django.db.models.signals import post_delete
+from django.dispatch.dispatcher import receiver
+
+@receiver(post_delete, sender=Picture)
+def picture_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.picture.delete(False)
+
+
 class Property_Type(models.Model):
     label = models.CharField(max_length=20, unique=True)
 
