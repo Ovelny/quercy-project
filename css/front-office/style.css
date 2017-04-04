@@ -90,7 +90,6 @@ hr {
     visibility: hidden;
 }
 
-
 .text-justify {
     text-align: justify;
     -moz-text-align-last: center;
@@ -118,5 +117,5 @@ hr {
 }
 
 legend {
-    padding-left: 50px;
+    margin-top: 30px;
 }

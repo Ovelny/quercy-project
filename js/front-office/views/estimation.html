@@ -5,42 +5,181 @@
     </div>
 </div>
 
-<form class="form-horizontal">
-    <fieldset>
+<div class="container">
 
-        <!-- Form Name -->
-        <legend>Vous possédez un bien immmobilier que vous souhaitez faire estimer ?</legend>
+    <form class="well form-horizontal" action=" " method="post" id="contact_form">
+        <fieldset>
 
-        <!-- Multiple Radios (inline) -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="radios">Précisez la nature de votre demande :</label>
-            <div class="col-md-4">
-                <label class="radio-inline" for="radios-0">
-      <input name="radios" id="radios-0" value="Ja" checked="checked" type="radio">
-      Location
-    </label>
-                <label class="radio-inline" for="radios-1">
-      <input name="radios" id="radios-1" value="Nee" type="radio">
-      Vente
-    </label>
+            <!-- Form Name -->
+            <legend>Vous possédez un bien que vous souhaitez faire estimer ?</legend>
+
+            <div class="form-group">
+                <div class="col-md-4 text-center">
+                    <input type="radio" name="type-bien" value="location"> Location
+                </div>
+                <div class="col-md-4">
+                    <input type="radio" name="type-bien" value="vente"> Vente
+                </div>
             </div>
-        </div>
 
-    </fieldset>
-</form>
+            <legend>Descriptif du bien</legend>
 
-<form class="form-horizontal">
-    <fieldset>
-
-        <!-- Form Name -->
-        <legend>Descriptif du bien</legend>
-
-        <!-- Multiple Radios (inline) -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="radios">Précisez la nature de votre demande :</label>
-            <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Bien proposé</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <select name="state" class="form-control selectpicker">
+                            <option value=" ">Sélectionnez votre type de bien</option>
+                            <option>Maison</option>
+                            <option>Appartement</option>
+                            <option >Terrain</option>
+                            <option >Garage</option>
+                            <option >Autre (précisez en description)</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
 
-    </fieldset>
-</form>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Surface habitable</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-th-large" aria-hidden="true"></i></span>
+                        <input type="number" name="surface-habitable" min="0" class="form-control" placeholder="au m2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Surface terrain</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-th-large" aria-hidden="true"></i></span>
+                        <input type="number" name="surface-terrain" min="0" class="form-control" placeholder="au m2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Nombre de pièces</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-shower" aria-hidden="true"></i></span>
+                        <input type="number" name="nb-pieces" min="0" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Ville</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                        <input type="text" name="ville" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Code postal</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                        <input type="number" min="0" name="code-postal" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Précisions</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                        <textarea class="form-control" name="precisions" placeholder="Précisez ici des éléments concernant votre bien"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <legend>Vos coordonnées</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Votre nom</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input type="text" name="nom" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Prénom</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input type="text" name="prenom" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Adresse</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                        <input type="text" name="adresse" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Code postal</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                        <input type="number" min="0" name="code-postal" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Ville</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                        <input type="text" name="ville" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Téléphone</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <input type="tel" name="telephone" class="form-control" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Email</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4 text-center">
+                    <button type="submit" class="btn btn-lg btn-success">Envoyer <span class="fa fa-paper-plane" aria-hidden="true"></span></button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
