@@ -1,5 +1,5 @@
 .jumbotron {
-    max-height: 200px;
+    max-height: 300px;
     margin-bottom: 0;
 }
 
@@ -118,4 +118,19 @@ hr {
 
 legend {
     margin-top: 30px;
+}
+
+.jumbotron-bg {
+    background-image: url("/images/jumbotron-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.jumbotron-description {
+    background-color: rgba(0,0,0,.30);
+    padding: 5px 0px;
+    border-radius: 3px;
+    color:#fff;
+    text-align: center;
 }
