@@ -48,6 +48,15 @@
                 CONTACT_TITRE: "Contact",
                 CONTACT_MESSAGE: "Votre message",
 
+                NAVBAR_ACCUEIL: "Accueil",
+                NAVBAR_RECHERCHE: "Recherche",
+                NAVBAR_PRESENTATION: "Présentation",
+                NAVBAR_VENTE: "Biens en vente",
+                NAVBAR_LOCATION: "Locations",
+                NAVBAR_COUPS_DE_COEUR: "Coups de coeur",
+                NAVBAR_ESTIMATION: "Estimation",
+                NAVBAR_CONTACT: "Contact",
+
                 PROPERTY_TYPE_Appartement: "Appartement",
                 PROPERTY_TYPE_Immeuble: "Immeuble",
                 PROPERTY_TYPE_Maison: "Maison",
@@ -97,6 +106,15 @@
 
                 CONTACT_TITRE: "Contact",
                 CONTACT_MESSAGE: "Your message",
+
+                NAVBAR_ACCUEIL: "Home",
+                NAVBAR_RECHERCHE: "Search",
+                NAVBAR_PRESENTATION: "Our company",
+                NAVBAR_VENTE: "Properties to sell",
+                NAVBAR_LOCATION: "Rent",
+                NAVBAR_COUPS_DE_COEUR: "Our selection",
+                NAVBAR_ESTIMATION: "Estimate",
+                NAVBAR_CONTACT: "Contact",
 
                 PROPERTY_TYPE_Appartement: "Apartment",
                 PROPERTY_TYPE_Immeuble: "Building",
