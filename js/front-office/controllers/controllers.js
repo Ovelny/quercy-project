@@ -78,4 +78,17 @@
 
     });
 
+    app.controller('estimationController', ['$scope','datacontext', function ($scope, datacontext) {
+        
+        $scope.property_types = [];  
+
+        datacontext.getPropertyTypes()
+            .then(function (res) {
+                $scope.property_types = res.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+            
+    }]);
 })();

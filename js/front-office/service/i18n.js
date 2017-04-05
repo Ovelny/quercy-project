@@ -38,7 +38,12 @@
                 ESTIMATION_COORDONNEES_PRENOM: "Prénom",
 
                 CONTACT_TITRE: "Contact",
-                CONTACT_MESSAGE: "Votre message"
+                CONTACT_MESSAGE: "Votre message",
+
+                PROPERTY_TYPE_Appartement: "Appartement",
+                PROPERTY_TYPE_Immeuble: "Immeuble",
+                PROPERTY_TYPE_Maison: "Maison",
+                PROPERTY_TYPE_Terrain: "Terrain",
             })
             .translations('en', {
                 NOS_VALEURS: "Our values",
@@ -72,7 +77,12 @@
                 ESTIMATION_COORDONNEES_PRENOM: "First name",
 
                 CONTACT_TITRE: "Contact",
-                CONTACT_MESSAGE: "Your message"
+                CONTACT_MESSAGE: "Your message",
+
+                PROPERTY_TYPE_Appartement: "Apartment",
+                PROPERTY_TYPE_Immeuble: "Building",
+                PROPERTY_TYPE_Maison: "House",
+                PROPERTY_TYPE_Terrain: "Plot",
 
             });
     }]);

@@ -29,13 +29,10 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                        <select name="state" class="form-control selectpicker">
-                            <option value=" " translate="ESTIMATION_DESCRIPTIF_BIEN_SELECT"></option>
-                            <option>Maison</option>
-                            <option>Appartement</option>
-                            <option >Terrain</option>
-                            <option >Garage</option>
-                            <option translate="ESTIMATION_DESCRIPTIF_BIEN_AUTRE"></option>
+                        <select name="state" class="form-control" required>
+                            <option value="" translate="ESTIMATION_DESCRIPTIF_BIEN_SELECT"></option>
+                            <option ng-repeat="type in property_types" value="{{type.label}}">{{'PROPERTY_TYPE_' + type.label | translate}}</option>
+                            <option value="Type non défini" translate="ESTIMATION_DESCRIPTIF_BIEN_AUTRE"></option>
                         </select>
                     </div>
                 </div>
@@ -110,7 +107,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                        <input type="text" name="nom" class="form-control">
+                        <input type="text" name="nom" class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -120,7 +117,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                        <input type="text" name="prenom" class="form-control">
+                        <input type="text" name="prenom" class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -170,7 +167,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                 </div>
             </div>
