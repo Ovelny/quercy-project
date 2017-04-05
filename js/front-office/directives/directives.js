@@ -57,4 +57,12 @@
 
     });
 
+    app.directive('recherche', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'js/front-office/views/recherche.html'
+        }
+
+    });
+
 })();

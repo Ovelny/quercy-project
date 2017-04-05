@@ -5,22 +5,25 @@
         $routeProvider
             .when('/', { templateUrl: 'js/front-office/views/welcome.html' })
             .when('/presentation', { templateUrl: 'js/front-office/views/presentation.html' })
-            .when('/liste/:type', { 
+            .when('/recherche', { templateUrl: 'js/front-office/views/recherche.html' })
+            .when('/liste/:type', {
                 templateUrl: 'js/front-office/views/listebiens.html',
-                controller: 'listeController' })
-            .when('/estimation', { 
+                controller: 'listeController'
+            })
+            .when('/estimation', {
                 templateUrl: 'js/front-office/views/estimation.html',
-                controller: 'estimationController' })
+                controller: 'estimationController'
+            })
             .when('/contact', { templateUrl: 'js/front-office/views/contact.html' })
             .otherwise({ redirectTo: '/' });
 
 
 
-    }]).run(['$rootScope', 
+    }]).run(['$rootScope',
         function ($rootScope) {
 
             $rootScope.baseUrl = "http://127.0.0.1:8000/api/";
-         
-         
+
+
         }]);;
 })();
