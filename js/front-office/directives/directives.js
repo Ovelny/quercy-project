@@ -9,13 +9,25 @@
 
     });
 
-    app.directive('navbar', function () {
+    app.directive('navbar', ["$translate", "$rootScope", function ($translate, $rootScope) {
         return {
             restrict: 'E',
-            templateUrl: 'js/front-office/partials/navbar.html'
+            templateUrl: 'js/front-office/partials/navbar.html',
+            controller: function($scope){
+                
+                $scope.toggleLanguage = function(){
+                    if ($rootScope.language == "fr") {
+                        $translate.use("en");
+                        $rootScope.language = "en";
+                    } else {
+                        $translate.use("fr");
+                        $rootScope.language = "fr";
+                    }
+                };
+            }
         }
 
-    });
+    }]);
 
     app.directive('bestSelection', function () {
         return {

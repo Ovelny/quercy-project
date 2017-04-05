@@ -136,3 +136,8 @@ legend {
     color:#fff;
     text-align: center;
 }
+
+.flag-icon {
+    width: 20px;
+    height: 20px;
+}

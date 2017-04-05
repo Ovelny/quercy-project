@@ -16,9 +16,9 @@
             .when('/contact', { templateUrl: 'js/front-office/views/contact.html' })
             .otherwise({ redirectTo: '/' });
 
-    }]).run(['$rootScope', 
+    }]).run(['$rootScope',
         function ($rootScope) {
-            $rootScope.language = "en";
+            $rootScope.language = "fr";
             $rootScope.baseUrl = "http://127.0.0.1:8000/api/";
          
          

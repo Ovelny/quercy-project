@@ -101,14 +101,13 @@
 
     app.controller('presentationController', ['$scope','datacontext', '$rootScope', function ($scope, datacontext, $rootScope) {
         
-        $scope.texte = "";
+        $scope.texte_fr = "";
+        $scope.texte_en = "";
 
         datacontext.getPresentationText()
             .then(function (res) {
-                if ($rootScope.language == "en")
-                    $scope.texte = res.data.company_presentation_en;
-                else
-                    $scope.texte = res.data.company_presentation_fr;
+                $scope.texte_fr = res.data.company_presentation_fr;
+                $scope.texte_en = res.data.company_presentation_en;
             })
             .catch(function (err) {
                 console.log(err);
