@@ -92,8 +92,10 @@ hr {
 
 .text-justify {
     text-align: justify;
-    -moz-text-align-last: center;
-    text-align-last: center;
+    /*-moz-text-align-last: center;
+    text-align-last: center;*/
+    
+    white-space: pre-wrap; /* Les retours à la ligne sont affichés comme tels */
 }
 
 .row-centered {

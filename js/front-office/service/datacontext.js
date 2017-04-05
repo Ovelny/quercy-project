@@ -6,7 +6,8 @@
         var baseUrl = $rootScope.baseUrl;
 
         var service = {
-            getPropertyTypes: getPropertyTypesImpl
+            getPropertyTypes: getPropertyTypesImpl,
+            getPresentationText: getPresentationTextImpl
         }
 
 
@@ -14,7 +15,9 @@
             return $http.get(baseUrl + "property_types/");
         }
 
-
+        function getPresentationTextImpl() {
+            return $http.get(baseUrl + "company_info/1/");
+        }
 
         return service;
     }]);
