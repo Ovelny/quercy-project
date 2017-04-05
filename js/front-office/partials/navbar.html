@@ -13,6 +13,10 @@
             <li><a href="#!/liste/coups-de-coeur">Coups de coeur</a></li>
             <li><a href="#!/estimation">Estimation</a></li>
             <li><a href="#!/contact">Contact</a></li>
+            <li>
+                <a ng-if="language == 'fr'" href ng-click="toggleLanguage()" title="Switch to english"><img class="flag-icon" ng-src="images/flag_en.ico" /></a>
+                <a ng-if="language == 'en'" href ng-click="toggleLanguage()" title="Passer en français"><img class="flag-icon" ng-src="images/flag_fr.ico" /></a>
+            </li>
         </ul>
     </div>
 </nav>

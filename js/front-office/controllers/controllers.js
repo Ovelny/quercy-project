@@ -94,8 +94,24 @@
 
     app.controller('listeController', ['$scope','datacontext', '$routeParams', function ($scope, datacontext, $routeParams) {
         
-        $scope.typeliste = $routeParams["type"];
+        $scope.typeliste = $routeParams["typeliste"];
+
         
+    }]);
+
+    app.controller('presentationController', ['$scope','datacontext', '$rootScope', function ($scope, datacontext, $rootScope) {
+        
+        $scope.texte_fr = "";
+        $scope.texte_en = "";
+
+        datacontext.getPresentationText()
+            .then(function (res) {
+                $scope.texte_fr = res.data.company_presentation_fr;
+                $scope.texte_en = res.data.company_presentation_en;
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
         
     }]);
     
