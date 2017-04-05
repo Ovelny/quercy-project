@@ -89,6 +89,14 @@
             .catch(function (err) {
                 console.log(err);
             });
-            
+
     }]);
+
+    app.controller('listeController', ['$scope','datacontext', '$routeParams', function ($scope, datacontext, $routeParams) {
+        
+        $scope.typeliste = $routeParams["type"];
+        
+        
+    }]);
+    
 })();
