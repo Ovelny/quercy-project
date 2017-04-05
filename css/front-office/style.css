@@ -121,14 +121,14 @@ legend {
 }
 
 .jumbotron-bg {
-    background-image: url("../../images/img_baniere.jpg");
+    background-image: url("../../images/jumbotron-bg.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
 .jumbotron-description {
-    background-color: rgba(0,0,0,.50);
+    background-color: rgba(0,0,0,0.3);
     padding: 5px 0px;
     border-radius: 3px;
     color:#fff;
