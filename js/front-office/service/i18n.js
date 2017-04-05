@@ -13,10 +13,12 @@
                 GEN_CODE_POSTAL: "Code postal",
                 GEN_VILLE: "Ville",
                 GEN_TELEPHONE: "Téléphone",
-                GEN_EMAIL: "Email",
+                GEN_EMAIL: "E-mail",
 
                 GEN_LOCATION: "Location",
                 GEN_VENTE: "Vente",
+
+                GEN_ENVOYER: "Envoyer",
 
                 ESTIMATION_TITRE: "Estimation d'un bien",
                 ESTIMATION_SOUSTITRE: "Vous possédez un bien que vous souhaitez faire estimer ?",
@@ -35,7 +37,8 @@
                 ESTIMATION_COORDONNEES_NOM: "Votre nom",
                 ESTIMATION_COORDONNEES_PRENOM: "Prénom",
 
-                ESTIMATION_ENVOYER: "Envoyer",
+                CONTACT_TITRE: "Contact",
+                CONTACT_MESSAGE: "Votre message"
             })
             .translations('en', {
                 NOS_VALEURS: "Our values",
@@ -48,6 +51,8 @@
 
                 GEN_LOCATION: "For rent",
                 GEN_VENTE: "For sell",
+
+                GEN_ENVOYER: "Submit",
 
                 ESTIMATION_TITRE: "Estimation",
                 ESTIMATION_SOUSTITRE: "Do you own a property you would like to get an estimate on?",
@@ -66,7 +71,9 @@
                 ESTIMATION_COORDONNEES_NOM: "Last name",
                 ESTIMATION_COORDONNEES_PRENOM: "First name",
 
-                ESTIMATION_ENVOYER: "Submit",
+                CONTACT_TITRE: "Contact",
+                CONTACT_MESSAGE: "Your message"
+
             });
     }]);
 })();
