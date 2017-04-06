@@ -115,9 +115,18 @@
         
     }]);
 
-    app.controller('searchController', ['$scope', function($scope) {
-        $scope.search = function() {
-            $location.path("http://localhost:3000/#!/resultat");
+    app.controller('searchController', ['$scope', '$location', function($scope, $location) {
+        $scope.searchProperty = function() {
+            console.log($scope);
+            var result = {};
+            
+            for (var i in $scope.find) {
+                if ($scope.find.hasOwnProperty(i)) {
+                    result[i] = $scope.find[i];
+                }
+            }
+
+            $location.path("/resultat").search(result);
 
         };
     }]);
