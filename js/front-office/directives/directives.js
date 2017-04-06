@@ -77,4 +77,12 @@
 
     });
 
+    app.directive('resultat', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'js/front-office/views/resultat.html'
+        }
+
+    });
+
 })();

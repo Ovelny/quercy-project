@@ -114,5 +114,12 @@
             });
         
     }]);
+
+    app.controller('searchController', ['$scope', function($scope) {
+        $scope.search = function() {
+            $location.path("http://localhost:3000/#!/resultat");
+
+        };
+    }]);
     
 })();

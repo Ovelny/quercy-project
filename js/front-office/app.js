@@ -5,6 +5,7 @@
         $routeProvider
             .when('/', { templateUrl: 'js/front-office/views/welcome.html' })
             .when('/recherche', { templateUrl: 'js/front-office/views/recherche.html' })
+            .when('/resultat', { templateUrl: 'js/front-office/views/resultat.html' })
             .when('/presentation', { 
                 templateUrl: 'js/front-office/views/presentation.html',
                 controller: 'presentationController' })
