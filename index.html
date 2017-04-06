@@ -20,12 +20,27 @@
     <script src="dependencies/angular-animate.min.js"></script>
     <script src="dependencies/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="dependencies/angular-translate.min.js"></script>
+    <script src="dependencies/jquery-3.1.1.min.js"></script>
+    <script src="dependencies/bootstrap.min.js"></script>
 
     <script src="js/front-office/app.js"></script>
     <script src="js/front-office/directives/directives.js"></script>
     <script src="js/front-office/controllers/controllers.js"></script>
     <script src="js/front-office/service/i18n.js"></script>
     <script src="js/front-office/service/datacontext.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            //get rid of the "jump" when the bar switches to fixed mode by giving its wapper the same height as itself at runtime.
+            $('#nav-wrapper').height($("#nav").height()); 
+            $('#nav').affix({
+                offset: { 
+                    top: $('#nav').offset().top 
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

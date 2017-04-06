@@ -141,3 +141,12 @@ legend {
     width: 20px;
     height: 20px;
 }
+
+#nav {
+    z-index: 99;
+}
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
