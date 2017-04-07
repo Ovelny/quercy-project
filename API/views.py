@@ -7,10 +7,13 @@ from django.http import HttpResponse
 import json
 
 from rest_framework import viewsets, filters
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from django_filters.rest_framework import FilterSet, DjangoFilterBackend
 import django_filters
+
+from django.core.mail import send_mail, BadHeaderError
+from rest_framework.views import APIView
 
 from API.models import *
 from API.serializers import *
@@ -118,3 +121,21 @@ class ObtainExpiringAuthToken(ObtainAuthToken):
             return HttpResponse(json.dumps(response_data), content_type="application/json")
 
         return HttpResponse(serializer.errors, status=400)
+
+
+#------------------------------
+
+# Sending an email from the API
+class Email(APIView):
+    permission_classes = (AllowAny,)
+    def post(self, request):
+        subject = request.data['subject']
+        message = request.data['message']
+        from_email = ""
+        try:
+            # send_mail(subject, message, from_email, ['quercyimmo@gmail.com'])
+            send_mail(subject, message, from_email, ['claire.lapointe@hotmail.fr'])
+            return HttpResponse('Mail sent.')
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+                

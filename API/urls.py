@@ -26,7 +26,10 @@ router.register(r'company_info', views.Company_Info_Viewset)
 urlpatterns = [
     url(r'^', include(router.urls)),
     # url(r'^authenticate', obtain_auth_token) # vue gérée par le rest_framework.
-    url(r'^authenticate', views.ObtainExpiringAuthToken.as_view())
+    url(r'^authenticate', views.ObtainExpiringAuthToken.as_view()),
+    # url(r'^email$', views.email),
+    url(r'^email$', views.Email.as_view()),
+    
 ]
 
 # obtain_auth_token : reçoit en POST une requête avec "username" et "password" renseignés, 

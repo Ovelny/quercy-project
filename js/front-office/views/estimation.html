@@ -7,7 +7,7 @@
 
 <div class="container">
 
-    <form class="well form-horizontal" action=" " method="post" id="estimation_form">
+    <form class="well form-horizontal" id="estimation_form" ng-submit="sendMail()">
         <fieldset>
 
             <!-- Form Name -->
@@ -15,10 +15,10 @@
 
             <div class="form-group">
                 <div class="col-xs-6 col-md-2 col-md-offset-4">
-                    <input type="radio" name="type-bien" value="location"> <span translate="GEN_LOCATION"></span>
+                    <label><input type="radio" name="type-bien" value="location" ng-model="data.advert_type" required> <span translate="GEN_LOCATION"></span></label>
                 </div>
                 <div class="col-xs-6 col-md-2">
-                    <input type="radio" name="type-bien" value="vente"> <span translate="GEN_VENTE"></span>
+                    <label><input type="radio" name="type-bien" value="vente" ng-model="data.advert_type" required> <span translate="GEN_VENTE"></span></label>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                        <select name="state" class="form-control" required>
+                        <select class="form-control" ng-model="data.property_type" required>
                             <option value="" translate="ESTIMATION_DESCRIPTIF_BIEN_SELECT"></option>
                             <option ng-repeat="type in property_types" value="{{type.label}}">{{'PROPERTY_TYPE_' + type.label | translate}}</option>
                             <option value="Type non défini" translate="ESTIMATION_DESCRIPTIF_BIEN_AUTRE"></option>
@@ -43,7 +43,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-th-large" aria-hidden="true"></i></span>
-                        <input type="number" name="surface-habitable" min="0" class="form-control">
+                        <input type="number" ng-model="data.living_surface" min="0" class="form-control">
                         <span class="input-group-addon">m²</span>
                     </div>
                 </div>

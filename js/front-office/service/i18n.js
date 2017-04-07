@@ -22,15 +22,15 @@
                 GEN_RECHERCHER: "Rechercher",
                 GEN_DESCRIPTIF_NB_PIECES: "Nombre de pièces",
 
-                ESTIMATION_TITRE: "Estimation d'un bien",
-                ESTIMATION_SOUSTITRE: "Vous possédez un bien que vous souhaitez faire estimer ?",
-
                 RECHERCHE_TITRE: "Rechercher un bien",
                 RECHERCHE_DESCRIPTIF_BIEN: "Type de bien",
                 RECHERCHE_DESCRIPTIF_SURFACE: "Surface",
                 RECHERCHE_DESCRIPTIF_BUDGET: "Budget",
                 RECHERCHE_SOUSTITRE_GEOLOC: "Villes françaises, départements ou codes postaux",
                 RECHERCHE_DESCRIPTIF_GEOLOC: "Un(e) seul(e) par zone de saisie",
+
+                ESTIMATION_TITRE: "Estimation d'un bien",
+                ESTIMATION_SOUSTITRE: "Vous possédez un bien que vous souhaitez faire estimer ?",
 
                 ESTIMATION_DESCRIPTIF_TITRE: "Descriptif du bien",
                 ESTIMATION_DESCRIPTIF_BIEN: "Bien proposé",
@@ -44,6 +44,9 @@
                 ESTIMATION_COORDONNEES_TITRE: "Vos coordonnées",
                 ESTIMATION_COORDONNEES_NOM: "Votre nom",
                 ESTIMATION_COORDONNEES_PRENOM: "Prénom",
+
+                ESTIMATION_SENT: "Votre demande a bien été prise en compte.",
+                ESTIMATION_ERROR: "Une erreur est survenue. Veuillez nous en excuser.",
 
                 CONTACT_TITRE: "Contact",
                 CONTACT_MESSAGE: "Votre message",
@@ -81,15 +84,15 @@
                 GEN_RECHERCHER: "Search",
                 GEN_DESCRIPTIF_NB_PIECES: "Number of rooms",
 
-                ESTIMATION_TITRE: "Estimation",
-                ESTIMATION_SOUSTITRE: "Do you own a property you would like to get an estimate on?",
-
                 RECHERCHE_TITRE: "Search a property",
                 RECHERCHE_DESCRIPTIF_BIEN: "Type of property",
                 RECHERCHE_DESCRIPTIF_SURFACE: "Surface",
                 RECHERCHE_DESCRIPTIF_BUDGET: "Budget",
                 RECHERCHE_SOUSTITRE_GEOLOC: "French cities, department or postal codes",
                 RECHERCHE_DESCRIPTIF_GEOLOC: "Only one for each field",
+
+                ESTIMATION_TITRE: "Estimation",
+                ESTIMATION_SOUSTITRE: "Do you own a property you would like to get an estimate on?",
 
                 ESTIMATION_DESCRIPTIF_TITRE: "Property info",
                 ESTIMATION_DESCRIPTIF_BIEN: "Type of property",
@@ -103,6 +106,9 @@
                 ESTIMATION_COORDONNEES_TITRE: "Your info",
                 ESTIMATION_COORDONNEES_NOM: "Last name",
                 ESTIMATION_COORDONNEES_PRENOM: "First name",
+
+                ESTIMATION_SENT: "You request has been forwarded.",
+                ESTIMATION_ERROR: "An error has occured. Please bear with us.",
 
                 CONTACT_TITRE: "Contact",
                 CONTACT_MESSAGE: "Your message",

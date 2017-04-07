@@ -3,12 +3,20 @@
 
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when('/', { templateUrl: 'js/front-office/views/welcome.html' })
-            .when('/recherche', { templateUrl: 'js/front-office/views/recherche.html' })
-            .when('/resultat', { templateUrl: 'js/front-office/views/resultat.html' })
+            .when('/', { 
+                templateUrl: 'js/front-office/views/welcome.html' 
+            })
+            .when('/recherche', { 
+                templateUrl: 'js/front-office/views/recherche.html',
+                controller: 'searchController'
+            })
+            .when('/resultat', { 
+                templateUrl: 'js/front-office/views/resultat.html' 
+            })
             .when('/presentation', { 
                 templateUrl: 'js/front-office/views/presentation.html',
-                controller: 'presentationController' })
+                controller: 'presentationController' 
+            })
             .when('/liste/:typeliste', { 
                 templateUrl: 'js/front-office/views/listebiens.html',
                 controller: 'listeController'
@@ -17,7 +25,9 @@
                 templateUrl: 'js/front-office/views/estimation.html',
                 controller: 'estimationController'
             })
-            .when('/contact', { templateUrl: 'js/front-office/views/contact.html' })
+            .when('/contact', { 
+                templateUrl: 'js/front-office/views/contact.html' 
+            })
             .otherwise({ redirectTo: '/' });
 
     }]).run(['$rootScope',

@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('front-controllers', []);
+    var app = angular.module('front-controllers', ['ui-notification']);
 
     app.controller('bestSelectionController', function ($scope) {
         $scope.favorites = [
@@ -78,7 +78,8 @@
 
     });
 
-    app.controller('estimationController', ['$scope','datacontext', function ($scope, datacontext) {
+    app.controller('estimationController', ['$scope','datacontext', 'Notification', '$filter',
+            function ($scope, datacontext, Notification, $filter) {
         
         $scope.property_types = [];  
 
@@ -89,6 +90,19 @@
             .catch(function (err) {
                 console.log(err);
             });
+
+        $scope.sendMail = function(){
+            var txt = "test";
+            console.log($scope.data);
+            datacontext.sendMail("Demande Estimation", txt)
+                .then(function (res) {
+                    Notification.success($filter('translate')("ESTIMATION_SENT"));
+                })
+                .catch(function (err) {
+                    Notification.error($filter('translate')("ESTIMATION_ERROR"));
+                    console.log(err);
+                });
+        }
 
     }]);
 
