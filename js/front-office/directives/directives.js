@@ -72,7 +72,7 @@
 
     });
     
-    app.directive('advertTextbox', ["$rootScope", function ($rootScope) {
+    app.directive('advertTextbox', ["$rootScope", "$location", function ($rootScope, $location) {
         return {
             restrict: 'E',
             scope: {
@@ -81,6 +81,10 @@
             },
             controller: function($scope){
                 $scope.baseImgUrl = $rootScope.baseImgUrl;
+
+                $scope.goToAdvert = function(){
+                    $location.path("bien/" + $scope.advert.id);
+                }
             },
             templateUrl: 'js/front-office/partials/advert-textbox.html'
         }

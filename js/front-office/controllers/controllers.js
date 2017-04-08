@@ -122,12 +122,42 @@
             .catch(function (err) {
                 console.log(err);
             });
-
-
     }]);
 
-    app.controller('presentationController', ['$scope','datacontext', '$rootScope', function ($scope, datacontext, $rootScope) {
+    app.controller('detailController', ['$scope','datacontext', '$routeParams', 'Lightbox', 
+            function ($scope, datacontext, $routeParams, Lightbox) {
         
+        var id = $routeParams["id"];
+        $scope.advert = {};
+        $scope.photos = [];
+
+        datacontext.getAdvert(id)
+            .then(function (res) {
+                $scope.advert = res.data;
+                
+                datacontext.getPhotos(id)
+                    .then(function (res) {
+                        $scope.photos = res.data;
+                        // propriété "url" doit être définie pour la Lightbox
+                        for (var i = 0; i < $scope.photos.length; i++)
+                            $scope.photos[i].url = $scope.photos[i].picture;
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+            
+        $scope.openLightboxModal = function (index) {
+            Lightbox.openModal($scope.photos, index);
+        };
+    }]);
+    
+        
+    app.controller('presentationController', ['$scope','datacontext', '$rootScope', function ($scope, datacontext, $rootScope) {
         $scope.texte_fr = "";
         $scope.texte_en = "";
 
@@ -153,7 +183,6 @@
             }
 
             $location.path("/liste/recherche").search(result);
-
         };
     }]);
     

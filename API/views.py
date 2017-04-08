@@ -30,7 +30,7 @@ class Property_Filter(FilterSet):
     city = django_filters.CharFilter(name="city", lookup_expr='icontains')
     class Meta:
         model = Property
-        fields = ['id', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 'max_price',
+        fields = ['id', 'state', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 'max_price',
                 'min_surface', 'max_surface', 'postal_code', 'city']
 
 class Property_Viewset(viewsets.ModelViewSet):

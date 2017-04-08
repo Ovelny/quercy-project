@@ -15,6 +15,8 @@
                 GEN_TELEPHONE: "Téléphone",
                 GEN_EMAIL: "E-mail",
 
+                GEN_PRIX: "Prix",
+
                 GEN_LOCATION: "Location",
                 GEN_ADVERT_TYPE_L: "Location",
                 GEN_VENTE: "Vente",
@@ -75,6 +77,10 @@
                 LISTE_location: "Biens en location",
                 "LISTE_coups-de-coeur": "Nos coups de coeur",
                 LISTE_recherche: "Résultat de la recherche",
+
+                LIGHTBOX_PREVIOUS: "Précédent",
+                LIGHTBOX_NEXT: "Suivant",
+                LIGHTBOX_OPEN_IN_NEW_TAB: "Ouvrir l'image dans un nouvel onglet",
             })
             .translations('en', {
                 NOS_VALEURS: "Our values",
@@ -84,6 +90,8 @@
                 GEN_VILLE: "City",
                 GEN_TELEPHONE: "Phone number",
                 GEN_EMAIL: "E-mail",
+
+                GEN_PRIX: "Price",
 
                 GEN_LOCATION: "For rent",
                 GEN_ADVERT_TYPE_L: "For rent",
@@ -145,6 +153,10 @@
                 LISTE_location: "Properties for rent",
                 "LISTE_coups-de-coeur": "Our selection",
                 LISTE_recherche: "Search results",
+
+                LIGHTBOX_PREVIOUS: "Previous",
+                LIGHTBOX_NEXT: "Next",
+                LIGHTBOX_OPEN_IN_NEW_TAB: "Open image in new tab",
             });
     }]);
 })();

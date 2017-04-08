@@ -1,7 +1,8 @@
 (function () {
-    var app = angular.module('quercy-front', ['front-directives', 'front-controllers', 'ngRoute', 'pascalprecht.translate']);
+    var app = angular.module('quercy-front', ['front-directives', 'front-controllers', 'ngRoute', 
+            'pascalprecht.translate', 'bootstrapLightbox']);
 
-    app.config(['$routeProvider', function ($routeProvider) {
+    app.config(['$routeProvider', 'LightboxProvider', function ($routeProvider, LightboxProvider) {
         $routeProvider
             .when('/', { 
                 templateUrl: 'js/front-office/views/welcome.html' 
@@ -18,6 +19,10 @@
                 templateUrl: 'js/front-office/views/listebiens.html',
                 controller: 'listeController'
             })
+            .when('/bien/:id', { 
+                templateUrl: 'js/front-office/views/detailbien.html',
+                controller: 'detailController'
+            })
             .when('/estimation', {
                 templateUrl: 'js/front-office/views/estimation.html',
                 controller: 'estimationController'
@@ -27,6 +32,10 @@
                 controller: 'contactController'
             })
             .otherwise({ redirectTo: '/' });
+
+            
+        // set a custom template (just to have $translates in there. basically a copy-paste of the original)
+        LightboxProvider.templateUrl = 'js/front-office/partials/lightboxtemplate.html';
 
     }]).run(['$rootScope',
         function ($rootScope) {

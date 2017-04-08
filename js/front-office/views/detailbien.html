@@ -1,0 +1,27 @@
+
+
+
+<div class="container">
+    <h2>
+        {{advert.title_fr}} <small>({{advert.total_surface}} m²) <span translate="GEN_PRIX"></span> : {{advert.price}} €</small>
+
+
+        <span class="pull-right">{{advert.city}} ({{advert.postal_code}})</span>
+    </h2>
+
+    <hr>
+    <p>{{advert.description_fr}}</p>
+    <hr>
+
+    
+    <ul class="img-thumbnails">
+        <li ng-repeat="photo in photos">
+            <a ng-click="openLightboxModal($index)">
+                <img ng-src="{{photo.picture}}" class="img-thumbnail">
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+<hr>

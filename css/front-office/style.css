@@ -150,3 +150,21 @@ legend {
     top: 0;
     width: 100%;
 }
+
+.advert-textbox {
+    cursor: pointer;
+}
+
+ul.img-thumbnails {
+    list-style: none;
+}
+ul.img-thumbnails li {
+    display: inline; 
+    cursor: pointer;
+}
+ul.img-thumbnails a:hover {
+    text-decoration: none;
+}
+.img-thumbnails img {
+    max-width: 150px;
+}
