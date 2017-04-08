@@ -76,6 +76,10 @@
                 main();
 
                 $scope.save = function(){
+                    if ($scope.advert.energy_consumption == 0)
+                        $scope.advert.energy_consumption = null;
+                    if ($scope.advert.gas_emission == 0)
+                        $scope.advert.gas_emission = null;
                     if ($scope.advert.id) {
                         // Annonce existante
                         datacontext.saveAdvert($scope.advert)

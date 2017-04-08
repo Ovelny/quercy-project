@@ -32,9 +32,9 @@
     <p><span translate="ESTIMATION_DESCRIPTIF_SURFACE_TERRAIN"></span> : {{advert.total_surface}} m²</p>
     <p><span translate="BIEN_TYPE_CHAUFFAGE"></span> : {{'BIEN_CHAUFFAGE_' + advert.heating_type | translate}}</p>
     <p><span translate="BIEN_TYPE_CUISINE"></span> : {{'BIEN_CUISINE_' + advert.kitchen_type | translate}}</p>
-    <p><span ng-if="advert.construction_year" translate="BIEN_ANNEE_CONSTRUCTION"></span> : {{advert.construction_year}}</p>
-    <p><span ng-if="advert.energy_consumption" translate="BIEN_CONSO"></span> : {{advert.energy_consumption}} kWhEP/m²/an</p>
-    <p><span ng-if="advert.gas_emission" translate="BIEN_EMISSION"></span> : {{advert.gas_emission}} kgeqCO2/m²/an</p>
+    <p ng-if="advert.construction_year"><span translate="BIEN_ANNEE_CONSTRUCTION"></span> : {{advert.construction_year}}</p>
+    <p ng-if="advert.energy_consumption"><span translate="BIEN_CONSO"></span> : {{advert.energy_consumption}} kWhEP/m²/an</p>
+    <p ng-if="advert.gas_emission"><span translate="BIEN_EMISSION"></span> : {{advert.gas_emission}} kgeqCO2/m²/an</p>
     <hr>
 
 </div>

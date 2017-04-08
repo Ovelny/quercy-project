@@ -58,7 +58,8 @@
                         if (rejection.status == 401){
                             if (rejection.data.detail == "Token has expired")
                                 window.sessionStorage.setItem('expired', true);
-                            $location.path('/login');
+                            var path = $location.path();
+                            $location.path('/login').search("returnTo", path);
                         }
                         return $q.reject(rejection);
                     }
