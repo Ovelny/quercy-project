@@ -59,7 +59,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly', 
         # signifie que par défaut, toutes les vues seront en read-only pour les utilisateurs non authentifiés. 
         # (full access pour les utilisateurs authentifiés)
-    )
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/day' #this defines the throttle rate for anon to 5 requests per day.
+        # we're only using this on the email view here, preventing more than 5 mails per day per IP address.
+    }
 }
 
 MIDDLEWARE = [

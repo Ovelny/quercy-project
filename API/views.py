@@ -14,6 +14,7 @@ import django_filters
 
 from django.core.mail import send_mail, BadHeaderError
 from rest_framework.views import APIView
+from rest_framework.throttling import AnonRateThrottle
 
 from API.models import *
 from API.serializers import *
@@ -138,6 +139,7 @@ class ObtainExpiringAuthToken(ObtainAuthToken):
 
 # Sending an email from the API
 class Email(APIView):
+    throttle_classes = (AnonRateThrottle,) #limit the number of requests per user per unit of time. see settings.py
     permission_classes = (AllowAny,)
     def post(self, request):
         subject = request.data['subject']

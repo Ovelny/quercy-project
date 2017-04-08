@@ -14,6 +14,7 @@
                     <div class="lib-row lib-desc">
                         <p ng-if="displayAdvertType">{{'GEN_ADVERT_TYPE_' + advert.advert_type | translate}}</p>
                         <p>{{advert.city}} ({{advert.postal_code}})</p>
+                        <p>{{language == "fr" ? advert.description_fr : advert.description_en}}</p>
                     </div>
                 </div>
             </div>
