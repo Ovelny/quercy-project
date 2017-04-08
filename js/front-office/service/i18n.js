@@ -16,6 +16,7 @@
                 GEN_EMAIL: "E-mail",
 
                 GEN_PRIX: "Prix",
+                GEN_LOYER: "Loyer",
 
                 GEN_LOCATION: "Location",
                 GEN_ADVERT_TYPE_L: "Location",
@@ -81,6 +82,23 @@
                 LIGHTBOX_PREVIOUS: "Précédent",
                 LIGHTBOX_NEXT: "Suivant",
                 LIGHTBOX_OPEN_IN_NEW_TAB: "Ouvrir l'image dans un nouvel onglet",
+
+                BIEN_TYPE_CHAUFFAGE: "Type de chauffage",
+                BIEN_TYPE_CUISINE: "Type de cuisine",
+                BIEN_CHAUFFAGE_Bois: "Bois",
+                BIEN_CHAUFFAGE_Electrique: "Electrique",
+                BIEN_CHAUFFAGE_Fioul: "Fioul",
+                BIEN_CUISINE_Equipée: "Equipée",
+                "BIEN_CUISINE_Non équipée": "Non équipée",
+
+                BIEN_ANNEE_CONSTRUCTION: "Année de construction",
+                BIEN_CONSO: "Consommations énergétiques",
+                BIEN_EMISSION: "Emissions gaz",
+
+                BIEN_REF: "Référence",
+                BIEN_INFOS_COMPL: "Informations complémentaires",
+                BIEN_GALERIE: "Galerie",
+                BIEN_GALERIE_AIDE: "(Cliquez sur une image pour l'agrandir)"
             })
             .translations('en', {
                 NOS_VALEURS: "Our values",
@@ -92,6 +110,7 @@
                 GEN_EMAIL: "E-mail",
 
                 GEN_PRIX: "Price",
+                GEN_LOYER: "Rent",
 
                 GEN_LOCATION: "For rent",
                 GEN_ADVERT_TYPE_L: "For rent",
@@ -157,6 +176,23 @@
                 LIGHTBOX_PREVIOUS: "Previous",
                 LIGHTBOX_NEXT: "Next",
                 LIGHTBOX_OPEN_IN_NEW_TAB: "Open image in new tab",
+                
+                BIEN_TYPE_CHAUFFAGE: "Heating type",
+                BIEN_TYPE_CUISINE: "Kitchen type",
+                BIEN_CHAUFFAGE_Bois: "Wood",
+                BIEN_CHAUFFAGE_Electrique: "Electric",
+                BIEN_CHAUFFAGE_Fioul: "(en)Fioul",
+                BIEN_CUISINE_Equipée: "(en)Equipée",
+                "BIEN_CUISINE_Non équipée": "(en)Non équipée",
+
+                BIEN_ANNEE_CONSTRUCTION: "Construction year",
+                BIEN_CONSO: "Energy consumption",
+                BIEN_EMISSION: "Gas emissions",
+
+                BIEN_REF: "Ref",
+                BIEN_INFOS_COMPL: "Additionnal information",
+                BIEN_GALERIE: "Photos",
+                BIEN_GALERIE_AIDE: "(Click on a picture to enlarge it)"
             });
     }]);
 })();
