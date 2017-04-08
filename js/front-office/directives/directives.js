@@ -81,6 +81,7 @@
             },
             controller: function($scope){
                 $scope.baseImgUrl = $rootScope.baseImgUrl;
+                $scope.language = $rootScope.language;
 
                 $scope.goToAdvert = function(){
                     $location.path("bien/" + $scope.advert.id);

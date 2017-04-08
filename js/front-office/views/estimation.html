@@ -31,7 +31,7 @@
                         <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
                         <select class="form-control" ng-model="data.property_type" required>
                             <option value="" translate="ESTIMATION_DESCRIPTIF_BIEN_SELECT"></option>
-                            <option ng-repeat="type in property_types" value="{{type.label}}">{{'PROPERTY_TYPE_' + type.label | translate}}</option>
+                            <option ng-repeat="type in property_types" value="{{type.label}}" ng-if="type.label != 'Divers'">{{'PROPERTY_TYPE_' + type.label | translate}}</option>
                             <option value="Type non défini" translate="ESTIMATION_DESCRIPTIF_BIEN_AUTRE"></option>
                         </select>
                     </div>

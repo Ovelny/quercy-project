@@ -5,6 +5,10 @@ from django.db import models
 # -- Property
 
 class Property(models.Model): 
+    def save(self):
+        self.department = self.postal_code[:2]
+        super(Property, self).save()
+
     VENTE = "V"
     LOCATION = "L"
     TYPE_CHOICES = (
@@ -35,6 +39,7 @@ class Property(models.Model):
     price = models.DecimalField(max_digits=11, decimal_places=2)
     address = models.CharField(max_length=64)
     postal_code = models.CharField(max_length=10)
+    department = models.CharField(max_length=2, blank=True, null=True)
     city = models.CharField(max_length=32)
     living_surface = models.DecimalField(max_digits=6, decimal_places=2)
     total_surface = models.DecimalField(max_digits=6, decimal_places=2)

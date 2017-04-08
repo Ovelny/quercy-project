@@ -111,8 +111,48 @@
                 break;
             case "recherche":
                 $scope.displayAdvertType = true;
-                promise = datacontext.getAdverts("V");
-                // promise = datacontext.getAdvertsWithParams($scope.find.advert_type);
+                // advert type. this one needs to be defined, the others don't.
+                var advert_type = $routeParams["advert_type"] || "V";
+                // property type
+                var property_type = "";
+                for (var i in $routeParams) 
+                    if (i.substring(0,5) == "type_") 
+                        property_type += i.substring(5) + ",";
+                // nb rooms
+                var nb_rooms = "";
+                if ($routeParams["_1piece"])
+                    nb_rooms += "1,";
+                if ($routeParams["_2pieces"])
+                    nb_rooms += "2,";
+                if ($routeParams["_3pieces"])
+                    nb_rooms += "3,";
+                if ($routeParams["_4pieces"])
+                    nb_rooms += "4,"; // the extra comma doesn't bother django.
+                if ($routeParams["_5piecesEtPlus"])
+                    nb_rooms += "5,6,7,8,9,10,11,12"; // sorry.
+                // surface
+                var min_surface = $routeParams["surfaceTerrainMin"];
+                var max_surface = $routeParams["surfaceTerrainMax"];
+                // price
+                var min_price = $routeParams["budgetMin"];
+                var max_price = $routeParams["budgetMax"];
+                // location
+                var city = "";
+                var postal_code = "";
+                var department = "";
+                for (var i in $routeParams) {
+                    if (i.substring(0,6) == "geoloc") {
+                        if ($routeParams[i].length == 2)
+                            department += $routeParams[i] + ",";
+                        else if (isNaN($routeParams[i]))
+                            city += $routeParams[i] + ",";
+                        else
+                            postal_code += $routeParams[i] + ",";
+                    }
+                }
+
+                promise = datacontext.getAdvertsWithParams(advert_type, property_type, nb_rooms, min_surface, max_surface, 
+                    min_price, max_price, city, postal_code, department);
                 break;
         }
 
@@ -172,7 +212,19 @@
         
     }]);
 
-    app.controller('searchController', ['$scope', '$location', function($scope, $location) {
+    app.controller('searchController', ['$scope', '$location', 'datacontext', function($scope, $location, datacontext) {
+
+        // getting the property types from the DB mainly so we're sure we have the right ids.
+        // the filter uses the ids, not the labels.
+        $scope.property_types = [];  
+        datacontext.getPropertyTypes()
+            .then(function (res) {
+                $scope.property_types = res.data;
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+
         $scope.searchProperty = function() {
             var result = {};
             

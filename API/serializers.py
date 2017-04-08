@@ -34,7 +34,6 @@ class Property_Room_Serializer(serializers.ModelSerializer):
 
 class ImageUrlField(serializers.RelatedField):
     def to_representation(self, value):
-        # Build absolute URL (next line is just sample code)
         return str(value.picture.name) 
 
 class Property_Serializer(serializers.ModelSerializer):
@@ -44,17 +43,11 @@ class Property_Serializer(serializers.ModelSerializer):
     property_type = serializers.SlugRelatedField(slug_field='label', queryset=Property_Type.objects.all()) 
     heating_type = serializers.SlugRelatedField(slug_field='label', queryset=Heating_Type.objects.all())
     kitchen_type = serializers.SlugRelatedField(slug_field='label', queryset=Kitchen_Type.objects.all())
-    # pictures = serializers.StringRelatedField(many=True)
-    # pictures = serializers.SlugRelatedField(
-    #     many=True,
-    #     read_only=True,
-    #     slug_field='picture'
-    #  )
     pictures = ImageUrlField(many=True, read_only=True)
     class Meta:
         model = Property
         fields = ('id', 'advert_type', 'state', 'title_fr', 'title_en', 'description_fr', 'description_en', 
-        'nb_rooms', 'price', 'address','postal_code','city','living_surface','total_surface','construction_year',
+        'nb_rooms', 'price', 'address','postal_code', 'department', 'city','living_surface','total_surface','construction_year',
         'nb_floors','energy_consumption','gas_emission','is_favorite', 'property_type','heating_type','kitchen_type', 
         'pictures')
     

@@ -35,6 +35,8 @@
                 RECHERCHE_SOUSTITRE_GEOLOC: "Villes françaises, départements ou codes postaux",
                 RECHERCHE_DESCRIPTIF_GEOLOC: "Un(e) seul(e) par zone de saisie",
 
+                NORESULT: "Aucune annonce ne correspond aux critères définis.",
+
                 ESTIMATION_TITRE: "Estimation d'un bien",
                 ESTIMATION_SOUSTITRE: "Vous possédez un bien que vous souhaitez faire estimer ?",
 
@@ -77,7 +79,7 @@
                 LISTE_vente: "Biens en vente",
                 LISTE_location: "Biens en location",
                 "LISTE_coups-de-coeur": "Nos coups de coeur",
-                LISTE_recherche: "Résultat de la recherche",
+                LISTE_recherche: "Résultats de la recherche",
 
                 LIGHTBOX_PREVIOUS: "Précédent",
                 LIGHTBOX_NEXT: "Suivant",
@@ -128,6 +130,8 @@
                 RECHERCHE_DESCRIPTIF_BUDGET: "Budget",
                 RECHERCHE_SOUSTITRE_GEOLOC: "French cities, department or postal codes",
                 RECHERCHE_DESCRIPTIF_GEOLOC: "Only one for each field",
+
+                NORESULT: "No advert matching the criteria was found.",
 
                 ESTIMATION_TITRE: "Estimation",
                 ESTIMATION_SOUSTITRE: "Do you own a property you would like to get an estimate on?",

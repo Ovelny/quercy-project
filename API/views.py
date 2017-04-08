@@ -21,17 +21,28 @@ from API.serializers import *
 # Les viewsets gèrent le GET et le POST sur la liste des objets
 # ainsi que le GET, PUT, DELETE sur les objets individuels
 
+class NumberInFilter(django_filters.BaseInFilter, django_filters.NumberFilter):
+    pass
+
+class CharInFilter(django_filters.BaseInFilter, django_filters.CharFilter):
+    pass
+
 class Property_Filter(FilterSet):
     min_price = django_filters.NumberFilter(name="price", lookup_expr='gte')
     max_price = django_filters.NumberFilter(name="price", lookup_expr='lte')
-    min_surface = django_filters.NumberFilter(name="surface", lookup_expr='gte')
-    max_surface = django_filters.NumberFilter(name="surface", lookup_expr='lte')
+    min_surface = django_filters.NumberFilter(name="total_surface", lookup_expr='gte')
+    max_surface = django_filters.NumberFilter(name="total_surface", lookup_expr='lte')
     postal_code = django_filters.CharFilter(name="postal_code", lookup_expr='startswith')
+    postal_codein = CharInFilter(name="postal_code", lookup_expr='in')
     city = django_filters.CharFilter(name="city", lookup_expr='icontains')
+    cityin = CharInFilter(name="city", lookup_expr='in')
+    departmentin = NumberInFilter(name="department", lookup_expr='in')
+    nb_rooms = NumberInFilter(name="nb_rooms", lookup_expr='in') #query looks like this: nb_rooms=2,3
+    property_type = NumberInFilter(name="property_type", lookup_expr='in')
     class Meta:
         model = Property
-        fields = ['id', 'state', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 'max_price',
-                'min_surface', 'max_surface', 'postal_code', 'city']
+        fields = ['id', 'state', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 
+        'max_price','min_surface', 'max_surface', 'postal_code', 'postal_codein', 'city', 'cityin', 'departmentin']
 
 class Property_Viewset(viewsets.ModelViewSet):
     queryset = Property.objects.all().order_by('id')

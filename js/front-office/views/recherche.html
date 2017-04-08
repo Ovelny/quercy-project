@@ -16,33 +16,18 @@
 
             <div class="form-group">
                 <div class="col-xs-2">
-                    <label><input type="radio" value="V" ng-model="find.advert_type"> <span translate="GEN_LOCATION"></span></label>
+                    <label><input type="radio" value="V" ng-model="find.advert_type" required> <span translate="GEN_VENTE"></span></label>
                 </div>
                 <div class="col-xs-2">
-                    <label><input type="radio" value="L" ng-model="find.advert_type"> <span translate="GEN_VENTE"></span></label>
+                    <label><input type="radio" value="L" ng-model="find.advert_type" required> <span translate="GEN_LOCATION"></span></label>
                 </div>
             </div>
 
             <legend translate="RECHERCHE_DESCRIPTIF_BIEN"></legend>
 
             <div class="form-group">
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="appartement" ng-model="find.appartement"> <span translate="PROPERTY_TYPE_Appartement"></span></label>
-                </div>
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="maison" ng-model="find.maison"> <span translate="PROPERTY_TYPE_Maison"></span></label>
-                </div>
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="terrain" ng-model="find.terrain"> <span translate="PROPERTY_TYPE_Terrain"></span></label>
-                </div>
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="local" ng-model="find.local"> <span translate="PROPERTY_TYPE_Local"></span></label>
-                </div>
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="immeuble" ng-model="find.immeuble"> <span translate="PROPERTY_TYPE_Immeuble"></span></label>
-                </div>
-                <div class="col-xs-2">
-                    <label><input type="checkbox" name="type-bien" value="divers" ng-model="find.divers"> <span translate="PROPERTY_TYPE_Divers"></span></label>
+                <div class="col-xs-2" ng-repeat="type in property_types">
+                    <label><input type="checkbox" name="type-bien" value="{{type.id}}" ng-model="find['type_'+type.id]"> <span translate="{{'PROPERTY_TYPE_' + type.label}}"></span></label>
                 </div>
             </div>
 
@@ -50,19 +35,19 @@
 
             <div class="form-group">
                 <div class="col-xs-1">
-                    <label><input type="checkbox" name="nb-pieces" ng-model="find.nbPieces1" value="location"> <span>1</span></label>
+                    <label><input type="checkbox" name="nb-pieces" ng-model="find._1piece" value="location"> <span>1</span></label>
                 </div>
                 <div class="col-xs-1">
-                    <label><input type="checkbox" name="nb-pieces" ng-model="find.nbPieces2" value="location"> <span>2</span></label>
+                    <label><input type="checkbox" name="nb-pieces" ng-model="find._2pieces" value="location"> <span>2</span></label>
                 </div>
                 <div class="col-xs-1">
-                    <label><input type="checkbox" name="nb-pieces" ng-model="find.nbPieces3" value="location"> <span>3</span></label>
+                    <label><input type="checkbox" name="nb-pieces" ng-model="find._3pieces" value="location"> <span>3</span></label>
                 </div>
                 <div class="col-xs-1">
-                    <label><input type="checkbox" name="nb-pieces" ng-model="find.nbPieces4" value="location"> <span>4</span></label>
+                    <label><input type="checkbox" name="nb-pieces" ng-model="find._4pieces" value="location"> <span>4</span></label>
                 </div>
                 <div class="col-xs-2">
-                    <label><input type="checkbox" name="nb-pieces" ng-model="find.nbPieces5EtPlus" value="location"> <span translate="PROPERTY_TYPE_5_PIECES"></span>
+                    <label><input type="checkbox" name="nb-pieces" ng-model="find._5piecesEtPlus" value="location"> <span translate="PROPERTY_TYPE_5_PIECES"></span>
                 </div>
             </div>
 
