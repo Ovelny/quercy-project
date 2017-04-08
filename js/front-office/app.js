@@ -10,9 +10,6 @@
                 templateUrl: 'js/front-office/views/recherche.html',
                 controller: 'searchController'
             })
-            .when('/resultat', { 
-                templateUrl: 'js/front-office/views/resultat.html' 
-            })
             .when('/presentation', { 
                 templateUrl: 'js/front-office/views/presentation.html',
                 controller: 'presentationController' 
@@ -35,6 +32,7 @@
         function ($rootScope) {
             $rootScope.language = "fr";
             $rootScope.baseUrl = "http://127.0.0.1:8000/api/";
+            $rootScope.baseImgUrl = "http://127.0.0.1:8000/media/";
 
 
         }]);;

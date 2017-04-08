@@ -4,26 +4,7 @@
         <h2 class="text-center">Nos coups de coeur</h2>
         <hr>
         <div ng-repeat="selection in favorites">
-            <div class="row row-margin-bottom">
-                <div class="col-md-12 no-padding lib-item" data-category="view">
-                    <div class="lib-panel">
-                        <div class="row box-shadow">
-                            <div class="col-md-3 no-padding">
-                                <img class="lib-img-show" src="http://lorempixel.com/200/100/city/">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="lib-row lib-header">
-                                    {{selection.title_fr}}
-                                    <div class="lib-header-seperator"></div>
-                                </div>
-                                <div class="lib-row lib-desc">
-                                    {{selection.advert_type}}<br>{{selection.address}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <advert-textbox advert="selection" display-advert-type="displayAdvertType"></advert-textbox>
         </div>
     </div>
 </div>

@@ -32,7 +32,10 @@
     app.directive('bestSelection', function () {
         return {
             restrict: 'E',
-            templateUrl: 'js/front-office/partials/best-selection.html'
+            templateUrl: 'js/front-office/partials/best-selection.html',
+            controller: function($scope){
+                $scope.displayAdvertType = true;
+            }
         }
 
     });
@@ -68,21 +71,20 @@
         }
 
     });
-
-    app.directive('recherche', function () {
+    
+    app.directive('advertTextbox', ["$rootScope", function ($rootScope) {
         return {
             restrict: 'E',
-            templateUrl: 'js/front-office/views/recherche.html'
+            scope: {
+                advert: "=",
+                displayAdvertType: "="
+            },
+            controller: function($scope){
+                $scope.baseImgUrl = $rootScope.baseImgUrl;
+            },
+            templateUrl: 'js/front-office/partials/advert-textbox.html'
         }
 
-    });
-
-    app.directive('resultat', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'js/front-office/views/resultat.html'
-        }
-
-    });
+    }]);
 
 })();

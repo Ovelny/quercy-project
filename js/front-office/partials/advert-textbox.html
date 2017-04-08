@@ -1,0 +1,23 @@
+
+<div class="row row-margin-bottom">
+    <div class="col-md-12 no-padding lib-item" data-category="view">
+        <div class="lib-panel">
+            <div class="row box-shadow">
+                <div class="col-md-3 no-padding">
+                    <img class="lib-img-show" ng-src="{{baseImgUrl + advert.pictures[0]}}">
+                    <!--  src="http://lorempixel.com/200/100/city/" -->
+                </div>
+                <div class="col-md-6">
+                    <div class="lib-row lib-header">
+                        {{advert.title_fr}}
+                        <div class="lib-header-seperator"></div>
+                    </div>
+                    <div class="lib-row lib-desc">
+                        <p ng-if="displayAdvertType">{{'GEN_ADVERT_TYPE_' + advert.advert_type | translate}}</p>
+                        <p>{{advert.city}} ({{advert.postal_code}})</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

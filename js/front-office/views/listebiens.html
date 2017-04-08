@@ -1,2 +1,10 @@
 
-Page liste des biens : {{typeliste}}
+
+
+<div class="container">
+    <h2 class="text-center">{{'LISTE_' + typeliste | translate}}</h2>
+    <hr>
+    <div ng-repeat="advert in listAdverts">
+        <advert-textbox advert="advert" display-advert-type="displayAdvertType"></advert-textbox>
+    </div>
+</div>

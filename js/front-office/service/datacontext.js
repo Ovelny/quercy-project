@@ -8,6 +8,9 @@
         var service = {
             getPropertyTypes: getPropertyTypesImpl,
             getPresentationText: getPresentationTextImpl,
+            getAdverts: getAdvertsImpl,
+            getAdvertsWithParams: getAdvertsWithParamsImpl,
+            getFavoriteAdverts: getFavoriteAdvertsImpl,
 
             sendMail: sendMailImpl
         }
@@ -18,6 +21,19 @@
 
         function getPresentationTextImpl() {
             return $http.get(baseUrl + "company_info/1/");
+        }
+
+        function getAdvertsImpl(advert_type){
+            return $http.get(baseUrl + "properties/?advert_type="+advert_type);
+        }
+
+        function getAdvertsWithParamsImpl(advert_type){
+            var rech = "advert_type=" + advert_type;
+            return $http.get(baseUrl + "properties/?" + rech);
+        }
+
+        function getFavoriteAdvertsImpl(){
+            return $http.get(baseUrl + "properties/?is_favorite=True");
         }
 
         function sendMailImpl(subject, message){

@@ -55,10 +55,13 @@ class Property(models.Model):
     # Nécessaire car on veut avoir la propriété "nb" sur la lisaison.
 
 class Picture(models.Model):
-    prop = models.ForeignKey("Property", on_delete=models.CASCADE)
+    prop = models.ForeignKey("Property", related_name='pictures', on_delete=models.CASCADE)
     display_order = models.IntegerField() 
     # file will be uploaded to MEDIA_ROOT/uploads
     picture = models.ImageField(upload_to="uploads/")
+
+    def __unicode__(self):
+        return 'aaa'
 
 # Receive the post_delete signal and delete the file associated with the model instance.
 from django.db.models.signals import post_delete
