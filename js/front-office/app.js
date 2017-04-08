@@ -26,7 +26,8 @@
                 controller: 'estimationController'
             })
             .when('/contact', { 
-                templateUrl: 'js/front-office/views/contact.html' 
+                templateUrl: 'js/front-office/views/contact.html',
+                controller: 'contactController'
             })
             .otherwise({ redirectTo: '/' });
 

@@ -78,8 +78,8 @@
 
     });
 
-    app.controller('estimationController', ['$scope','datacontext', 'Notification', '$filter',
-            function ($scope, datacontext, Notification, $filter) {
+    app.controller('estimationController', ['$scope','datacontext', 'Notification', '$filter', '$rootScope',
+            function ($scope, datacontext, Notification, $filter, $rootScope) {
         
         $scope.property_types = [];  
 
@@ -92,8 +92,28 @@
             });
 
         $scope.sendMail = function(){
-            var txt = "test";
-            console.log($scope.data);
+            var txt = "La demande suivante a été envoyée depuis le formulaire du site : \r\n\r\n";
+            txt += "Bien en " + $scope.data.advert_type + "\r\n";
+            txt += "Type de bien : " + $scope.data.property_type + "\r\n";
+            txt += "Surface habitable : " + $scope.data.living_surface + "\r\n";
+            txt += "Surface totale : " + $scope.data.total_surface + "\r\n";
+            txt += "Nombre de pièces : " + $scope.data.nb_rooms + "\r\n";
+            txt += "Ville : " + $scope.data.property_city + "\r\n";
+            txt += "CP : " + $scope.data.poperty_postal_code + "\r\n";
+            if ($scope.data.precisions != undefined && $scope.data.precisions != "")
+                txt += "Précisions : " + $scope.data.precisions + "\r\n";
+
+            txt += "\r\nDemandeur : " + $scope.data.first_name + " " + $scope.data.last_name + "\r\n";
+            if ($scope.data.address != undefined && $scope.data.address != "") {
+                txt += $scope.data.address + "\r\n";
+                txt += $scope.data.postal_code + "\r\n";
+                txt += $scope.data.city + "\r\n";
+            }
+            if ($scope.data.phone != undefined && $scope.data.phone != "")
+                txt += "Téléphone : " + $scope.data.phone + "\r\n";
+            txt += "E-mail : " + $scope.data.email + "\r\n";
+            txt += "Langue du demandeur : " + ($rootScope.language == "fr" ? "français" : "anglais");
+
             datacontext.sendMail("Demande Estimation", txt)
                 .then(function (res) {
                     Notification.success($filter('translate')("ESTIMATION_SENT"));
@@ -103,7 +123,34 @@
                     console.log(err);
                 });
         }
+    }]);
 
+    app.controller('contactController', ['$scope', '$rootScope', 'datacontext', '$filter', 'Notification', 
+            function($scope, $rootScope, datacontext, $filter, Notification){
+
+        $scope.sendMail = function(){
+            var txt = "La demande de contact a été envoyée depuis le formulaire du site : \r\n\r\n";
+            txt += "Demandeur : " + $scope.data.first_name + " " + $scope.data.last_name + "\r\n";
+            if ($scope.data.address != undefined && $scope.data.address != "") {
+                txt += $scope.data.address + "\r\n";
+                txt += $scope.data.postal_code + "\r\n";
+                txt += $scope.data.city + "\r\n";
+            }
+            if ($scope.data.phone != undefined && $scope.data.phone != "")
+                txt += "Téléphone : " + $scope.data.phone + "\r\n";
+            txt += "E-mail : " + $scope.data.email + "\r\n";
+            txt += "\r\nMessage : \r\n" + $scope.data.message;
+            // txt += "Langue du demandeur : " + ($rootScope.language == "fr" ? "français" : "anglais");
+
+            datacontext.sendMail("Formulaire de contact", txt)
+                .then(function (res) {
+                    Notification.success($filter('translate')("ESTIMATION_SENT"));
+                })
+                .catch(function (err) {
+                    Notification.error($filter('translate')("ESTIMATION_ERROR"));
+                    console.log(err);
+                });
+        }
     }]);
 
     app.controller('listeController', ['$scope','datacontext', '$routeParams', function ($scope, datacontext, $routeParams) {
