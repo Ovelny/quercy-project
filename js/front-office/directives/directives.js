@@ -45,7 +45,6 @@
             restrict: 'E',
             templateUrl: 'js/front-office/partials/company-location.html'
         }
-
     });
 
     app.directive('companyFooter', function () {
@@ -53,7 +52,6 @@
             restrict: 'E',
             templateUrl: 'js/front-office/partials/company-footer.html'
         }
-
     });
 
     app.directive('meetTheTeam', function () {
@@ -61,8 +59,27 @@
             restrict: 'E',
             templateUrl: 'js/front-office/partials/meet-the-team.html'
         }
-
     });
+
+    app.directive('ourCompany', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'js/front-office/partials/our-company.html',
+            controller: ['$scope','datacontext', '$rootScope', function ($scope, datacontext, $rootScope) {
+                $scope.texte_fr = "";
+                $scope.texte_en = "";
+
+                datacontext.getPresentationText()
+                    .then(function (res) {
+                        $scope.texte_fr = res.data.company_presentation_fr;
+                        $scope.texte_en = res.data.company_presentation_en;
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
+        ]
+    }});
 
     app.directive('presentation', function () {
         return {

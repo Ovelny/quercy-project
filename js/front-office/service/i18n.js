@@ -27,6 +27,9 @@
                 GEN_RECHERCHER: "Rechercher",
                 GEN_DESCRIPTIF_NB_PIECES: "Nombre de pièces",
 
+                PRESENTATION_AGENCE: "Notre agence",
+                PRESENTATION_EQUIPE: "Notre équipe",
+
                 RECHERCHE_TITRE: "Rechercher un bien",
                 RECHERCHE_DESCRIPTIF_ANNONCE: "Type d'annonce",
                 RECHERCHE_DESCRIPTIF_BIEN: "Type de bien",
@@ -122,6 +125,9 @@
                 GEN_ENVOYER: "Submit",
                 GEN_RECHERCHER: "Search",
                 GEN_DESCRIPTIF_NB_PIECES: "Number of rooms",
+
+                PRESENTATION_AGENCE: "Our company",
+                PRESENTATION_EQUIPE: "Meet the team",
 
                 RECHERCHE_TITRE: "Search a property",
                 RECHERCHE_DESCRIPTIF_ANNONCE: "Advert type",
