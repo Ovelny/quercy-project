@@ -34,7 +34,7 @@ class Property_Room_Serializer(serializers.ModelSerializer):
 
 class ImageUrlField(serializers.RelatedField):
     def to_representation(self, value):
-        return str(value.picture.name) 
+        return {"display_order":value.display_order, "url":str(value.picture.name)}
 
 class Property_Serializer(serializers.ModelSerializer):
     # SlugRelatedField : permet d'afficher le label de l'objet nested dans l'objet Property récupéré

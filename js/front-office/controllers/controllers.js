@@ -149,6 +149,12 @@
 
         promise.then(function (res) {
                 $scope.listAdverts = res.data;
+                for (var i = 0; i < $scope.listAdverts.length; i++) {
+                    var pics = $scope.listAdverts[i].pictures.sort(function(a, b){
+                        return a.display_order - b.display_order;
+                    });
+                    $scope.listAdverts[i].displaypic = pics[0].url;
+                }
             })
             .catch(function (err) {
                 console.log(err);
