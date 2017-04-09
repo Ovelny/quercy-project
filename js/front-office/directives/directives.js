@@ -33,11 +33,26 @@
         return {
             restrict: 'E',
             templateUrl: 'js/front-office/partials/best-selection.html',
-            controller: function($scope){
-                $scope.displayAdvertType = true;
-            }
+            controller: ["$scope", "datacontext",
+                function ($scope, datacontext) {
+                    $scope.displayAdvertType = true;
+                    $scope.favorites = [];
+                    $scope.displayAdvertType = true;
+                    datacontext.getFavoriteAdverts()
+                        .then(function (res) {
+                            $scope.favorites = res.data;
+                            for (var i = 0; i < $scope.favorites.length; i++) {
+                                var pics = $scope.favorites[i].pictures.sort(function(a, b){
+                                    return a.display_order - b.display_order;
+                                });
+                                $scope.favorites[i].displaypic = pics[0].url;
+                            }
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }]
         }
-
     });
 
     app.directive('companyLocation', function () {
