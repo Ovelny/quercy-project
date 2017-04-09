@@ -11,21 +11,22 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="menu">
+        <div class="navbar-collapse collapse" id="menu">
             <ul class="nav navbar-nav">
                 <li><a href="#!/" translate="NAVBAR_ACCUEIL"></a></li>
                 <li><a href="#!/presentation" translate="NAVBAR_PRESENTATION"></a></li>
                 <li><a href="#!/recherche" translate="NAVBAR_RECHERCHE"></a></li>
-                <li><a href="#!/liste/vente" translate="NAVBAR_VENTE"></a></li>
-                <li><a href="#!/liste/location" translate="NAVBAR_LOCATION"></a></li>
                 <li><a href="#!/liste/coups-de-coeur" translate="NAVBAR_COUPS_DE_COEUR"></a></li>
                 <li><a href="#!/estimation" translate="NAVBAR_ESTIMATION"></a></li>
                 <li><a href="#!/contact" translate="NAVBAR_CONTACT"></a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a ng-if="language == 'fr'" href ng-click="toggleLanguage()" title="Switch to english"><img class="flag-icon" ng-src="images/flag_en.ico" /></a>
                     <a ng-if="language == 'en'" href ng-click="toggleLanguage()" title="Passer en français"><img class="flag-icon" ng-src="images/flag_fr.ico" /></a>
                 </li>
-            </ul>
+                </ul>
         </div>
     </div>
 </nav>

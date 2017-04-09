@@ -1,3 +1,14 @@
+html {
+    height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
 .jumbotron {
     max-height: 300px;
     margin-bottom: 0;
@@ -170,4 +181,25 @@ ul.img-thumbnails a:hover {
 .img-thumbnails img {
     max-width: 150px;
     margin-bottom: 10px;
+}
+
+.navbar-default {
+    background-color :#fff;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.20);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.20);
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  transform-style: preserve-3d;
+  transition: all 0.3s;
 }

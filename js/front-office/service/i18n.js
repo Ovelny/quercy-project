@@ -66,7 +66,7 @@
                 CONTACT_MESSAGE: "Votre message",
 
                 NAVBAR_ACCUEIL: "Accueil",
-                NAVBAR_RECHERCHE: "Recherche",
+                NAVBAR_RECHERCHE: "Recherche Vente/Location",
                 NAVBAR_PRESENTATION: "Présentation",
                 NAVBAR_VENTE: "Biens en vente",
                 NAVBAR_LOCATION: "Locations",
@@ -168,7 +168,7 @@
                 CONTACT_MESSAGE: "Your message",
 
                 NAVBAR_ACCUEIL: "Home",
-                NAVBAR_RECHERCHE: "Search",
+                NAVBAR_RECHERCHE: "Search Sell/Rent",
                 NAVBAR_PRESENTATION: "Our company",
                 NAVBAR_VENTE: "Properties to sell",
                 NAVBAR_LOCATION: "Rent",
