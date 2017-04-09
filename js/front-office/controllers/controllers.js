@@ -1,19 +1,6 @@
 (function () {
     var app = angular.module('front-controllers', ['ui-notification']);
 
-    app.controller('bestSelectionController', ["$scope", "datacontext",
-            function ($scope, datacontext) {
-        $scope.favorites = [];
-        $scope.displayAdvertType = true;
-        datacontext.getFavoriteAdverts()
-            .then(function (res) {
-                $scope.favorites = res.data;
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-    }]);
-
     app.controller('estimationController', ['$scope','datacontext', 'Notification', '$filter', '$rootScope',
             function ($scope, datacontext, Notification, $filter, $rootScope) {
         
