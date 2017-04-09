@@ -15,10 +15,10 @@
             <legend translate="RECHERCHE_DESCRIPTIF_ANNONCE"></legend>
 
             <div class="form-group">
-                <div class="col-xs-2">
+                <div class="col-sm-2">
                     <label><input type="radio" name="advert_type" value="V" ng-model="find.advert_type" required> <span translate="GEN_VENTE"></span></label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-sm-2">
                     <label><input type="radio" name="advert_type" value="L" ng-model="find.advert_type" required> <span translate="GEN_LOCATION"></span></label>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <legend translate="RECHERCHE_DESCRIPTIF_BIEN"></legend>
 
             <div class="form-group">
-                <div class="col-xs-2" ng-repeat="type in property_types">
+                <div class="col-sm-2" ng-repeat="type in property_types">
                     <label><input type="checkbox" name="type-bien" value="{{type.id}}" ng-model="find['type_'+type.id]"> <span translate="{{'PROPERTY_TYPE_' + type.label}}"></span></label>
                 </div>
             </div>
@@ -34,19 +34,19 @@
             <legend translate="GEN_DESCRIPTIF_NB_PIECES"></legend>
 
             <div class="form-group">
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <label><input type="checkbox" name="nb-pieces" ng-model="find._1piece" value="location"> <span>1</span></label>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <label><input type="checkbox" name="nb-pieces" ng-model="find._2pieces" value="location"> <span>2</span></label>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <label><input type="checkbox" name="nb-pieces" ng-model="find._3pieces" value="location"> <span>3</span></label>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <label><input type="checkbox" name="nb-pieces" ng-model="find._4pieces" value="location"> <span>4</span></label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-sm-2">
                     <label><input type="checkbox" name="nb-pieces" ng-model="find._5piecesEtPlus" value="location"> <span translate="PROPERTY_TYPE_5_PIECES"></span>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             <legend translate="RECHERCHE_DESCRIPTIF_SURFACE"></legend>
 
             <div class="form-group">
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <div class="input-group">
                         <span class="input-group-addon">Min</span>
                         <input type="number" name="surface-terrain" ng-model="find.surfaceTerrainMin" min="0" class="form-control">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <div class="input-group">
                         <span class="input-group-addon">Max</span>
                         <input type="number" name="surface-terrain" ng-model="find.surfaceTerrainMax" min="0" class="form-control">
@@ -74,7 +74,7 @@
             <legend translate="RECHERCHE_DESCRIPTIF_BUDGET"></legend>
 
             <div class="form-group">
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <div class="input-group">
                         <span class="input-group-addon">Min</span>
                         <input type="number" name="budget" min="0" ng-model="find.budgetMin" class="form-control">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <div class="input-group">
                         <span class="input-group-addon">Max</span>
                         <input type="number" name="budget" min="0" ng-model="find.budgetMax" class="form-control">
@@ -93,13 +93,13 @@
 
             <legend translate="RECHERCHE_SOUSTITRE_GEOLOC"></legend>
             <div class="form-group">
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <h5 translate="RECHERCHE_DESCRIPTIF_GEOLOC"></h5>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-xs-4">
+                <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
                         <input type="text" name="geoloc" ng-model="find.geoloc1" class="form-control">
@@ -108,7 +108,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-xs-4">
+                <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
                         <input type="text" name="geoloc" ng-model="find.geoloc2" class="form-control">
@@ -117,7 +117,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-xs-4">
+                <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
                         <input type="text" name="geoloc" ng-model="find.geoloc3" class="form-control">
@@ -126,7 +126,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-xs-4">
+                <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
                         <input type="text" name="geoloc" ng-model="find.geoloc4" class="form-control">
