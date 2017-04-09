@@ -145,6 +145,7 @@ textarea {
 }
 
 
-textarea.company_presentation {
+textarea.company_presentation,
+textarea.property_description {
     min-height: 150px;
 }

@@ -8,7 +8,7 @@
 
 <div class="container">
 
-    <form name="search" class="well form-horizontal" ng-controller="searchController" ng-submit="searchProperty()" novalidate>
+    <form name="search" class="well form-horizontal" ng-controller="searchController" ng-submit="searchProperty()">
 
         <fieldset>
 
@@ -16,10 +16,10 @@
 
             <div class="form-group">
                 <div class="col-xs-2">
-                    <label><input type="radio" value="V" ng-model="find.advert_type" required> <span translate="GEN_VENTE"></span></label>
+                    <label><input type="radio" name="advert_type" value="V" ng-model="find.advert_type" required> <span translate="GEN_VENTE"></span></label>
                 </div>
                 <div class="col-xs-2">
-                    <label><input type="radio" value="L" ng-model="find.advert_type" required> <span translate="GEN_LOCATION"></span></label>
+                    <label><input type="radio" name="advert_type" value="L" ng-model="find.advert_type" required> <span translate="GEN_LOCATION"></span></label>
                 </div>
             </div>
 
@@ -102,7 +102,7 @@
                 <div class="col-xs-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                        <input type="text" name="geoloc" ng-model="find.geoloc1" class="form-control" required>
+                        <input type="text" name="geoloc" ng-model="find.geoloc1" class="form-control">
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 <div class="col-xs-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                        <input type="text" name="geoloc" ng-model="find.geoloc2" class="form-control" required>
+                        <input type="text" name="geoloc" ng-model="find.geoloc2" class="form-control">
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <div class="col-xs-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                        <input type="text" name="geoloc" ng-model="find.geoloc3" class="form-control" required>
+                        <input type="text" name="geoloc" ng-model="find.geoloc3" class="form-control">
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                 <div class="col-xs-4">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                        <input type="text" name="geoloc" ng-model="find.geoloc4" class="form-control" required>
+                        <input type="text" name="geoloc" ng-model="find.geoloc4" class="form-control">
                     </div>
                 </div>
             </div>

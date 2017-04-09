@@ -4,7 +4,7 @@
 <div class="container">
     <h2 class="text-center">{{'LISTE_' + typeliste | translate}}</h2>
     <hr>
-    <div class="text-center" ng-if="listAdverts.length < 1"><i translate="NORESULT"></i></div>
+    <div class="text-center" ng-if="listAdverts.length < 1"><i translate="RECHERCHE_NORESULT"></i></div>
     <div ng-repeat="advert in listAdverts">
         <advert-textbox advert="advert" display-advert-type="displayAdvertType"></advert-textbox>
     </div>
