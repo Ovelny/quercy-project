@@ -12,6 +12,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from django_filters.rest_framework import FilterSet, DjangoFilterBackend
 import django_filters
 
+from django.db.models import Q
+
 from django.core.mail import send_mail, BadHeaderError
 from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
@@ -34,16 +36,23 @@ class Property_Filter(FilterSet):
     min_surface = django_filters.NumberFilter(name="total_surface", lookup_expr='gte')
     max_surface = django_filters.NumberFilter(name="total_surface", lookup_expr='lte')
     postal_code = django_filters.CharFilter(name="postal_code", lookup_expr='startswith')
-    postal_codein = CharInFilter(name="postal_code", lookup_expr='in')
     city = django_filters.CharFilter(name="city", lookup_expr='icontains')
-    cityin = CharInFilter(name="city", lookup_expr='in')
-    departmentin = NumberInFilter(name="department", lookup_expr='in')
+    # postal_codein = CharInFilter(name="postal_code", lookup_expr='in')
+    # cityin = CharInFilter(name="city", lookup_expr='in')
+    # departmentin = NumberInFilter(name="department", lookup_expr='in')
     nb_rooms = NumberInFilter(name="nb_rooms", lookup_expr='in') #query looks like this: nb_rooms=2,3
     property_type = NumberInFilter(name="property_type", lookup_expr='in')
-    class Meta:
+    location = django_filters.CharFilter(label='location', method='filter_location')
+    def filter_location(self, qs, name, value):
+        values = value.split(u",")
+        f = Q()
+        for v in values:
+            f = f | Q(**{"city": v}) | Q(**{"postal_code": v}) | Q(**{"department": v})
+        return qs.filter(f)
+    class Meta: 
         model = Property
-        fields = ['id', 'state', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 
-        'max_price','min_surface', 'max_surface', 'postal_code', 'postal_codein', 'city', 'cityin', 'departmentin']
+        fields = ['id', 'state', 'property_type', 'advert_type', 'is_favorite', 'nb_rooms', 'min_price', 'location',
+        'max_price','min_surface', 'max_surface', 'postal_code', 'city']
 
 class Property_Viewset(viewsets.ModelViewSet):
     queryset = Property.objects.all().order_by('id')

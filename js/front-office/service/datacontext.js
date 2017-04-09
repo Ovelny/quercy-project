@@ -38,7 +38,7 @@
         }
 
         function getAdvertsWithParamsImpl(advert_type, property_type, nb_rooms, min_surface, max_surface, min_price, 
-                max_price, city, postal_code, department){
+                max_price, location){
             var rech = "advert_type=" + advert_type;
             rech += property_type ? "&property_type=" + property_type : "";
             rech += nb_rooms ? "&nb_rooms=" + nb_rooms : "";
@@ -46,9 +46,7 @@
             rech += max_surface ? "&max_surface=" + max_surface : "";
             rech += min_price ? "&min_price=" + min_price : "";
             rech += max_price ? "&max_price=" + max_price : "";
-            rech += city ? "&cityin=" + city : "";
-            rech += postal_code ? "&postal_codein=" + postal_code : "";
-            rech += department ? "&departmentin=" + department : "";
+            rech += location ? "&location=" + location : "";
             return $http.get(baseUrl + "properties/?state=L&" + rech);
         }
 

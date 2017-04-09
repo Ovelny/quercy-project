@@ -137,22 +137,13 @@
                 var min_price = $routeParams["budgetMin"];
                 var max_price = $routeParams["budgetMax"];
                 // location
-                var city = "";
-                var postal_code = "";
-                var department = "";
-                for (var i in $routeParams) {
-                    if (i.substring(0,6) == "geoloc") {
-                        if ($routeParams[i].length == 2)
-                            department += $routeParams[i] + ",";
-                        else if (isNaN($routeParams[i]))
-                            city += $routeParams[i] + ",";
-                        else
-                            postal_code += $routeParams[i] + ",";
-                    }
-                }
+                var location = "";
+                for (var i in $routeParams) 
+                    if (i.substring(0,6) == "geoloc") 
+                        location += $routeParams[i] + ",";
 
                 promise = datacontext.getAdvertsWithParams(advert_type, property_type, nb_rooms, min_surface, max_surface, 
-                    min_price, max_price, city, postal_code, department);
+                    min_price, max_price, location);
                 break;
         }
 
@@ -229,7 +220,7 @@
             var result = {};
             
             for (var i in $scope.find) {
-                if ($scope.find.hasOwnProperty(i)) {
+                if ($scope.find.hasOwnProperty(i) && $scope.find[i] !== false) {
                     result[i] = $scope.find[i];
                 }
             }
