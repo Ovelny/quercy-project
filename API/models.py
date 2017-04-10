@@ -1,5 +1,8 @@
 from django.db import models
 
+from django.db.models.signals import post_delete
+from django.dispatch.dispatcher import receiver
+
 # an "id" field is automatically created by django every time.
 
 # -- Property
@@ -69,9 +72,6 @@ class Picture(models.Model):
         return 'aaa'
 
 # Receive the post_delete signal and delete the file associated with the model instance.
-from django.db.models.signals import post_delete
-from django.dispatch.dispatcher import receiver
-
 @receiver(post_delete, sender=Picture)
 def picture_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.

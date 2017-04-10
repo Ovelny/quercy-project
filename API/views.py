@@ -20,6 +20,8 @@ from rest_framework.throttling import AnonRateThrottle
 
 from API.models import *
 from API.serializers import *
+
+from . import config
    
 # Les viewsets gèrent le GET et le POST sur la liste des objets
 # ainsi que le GET, PUT, DELETE sur les objets individuels
@@ -132,7 +134,7 @@ class ObtainExpiringAuthToken(ObtainAuthToken):
             token, created = Token.objects.get_or_create(user=user)
 
             utc_now = timezone.now()
-            if not created and token.created < utc_now - datetime.timedelta(hours=2):
+            if not created and token.created < utc_now - datetime.timedelta(hours=config.token_expiration_delay):
                 token.delete()
                 token = Token.objects.create(user=user)
                 token.created = timezone.now()
@@ -155,8 +157,7 @@ class Email(APIView):
         message = request.data['message']
         from_email = ""
         try:
-            # send_mail(subject, message, from_email, ['quercyimmo@gmail.com'])
-            send_mail(subject, message, from_email, ['claire.lapointe@hotmail.fr'])
+            send_mail(subject, message, from_email, [config.receiving_email_address])
             return HttpResponse('Mail sent.')
         except BadHeaderError:
             return HttpResponse('Invalid header found.')

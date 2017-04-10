@@ -3,6 +3,8 @@ from django.utils import timezone
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import exceptions
 
+from . import config
+
 # Overriding the default token class to get a token that expires after a while.
 class ExpiringTokenAuthentication(TokenAuthentication):
     def authenticate_credentials(self, key):
@@ -17,7 +19,7 @@ class ExpiringTokenAuthentication(TokenAuthentication):
 
         utc_now = timezone.now()
 
-        if token.created < utc_now - datetime.timedelta(hours=2):
+        if token.created < utc_now - datetime.timedelta(hours=config.token_expiration_delay):
             raise exceptions.AuthenticationFailed('Token has expired')
 
-        return (token.user, token)
+        return (token.user, token) 
