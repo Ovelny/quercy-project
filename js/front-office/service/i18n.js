@@ -132,7 +132,7 @@
                 PRESENTATION_AGENCE: "Our company",
                 PRESENTATION_EQUIPE: "Meet the team",
 
-                RECHERCHE_TITRE: "Search a property",
+                RECHERCHE_TITRE: "Search for a property",
                 RECHERCHE_DESCRIPTIF_ANNONCE: "Advert type",
                 RECHERCHE_DESCRIPTIF_BIEN: "Type of property",
                 RECHERCHE_DESCRIPTIF_SURFACE: "Surface",

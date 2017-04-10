@@ -45,7 +45,7 @@ class Property(models.Model):
     department = models.CharField(max_length=2, blank=True, null=True)
     city = models.CharField(max_length=32)
     living_surface = models.DecimalField(max_digits=6, decimal_places=2)
-    total_surface = models.DecimalField(max_digits=6, decimal_places=2)
+    total_surface = models.DecimalField(max_digits=10, decimal_places=2)
     construction_year = models.IntegerField(blank=True, null=True) 
     # blank=True: allow empty value
     # null=True: store empty values as null in DB
