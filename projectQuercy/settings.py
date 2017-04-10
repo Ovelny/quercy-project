@@ -25,7 +25,7 @@ SECRET_KEY = 'v=9_g2!iwmlm30w6o$t%9@1v=8kdj&(z*_$9^xku!y7nvl_oj9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'quercyimmo@gmail.com'

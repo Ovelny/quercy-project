@@ -50,22 +50,14 @@
     <script src="js/back-office/services/photos.datacontext.js"></script>
 
     <script>
-    $(window).resize(function() {
-        var path = $(this);
-        var contW = path.width();
-        if (contW >= 751){
-            document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
-        } else {
-            document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
-        }
-    });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $(".sidebar-nav li a").click(function(event) {
+        $(window).resize(function() {
+            var path = $(this);
+            var contW = path.width();
+            if (contW >= 751){
+                document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+            } else {
                 document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
-            });
+            }
         });
     </script>
 
