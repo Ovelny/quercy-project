@@ -203,3 +203,7 @@ ul.img-thumbnails a:hover {
   transform-style: preserve-3d;
   transition: all 0.3s;
 }
+
+.footer .text-muted > a {
+    color: inherit;
+}
