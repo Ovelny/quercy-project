@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v=9_g2!iwmlm30w6o$t%9@1v=8kdj&(z*_$9^xku!y7nvl_oj9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+# debug = True necessary if we want Django to handle our static files. And we do. (photos won't appear otherwise)
 
 ALLOWED_HOSTS = ['*']
 
