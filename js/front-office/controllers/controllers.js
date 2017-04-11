@@ -5,6 +5,7 @@
             function ($scope, datacontext, Notification, $filter, $rootScope) {
         
         $scope.property_types = [];  
+        $scope.processing = false;
 
         datacontext.getPropertyTypes()
             .then(function (res) {
@@ -15,6 +16,7 @@
             });
 
         $scope.sendMail = function(){
+            $scope.processing = true;
             var txt = "La demande suivante a été envoyée depuis le formulaire du site : \r\n\r\n";
             txt += "Bien en " + $scope.data.advert_type + "\r\n";
             txt += "Type de bien : " + $scope.data.property_type + "\r\n";
@@ -40,10 +42,12 @@
             datacontext.sendMail("Demande Estimation", txt)
                 .then(function (res) {
                     Notification.success($filter('translate')("ESTIMATION_SENT"));
+                    $scope.processing = false;
                 })
                 .catch(function (err) {
                     Notification.error($filter('translate')("ESTIMATION_ERROR"));
                     console.log(err);
+                    $scope.processing = false;
                 });
         }
     }]);
@@ -51,7 +55,10 @@
     app.controller('contactController', ['$scope', '$rootScope', 'datacontext', '$filter', 'Notification', 
             function($scope, $rootScope, datacontext, $filter, Notification){
 
+        $scope.processing = false;
+
         $scope.sendMail = function(){
+            $scope.processing = true;
             var txt = "La demande de contact a été envoyée depuis le formulaire du site : \r\n\r\n";
             txt += "Demandeur : " + $scope.data.first_name + " " + $scope.data.last_name + "\r\n";
             if ($scope.data.address != undefined && $scope.data.address != "") {
@@ -68,10 +75,12 @@
             datacontext.sendMail("Formulaire de contact", txt)
                 .then(function (res) {
                     Notification.success($filter('translate')("ESTIMATION_SENT"));
+                    $scope.processing = false;
                 })
                 .catch(function (err) {
                     Notification.error($filter('translate')("ESTIMATION_ERROR"));
                     console.log(err);
+                    $scope.processing = false;
                 });
         }
     }]);

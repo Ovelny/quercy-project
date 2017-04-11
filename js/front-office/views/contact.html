@@ -97,7 +97,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4 text-center">
-                    <button type="submit" class="btn btn-lg btn-success"><span translate="GEN_ENVOYER"></span> <span class="fa fa-paper-plane" aria-hidden="true"></span></button>
+                    <button type="submit" class="btn btn-lg btn-success">
+                        <span ng-hide="processing" translate="GEN_ENVOYER"></span> <span ng-hide="processing" class="fa fa-paper-plane" aria-hidden="true"></span>
+                        <span ng-show="processing"><i class="fa fa-spinner fa-spin"></i></span>
+                    </button>
                 </div>
             </div>
         </fieldset>
