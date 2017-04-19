@@ -5,9 +5,9 @@
     <hr>
     <h2>
         {{language == "fr" ? advert.title_fr : advert.title_en}} 
-        <small>({{advert.total_surface}} m²) 
+        <small>({{advert.total_surface | number}} m²) 
             <span ng-if="advert.advert_type == 'V'" translate="GEN_PRIX"></span>
-            <span ng-if="advert.advert_type == 'L'" translate="GEN_LOYER"></span> : {{advert.price}} €
+            <span ng-if="advert.advert_type == 'L'" translate="GEN_LOYER"></span> : {{advert.price | number}} €
         </small>
         <span class="hidden-xs hidden-sm pull-right">{{advert.city}} ({{advert.postal_code}})</span>
     </h2>
@@ -29,13 +29,13 @@
 
     <hr>
     <h4 translate="BIEN_INFOS_COMPL"></h4>
-    <p><span translate="ESTIMATION_DESCRIPTIF_SURFACE_HABITABLE"></span> : {{advert.living_surface}} m²</p>
-    <p><span translate="ESTIMATION_DESCRIPTIF_SURFACE_TERRAIN"></span> : {{advert.total_surface}} m²</p>
+    <p><span translate="ESTIMATION_DESCRIPTIF_SURFACE_HABITABLE"></span> : {{advert.living_surface | number}} m²</p>
+    <p><span translate="ESTIMATION_DESCRIPTIF_SURFACE_TERRAIN"></span> : {{advert.total_surface | number}} m²</p>
     <p><span translate="BIEN_TYPE_CHAUFFAGE"></span> : {{'BIEN_CHAUFFAGE_' + advert.heating_type | translate}}</p>
     <p><span translate="BIEN_TYPE_CUISINE"></span> : {{'BIEN_CUISINE_' + advert.kitchen_type | translate}}</p>
     <p ng-if="advert.construction_year"><span translate="BIEN_ANNEE_CONSTRUCTION"></span> : {{advert.construction_year}}</p>
-    <p ng-if="advert.energy_consumption"><span translate="BIEN_CONSO"></span> : {{advert.energy_consumption}} kWhEP/m²/an</p>
-    <p ng-if="advert.gas_emission"><span translate="BIEN_EMISSION"></span> : {{advert.gas_emission}} kgeqCO2/m²/an</p>
+    <p ng-if="advert.energy_consumption"><span translate="BIEN_CONSO"></span> : {{advert.energy_consumption | number:2}} kWhEP/m²/an</p>
+    <p ng-if="advert.gas_emission"><span translate="BIEN_EMISSION"></span> : {{advert.gas_emission | number:2}} kgeqCO2/m²/an</p>
     <hr>
 
 </div>

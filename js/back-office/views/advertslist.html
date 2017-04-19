@@ -43,8 +43,8 @@
                 <th sortable="'advert_type'" sort-params="sortparams" ng-if="advertType == ''">Type d'annonce</th>
                 <th sortable="'property_type'" sort-params="sortparams">Type de bien</th>
                 <th sortable="'state'" sort-params="sortparams">Etat</th>
-                <th sortable="'nb_rooms'" sort-params="sortparams" class="hidden-xs">Nb pièces</th>
-                <th sortable="'total_surface'" sort-params="sortparams" class="hidden-xs">Surface</th>
+                <th sortable="'nb_rooms'" sort-params="sortparams" class="hidden-xs text-right">Nb pièces</th>
+                <th sortable="'total_surface'" sort-params="sortparams" class="hidden-xs text-right">Surface</th>
                 <th sortable="'price'" sort-params="sortparams" class="text-right">
                     <span ng-if="advertType == ''">Prix/Loyer</span>
                     <span ng-if="advertType == 'V'">Prix</span>
@@ -64,9 +64,9 @@
                 <td>
                     {{advert.state == 'L' ? 'Libre' : advert.state == 'O' ? 'Occupé' : 'En attente'}}
                 </td>
-                <td class="hidden-xs">{{advert.nb_rooms}}</td>
-                <td class="hidden-xs">{{advert.total_surface}}</td>
-                <td class="text-right">{{advert.price}} €</td>
+                <td class="hidden-xs text-right">{{advert.nb_rooms}}</td>
+                <td class="hidden-xs text-right">{{advert.total_surface | number}} m²</td>
+                <td class="text-right">{{advert.price | number}} €</td>
                 <td></td>
                 <td>{{advert.postal_code}}</td>
                 <td>{{advert.city}}</td>

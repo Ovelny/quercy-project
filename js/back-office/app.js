@@ -66,8 +66,11 @@
                 };
             });
         }])
-        .run(['$rootScope', '$location', '$http', '$cookies', 
-        function ($rootScope, $location, $http, $cookies) {
+        .run(['$rootScope', '$location', '$http', '$cookies', '$locale',
+        function ($rootScope, $location, $http, $cookies, $locale) {
+
+            $locale.NUMBER_FORMATS.GROUP_SEP = " ";
+            $locale.NUMBER_FORMATS.DECIMAL_SEP = ",";
 
             $rootScope.baseUrl = "http://127.0.0.1:8000/api/";
 

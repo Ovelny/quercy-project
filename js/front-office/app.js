@@ -37,12 +37,14 @@
         // set a custom template (just to have $translates in there. basically a copy-paste of the original)
         LightboxProvider.templateUrl = 'js/front-office/partials/lightboxtemplate.html';
 
-    }]).run(['$rootScope',
-        function ($rootScope) {
+    }]).run(['$rootScope', '$locale',
+        function ($rootScope, $locale) {
             $rootScope.language = "fr";
             $rootScope.baseUrl = "http://127.0.0.1:8000/api/";
             $rootScope.baseImgUrl = "http://127.0.0.1:8000/media/";
 
+            $locale.NUMBER_FORMATS.GROUP_SEP = " ";
+            $locale.NUMBER_FORMATS.DECIMAL_SEP = ",";
 
         }]);;
 })();
